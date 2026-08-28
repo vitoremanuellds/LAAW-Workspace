@@ -1,0 +1,3 @@
+[submodule "Full-Local-Model-Agent-Workflow"]
+	path = Full-Local-Model-Agent-Workflow
+	url = https://github.com/vitoremanuellds/Full-Local-Model-Agent-Workflow.git
