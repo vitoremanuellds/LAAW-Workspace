@@ -75,6 +75,13 @@ these mechanics (workbench dir, context-build cleanup, sync-context,
 concurrency-safe planning) aren't about weight, they're improvements
 any variant should eventually inherit.
 
+**2026-08-29:** Resolved the `[ASSUMPTION]` above: one profile, named
+`Light`, designed fresh rather than reviving `medium`/`lite`/`minimal`.
+Its repo (`Light-Local-Model-Agent-Workflow/`) already existed and is
+now registered as a proper submodule of this meta-repo. See
+[`p01-design-light-profile.md`](../phases/p01-design-light-profile.md)
+for the full scope.
+
 **2026-08-29:** Corrected a task-level deviation: P03-T01 was first
 implemented by hand-editing this repo's own `.ai/workflow/` copy
 instead of `Full-Local-Model-Agent-Workflow/`'s actual checkout. Fixed

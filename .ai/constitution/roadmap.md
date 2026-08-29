@@ -14,7 +14,7 @@ of the concurrency model P05 itself defines.
 
 | ID | Title | Depends on | Status |
 |---|---|---|---|
-| P01 | Design lighter workflow profile(s) | — | not-planned |
+| P01 | Design the `Light` workflow profile | — | awaiting-plan-review |
 | P02 | Non-submodule bootstrap mechanism | — | not-planned |
 | P03 | Workbench directory & context-build temp-file lifecycle | — | complete |
 | P04 | Context sync from git history | — | awaiting-plan-review |

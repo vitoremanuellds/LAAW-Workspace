@@ -55,3 +55,42 @@ deliberately omit some of them.
 submodule of this one). Does the lighter profile get the same
 treatment (own repo, own submodule), or does it start life inside this
 meta-repo directly and get extracted once it stabilizes?
+
+---
+
+## [HUMAN] Answers (2026-08-29)
+
+- **One profile**, designed fresh — not reviving `medium`/`lite`/`minimal`.
+  Named **`Light`**. Repo already exists:
+  `Light-Local-Model-Agent-Workflow/` — created and now properly
+  registered as a submodule of this meta-repo (its `.gitmodules` entry
+  was missing; fixed same session).
+- **Target user: a solo dev**, not a team. Core loop, in the user's own
+  words: "a way of gathering context from the application, plan the
+  tasks he was assigned, and implement it." Three verbs, likely three
+  skills (vs. `full`'s ~8): gather-context, plan-task, implement.
+  Tasks are *assigned* to this dev (external ticket/request), not
+  self-authored from a roadmap — so no constitution/roadmap/phase
+  concept at all, probably. Wants a workbench too.
+- **Big one:** "the artifact he is building does not go into the git
+  repo, as it only serves him." Light's own planning
+  artifacts (whatever it calls its `.ai/`-equivalent) are **not
+  git-committed** — no permanent record, no audit trail, because
+  there's no team to review it for. This inverts `full`'s whole
+  premise (commit-as-review-checkpoint) rather than just trimming it.
+  Open sub-question for P01's Plan to resolve: are these files
+  gitignored-but-still-on-disk, or does Light not even organize them
+  as versioned files at all?
+- **Inherit P03–P05's mechanics** (workbench, and once built,
+  sync-context/concurrency) rather than forking from pre-P03 `full` —
+  though concurrency specifically may end up moot for a genuinely
+  solo tool; that's for P01's own design work to decide, not assumed
+  here.
+- **Fewer gates** and **shorter workflow.md / fewer artifact types**
+  were both picked as weight levers — consistent with "no team to
+  review for," gates likely collapse to near-zero (the dev is both
+  author and approver).
+
+This note has served its purpose — its content now lives in
+`.ai/phases/p01-*.md`. Safe to delete once that phase file is drafted
+and reviewed.
