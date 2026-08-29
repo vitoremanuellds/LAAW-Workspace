@@ -10,24 +10,27 @@ task documents was already made in
 is freeform, disposable, git-tracked, and outside the permanent-record
 hierarchy — no skill treats its content as an input dependency.
 
+**These are `full`'s actual source files, edited in
+`Full-Local-Model-Agent-Workflow/`'s own checkout and committed to
+*its own* git history — not this repo's `.ai/workflow/` copy.** (This
+task was first implemented against `.ai/workflow/` by mistake, then
+corrected — see `mission.md`'s 2026-08-29 note.)
+
 Relevant existing files:
-- `.ai/workflow/workflow.md` §3 (Directory structure) — the code block
-  listing every `.ai/` subdirectory with a one-line role each, plus a
-  short prose paragraph right after it.
-- `.ai/workflow/reference/directory-and-links.md` — detail/reasoning
-  file for §3's rules; each existing section explains the "why" behind
-  one directory/link convention.
+- `Full-Local-Model-Agent-Workflow/workflow.md` §3 (Directory
+  structure) — the code block listing every `.ai/` subdirectory with a
+  one-line role each, plus a short prose paragraph right after it.
+- `Full-Local-Model-Agent-Workflow/reference/directory-and-links.md` —
+  detail/reasoning file for §3's rules; each existing section explains
+  the "why" behind one directory/link convention.
 
 ## Implementation
 
 ### Objective
 
-Make `.ai/workbench/` a real, documented directory: listed in
-`workflow.md` §3 alongside every other `.ai/` subdirectory, explained
-in `reference/directory-and-links.md`, and instantiated on disk (via a
-short `README.md`, since git doesn't track empty directories) — so
-later tasks in this phase have a real, documented location to point
-`build-context-full` at.
+Make `.ai/workbench/` a real, documented directory in `full`'s own
+source: listed in `workflow.md` §3 alongside every other `.ai/`
+subdirectory, and explained in `reference/directory-and-links.md`.
 
 ### In scope
 
@@ -35,59 +38,56 @@ later tasks in this phase have a real, documented location to point
 - One short addition to §3's existing prose, cross-linking
   `reference/directory-and-links.md` for detail.
 - One new section in `reference/directory-and-links.md`.
-- `.ai/workbench/README.md`, short, mirroring `context.md`'s
-  entry-point style.
 
 ### Out of scope
 
 - Changing `build-context-full`, its templates, or anything about
   `context.temp.md`/`build-plan.md` — that's P03-T02/T03/T04.
-- Any other content inside `.ai/workbench/` beyond the `README.md` —
-  this task only establishes the directory and its convention.
+- Instantiating `.ai/workbench/` as an actual directory anywhere — `full`'s
+  own repo has no `.ai/` of its own to instantiate it in; a real
+  consuming project's `.ai/workbench/` comes into existence the first
+  time something is actually written there (P03-T03/T04, or an ad hoc
+  human/agent file), not from this documentation-only task.
 
 ### Files to modify
 
-- `.ai/workflow/workflow.md` — add `.ai/workbench/` to §3's directory
-  block; add one sentence to §3's prose noting it's the one exception
-  to "part of the permanent record."
-- `.ai/workflow/reference/directory-and-links.md` — add a new section
-  explaining why `.ai/workbench/` exists and isn't read as a
-  dependency.
+- `Full-Local-Model-Agent-Workflow/workflow.md` — add `.ai/workbench/`
+  to §3's directory block; add one sentence to §3's prose noting it's
+  the one exception to "part of the permanent record."
+- `Full-Local-Model-Agent-Workflow/reference/directory-and-links.md` —
+  add a new section explaining why `.ai/workbench/` exists and isn't
+  read as a dependency.
 
 ### Files to create
 
-- `.ai/workbench/README.md` — short freeform-convention explainer;
-  also what makes the otherwise-empty directory exist in git.
+None.
 
 ### Steps
 
-1. In `.ai/workflow/workflow.md` §3's directory-structure code block,
-   add a line for `.ai/workbench/` after the existing `.ai/tasks/`
-   line, matching the block's existing column-alignment style:
-   `.ai/workbench/     freeform scratch — planning notes, Q&A, prompt
-   drafts; disposable, not part of the permanent record` (flexible:
-   exact wording of the description, as long as "freeform" and
-   "disposable"/"not part of the permanent record" both appear).
+1. In `Full-Local-Model-Agent-Workflow/workflow.md` §3's
+   directory-structure code block, add a line for `.ai/workbench/`
+   after the existing `.ai/tasks/` line, matching the block's existing
+   column-alignment style: `.ai/workbench/     freeform scratch —
+   planning notes, Q&A, prompt drafts; disposable, not part of the
+   permanent record` (flexible: exact wording of the description, as
+   long as "freeform" and "disposable"/"not part of the permanent
+   record" both appear).
 2. Immediately after that code block, in §3's existing prose (the
-   paragraph starting "Flat by design..."), add one sentence: `.ai/workbench/`
-   is the one exception — nothing in it is part of the permanent
-   record, and no skill reads it as an input dependency (see
-   `reference/directory-and-links.md`). (flexible: exact phrasing, as
-   long as it cross-links `reference/directory-and-links.md`.)
-3. In `.ai/workflow/reference/directory-and-links.md`, add a new
-   section (heading level `##`, e.g. `## Why .ai/workbench/ isn't part
-   of the permanent record`) after the existing sections. Content:
-   freeform/disposable/git-tracked (not gitignored), reference
-   [ADR02](../../decisions/adr02-workbench-directory.md) for the
-   decision, and state explicitly that "read only what the current
-   task needs" (`workflow.md` §1) never includes `.ai/workbench/`
-   content unless a human explicitly points an agent at a specific
-   file in it.
-4. Create `.ai/workbench/README.md`: one or two sentences — this
-   directory is freeform scratch space for the human and agent
-   (planning notes, Q&A, prompt drafts, anything disposable); nothing
-   here is part of the permanent record; see
-   [ADR02](../decisions/adr02-workbench-directory.md).
+   paragraph starting "Flat by design..."), add one sentence:
+   `.ai/workbench/` is the one exception — nothing in it is part of
+   the permanent record, and no skill reads it as an input dependency
+   (see `reference/directory-and-links.md`). (flexible: exact
+   phrasing, as long as it cross-links `reference/directory-and-links.md`.)
+3. In `Full-Local-Model-Agent-Workflow/reference/directory-and-links.md`,
+   add a new section (heading level `##`, e.g. `## Why .ai/workbench/
+   isn't part of the permanent record`) after the existing sections.
+   Content: freeform/disposable/git-tracked (not gitignored), and
+   state explicitly that "read only what the current task needs"
+   (`workflow.md` §1) never includes `.ai/workbench/` content unless a
+   human explicitly points an agent at a specific file in it. Do not
+   link to this repo's ADR02 from here — `full` is its own repo,
+   distributed independently; that ADR isn't reachable from a
+   consuming project.
 
 ### Dependencies
 
@@ -95,18 +95,21 @@ None — first task in this phase.
 
 ### Expected result
 
-`.ai/workbench/` exists on disk (via `README.md`), is listed in
-`workflow.md` §3's directory block, has a short cross-linking note in
-§3's prose, and has its own explanatory section in
-`reference/directory-and-links.md`.
+`.ai/workbench/` is listed in `Full-Local-Model-Agent-Workflow/workflow.md`
+§3's directory block, has a short cross-linking note in §3's prose,
+and has its own explanatory section in
+`Full-Local-Model-Agent-Workflow/reference/directory-and-links.md`.
+Committed inside `Full-Local-Model-Agent-Workflow/`'s own git history.
 
 ### Automatic validations
 
-- `test -f .ai/workbench/README.md`
-- `grep -n "workbench" .ai/workflow/workflow.md` — at least one match
-  inside §3's code block, at least one in its prose.
-- `grep -n "workbench" .ai/workflow/reference/directory-and-links.md`
+- `grep -n "workbench" Full-Local-Model-Agent-Workflow/workflow.md` —
+  at least one match inside §3's code block, at least one in its
+  prose.
+- `grep -n "workbench" Full-Local-Model-Agent-Workflow/reference/directory-and-links.md`
   — at least one match, inside its own new section.
+- `git -C Full-Local-Model-Agent-Workflow log --oneline -1` shows a
+  commit for this change, separate from this outer repo's own commits.
 
 ### Manual validations
 

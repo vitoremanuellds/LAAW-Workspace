@@ -8,21 +8,28 @@ Part of the mission's third goal (workflow-mechanics evolution — see
 file expands into concrete plan steps — read the ADR first for the
 actual decision and its reasoning; this section doesn't repeat it.
 
-Today, `.ai/` has no directory for informal, non-permanent-record
-content — every existing subdirectory
-([`workflow.md` §3](../workflow/workflow.md#3-directory-structure))
-is part of the permanent record with its own schema (`context/`
-tracked via `context.md`'s table, `phases/`/`tasks/` tracked via
-Status, `decisions/` tracked via `decisions.md`'s table). Separately,
-[`build-context-full`](../workflow/skills/build-context-full/SKILL.md)
-already writes two ephemeral files —
-[`context.temp.md`](../workflow/templates/context-temp-template.md)
-and
-[`build-plan.md`](../workflow/templates/context-build-plan-template.md)
-— but writes them into `.ai/context/` itself, alongside real content,
-and its `.iterate` sub-operation currently ends a finished run by
-asking the human whether to archive or delete them (see that skill's
-"queue is now empty" step) rather than doing either automatically.
+**Every file this phase's Plan touches is `full`'s actual source
+content, edited in `Full-Local-Model-Agent-Workflow/`'s own checkout
+and committed to *its own* git history — never this repo's
+`.ai/workflow/` copy, which stays a frozen bootstrap snapshot (see
+`mission.md`'s Boundaries; this was gotten wrong once already, in
+P03-T01, and corrected).** Below, `workflow.md`,
+`reference/directory-and-links.md`, `build-context-full/SKILL.md`, and
+the two templates all mean the copies under
+`Full-Local-Model-Agent-Workflow/`.
+
+Today, `.ai/` (in any project that bootstraps `full`) has no directory
+for informal, non-permanent-record content — every existing
+subdirectory (`workflow.md` §3) is part of the permanent record with
+its own schema (`context/` tracked via `context.md`'s table,
+`phases/`/`tasks/` tracked via Status, `decisions/` tracked via
+`decisions.md`'s table). Separately, `build-context-full` already
+writes two ephemeral files — `context.temp.md` and `build-plan.md`,
+from their own templates — but writes them into `.ai/context/` itself,
+alongside real content, and its `.iterate` sub-operation currently
+ends a finished run by asking the human whether to archive or delete
+them (see that skill's "queue is now empty" step) rather than doing
+either automatically.
 
 ## In scope
 
@@ -79,18 +86,20 @@ asking the human whether to archive or delete them (see that skill's
 
 ## Automatic validations
 
-- `grep -rn "context\.temp\.md\|build-plan\.md" .ai/workflow/` —
-  every match resolves to an `.ai/workbench/`-rooted path; none
-  reference `.ai/context/`.
+- `grep -rn "context\.temp\.md\|build-plan\.md" Full-Local-Model-Agent-Workflow/`
+  (run from this repo's root) — every match resolves to an
+  `.ai/workbench/`-rooted path; none reference `.ai/context/`.
 - `.ai/workbench/` is documented in `workflow.md` §3's directory
   diagram.
 
 ## Manual validations
 
 - Run `build-context-full` end to end against a small fixture project
-  and confirm `context.temp.md`/`build-plan.md` land in and get
-  deleted from `.ai/workbench/`, with `.ai/context/*.md` content
-  unaffected in shape.
+  (copy the updated `Full-Local-Model-Agent-Workflow/` content into
+  that fixture's own `.ai/workflow/`, the same way any real consuming
+  project would bootstrap it) and confirm `context.temp.md`/`build-plan.md`
+  land in and get deleted from `.ai/workbench/`, with `.ai/context/*.md`
+  content unaffected in shape.
 - Read `workflow.md` §3 and `reference/directory-and-links.md` after
   the edit and confirm `.ai/workbench/`'s "not part of the permanent
   record" framing reads coherently next to the other directories'

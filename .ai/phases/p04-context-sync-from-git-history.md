@@ -5,24 +5,31 @@
 Part of the mission's third goal (workflow-mechanics evolution — see
 [`mission.md`](../constitution/mission.md#goals)).
 
-The workflow already has two context sub-operations
-([`workflow.md` §9](../workflow/workflow.md#9-context-propagation)):
-[`build-context-full`](../workflow/skills/build-context-full/SKILL.md)
-(survey an existing codebase from scratch) and
-[`propagate-context`](../workflow/skills/propagate-context/SKILL.md)
-(promote what a just-completed task/phase learned). Neither covers a
-third case: an agent picking work back up after the repo moved on
-without it going through either of those paths — a human edited files
-directly, a teammate merged their own work, or another agent/session
-made commits — and needing to know what changed before trusting its
-own view of `.ai/context/` or the active phase file's Context section.
+**Every file this phase's Plan touches is `full`'s actual source
+content, edited in `Full-Local-Model-Agent-Workflow/`'s own checkout
+and committed to *its own* git history — never this repo's
+`.ai/workflow/` copy, which stays a frozen bootstrap snapshot (see
+`mission.md`'s Boundaries; P03-T01 got this wrong once and was
+corrected — don't repeat it here).** Below, `workflow.md`, its skills,
+and `reference/` all mean the copies under
+`Full-Local-Model-Agent-Workflow/`.
+
+The workflow already has two context sub-operations (`workflow.md`
+§9): `build-context-full` (survey an existing codebase from scratch)
+and `propagate-context` (promote what a just-completed task/phase
+learned). Neither covers a third case: an agent picking work back up
+after the repo moved on without it going through either of those
+paths — a human edited files directly, a teammate merged their own
+work, or another agent/session made commits — and needing to know what
+changed before trusting its own view of `.ai/context/` or the active
+phase file's Context section.
 
 Answering "what changed since I last looked" requires knowing which
 commit *this agent* last made, which nothing in the workflow currently
-records — [`workflow.md` §12](../workflow/workflow.md#12-commit-discipline)
-(commit discipline) says only that each skill's own commit step states
-what to stage, with no agent-identity convention at all. This phase
-has to design that convention before the skill itself can work.
+records — `workflow.md` §12 (commit discipline) says only that each
+skill's own commit step states what to stage, with no agent-identity
+convention at all. This phase has to design that convention before the
+skill itself can work.
 
 ## In scope
 
@@ -34,8 +41,7 @@ has to design that convention before the skill itself can work.
   phase/task, locate the last commit carrying this agent's identity
   trailer, diff it against HEAD, and reconcile anything relevant into
   the correct artifact level (phase file's Context, or `.ai/context/`)
-  — following the exact same promotion rule
-  [`propagate-context`](../workflow/skills/propagate-context/SKILL.md)
+  — following the exact same promotion rule `propagate-context`
   already uses, never skipping past it.
 - The "no prior commit from this agent identity" case (first run, or a
   new agent joining an existing repo).
@@ -63,9 +69,8 @@ has to design that convention before the skill itself can work.
   agent identity made — scoped to the whole repo if no phase/task is
   active, narrower otherwise.
 - Drift that matters gets reconciled into the correct level (phase
-  Context vs. `.ai/context/`), per
-  [`workflow.md` §9](../workflow/workflow.md#9-context-propagation) —
-  never written to `.ai/context/` directly by this skill for a
+  Context vs. `.ai/context/`), per `workflow.md` §9 — never written to
+  `.ai/context/` directly by this skill for a
   phase-scoped fact, same restriction `propagate-context.task` already
   has.
 - `sync-context/SKILL.md` exists with the same Can/Must/Cannot
@@ -81,11 +86,11 @@ has to design that convention before the skill itself can work.
    commit-step wording beyond a one-line reference.
 2. Update `workflow.md` §12 (Commit discipline) to reference the new
    convention from step 1.
-3. Draft `.ai/workflow/skills/sync-context/SKILL.md`: inputs
-   (`.ai/info.md`, `git log`), procedure (locate this agent's last
-   commit → diff to HEAD → scope by Active phase/task → reconcile per
-   §9), Can/Must/Cannot contract, output — same shape as every other
-   skill file in `.ai/workflow/skills/`.
+3. Draft `Full-Local-Model-Agent-Workflow/skills/sync-context/SKILL.md`:
+   inputs (`.ai/info.md`, `git log`), procedure (locate this agent's
+   last commit → diff to HEAD → scope by Active phase/task → reconcile
+   per §9), Can/Must/Cannot contract, output — same shape as every
+   other skill file in `Full-Local-Model-Agent-Workflow/skills/`.
 4. Add a `sync-context` row to `workflow.md` §2's operation table.
 5. If the "locate last commit by this agent, per scope" logic needs a
    worked example beyond what fits in the skill file itself, add one
@@ -93,9 +98,11 @@ has to design that convention before the skill itself can work.
 
 ## Automatic validations
 
-- `sync-context/SKILL.md` exists; its frontmatter has `name` and
-  `description` fields matching the shape of every sibling skill file.
-- `workflow.md` §2's table includes a `sync-context` row.
+- `Full-Local-Model-Agent-Workflow/skills/sync-context/SKILL.md`
+  exists; its frontmatter has `name` and `description` fields matching
+  the shape of every sibling skill file.
+- `Full-Local-Model-Agent-Workflow/workflow.md` §2's table includes a
+  `sync-context` row.
 - Against a fixture repo with a synthetic agent-tagged commit history:
   running the skill's commit-location logic correctly identifies the
   last commit carrying the test agent's identity trailer and lists the

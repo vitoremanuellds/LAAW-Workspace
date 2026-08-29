@@ -5,20 +5,27 @@
 Part of the mission's third goal (workflow-mechanics evolution — see
 [`mission.md`](../constitution/mission.md#goals)).
 
+**Every file this phase's Plan touches is `full`'s actual source
+content, edited in `Full-Local-Model-Agent-Workflow/`'s own checkout
+and committed to *its own* git history — never this repo's
+`.ai/workflow/` copy, which stays a frozen bootstrap snapshot (see
+`mission.md`'s Boundaries; P03-T01 got this wrong once and was
+corrected — don't repeat it here).** Below, `workflow.md`,
+`reference/status-and-info.md`, `info-template.md`, and every skill
+named all mean the copies under `Full-Local-Model-Agent-Workflow/`.
+
 Two things about the current workflow assume a single worker at a
-time. First,
-[`workflow.md` §11](../workflow/workflow.md#11-status-the-fast-pointer-and-the-permanent-record):
-`.ai/info.md`'s Status section tracks exactly one `Active phase` and
-one `Active task` — a single global fast pointer, cleared and reset by
-`propagate-context`. A team means multiple humans/agents may each have
-a different phase or task genuinely in flight at once, each needing
-their own "what am I on" pointer without overwriting anyone else's.
-Second, ID assignment (`P{NN}`, `P{NN}-T{NN}`) is sequential and never
-reused ([`workflow.md` §3](../workflow/workflow.md#3-directory-structure),
-[§11](../workflow/workflow.md#11-status-the-fast-pointer-and-the-permanent-record)):
-two contributors independently running `define-phase`/`define-task-full`
-around the same time could each pick the same next ID before either
-commits, a collision that only shows up at merge/push time.
+time. First, `workflow.md` §11: `.ai/info.md`'s Status section tracks
+exactly one `Active phase` and one `Active task` — a single global
+fast pointer, cleared and reset by `propagate-context`. A team means
+multiple humans/agents may each have a different phase or task
+genuinely in flight at once, each needing their own "what am I on"
+pointer without overwriting anyone else's. Second, ID assignment
+(`P{NN}`, `P{NN}-T{NN}`) is sequential and never reused (`workflow.md`
+§3, §11): two contributors independently running
+`define-phase`/`define-task-full` around the same time could each pick
+the same next ID before either commits, a collision that only shows up
+at merge/push time.
 
 The Depends-on graph already exists and is already the documented
 mechanism for "what can run in parallel" (§11) — this phase doesn't
@@ -93,9 +100,10 @@ next ID.
 
 ## Automatic validations
 
-- `grep -rn "Active phase\|Active task" .ai/workflow/` — every
-  remaining match uses the new schema's field names; none of the old
-  singular-pointer shape survives outside historical ADR text.
+- `grep -rn "Active phase\|Active task" Full-Local-Model-Agent-Workflow/`
+  (run from this repo's root) — every remaining match uses the new
+  schema's field names; none of the old singular-pointer shape
+  survives outside historical ADR text.
 - `info-template.md` reflects the new Status section shape.
 
 ## Manual validations
