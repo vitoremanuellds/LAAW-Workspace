@@ -127,7 +127,7 @@ either automatically.
 | ID | Title | Purpose | Depends on | Status |
 |---|---|---|---|---|
 | P03-T01 | Document `.ai/workbench/` in workflow.md and directory-and-links.md | Establish the directory and its freeform/disposable convention before anything writes into it | — | complete |
-| P03-T02 | Repoint `context-temp-template.md`/`context-build-plan-template.md` copy targets to `.ai/workbench/` | Templates declare the new location before the skill that uses them is updated | — | validating |
-| P03-T03 | Update `build-context-full/SKILL.md` to read/write `.ai/workbench/context.temp.md` and `.ai/workbench/build-plan.md` | Point the skill's `.assess`/`.plan`/`.iterate` steps at the new location | P03-T01, P03-T02 | not-planned |
+| P03-T02 | Repoint `context-temp-template.md`/`context-build-plan-template.md` copy targets to `.ai/workbench/` | Templates declare the new location before the skill that uses them is updated | — | complete |
+| P03-T03 | Update `build-context-full/SKILL.md` to read/write `.ai/workbench/context.temp.md` and `.ai/workbench/build-plan.md` | Point the skill's `.assess`/`.plan`/`.iterate` steps at the new location | P03-T01, P03-T02 | awaiting-plan-review |
 | P03-T04 | Make `build-context.iterate`'s finished-queue step delete both workbench files automatically | Replace the old ask-before-deleting step per ADR02 | P03-T03 | not-planned |
 | P03-T05 | Add `workbench-readme-template.md` and wire it into `create-constitution-full`'s first-run bootstrap step | New projects get `.ai/workbench/README.md` automatically, same as the other three first-run templates | — | complete |
