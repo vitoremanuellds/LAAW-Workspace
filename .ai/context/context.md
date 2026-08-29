@@ -12,6 +12,7 @@ folder of classes.
 | File | Description | Status | Relations |
 |---|---|---|---|
 <!-- auth-module.md | Auth flow, session handling, token lifecycle | active | related: score-engine.md -->
+| [full-directory-structure.md](full-directory-structure.md) | Snapshot of `full`'s `.ai/` directory structure, incl. P03's `.ai/workbench/` addition | active | related: [ADR02](../decisions/adr02-workbench-directory.md) |
 
 **Status** is `active` or `superseded`. When an architecture changes,
 don't delete the old file — mark it superseded and point to what
