@@ -43,6 +43,11 @@ either automatically.
   `.ai/context/` to `.ai/workbench/`.
 - Changing `build-context.iterate`'s "queue empty" step from
   "ask whether to archive or delete" to automatic deletion, per ADR02.
+- A `workbench-readme-template.md` template, copied into a newly
+  bootstrapped project's `.ai/workbench/README.md` by
+  `create-constitution-full`'s first-run step — the same pattern
+  already used for `info-template.md`/`context-template.md`/
+  `decisions-template.md`. Added 2026-08-29 at the user's suggestion.
 
 ## Out of scope
 
@@ -64,6 +69,9 @@ either automatically.
 - No skill treats `.ai/workbench/` content as an input it depends on —
   it stays outside the permanent-record hierarchy
   ([`workflow.md` §4](../workflow/workflow.md#4-artifact-hierarchy--context-rule)).
+- A newly bootstrapped project gets `.ai/workbench/README.md`
+  automatically on first run, the same way it already gets
+  `.ai/info.md`/`.ai/context/context.md`/`.ai/decisions/decisions.md`.
 
 ## Plan
 
@@ -83,6 +91,12 @@ either automatically.
    `.ai/workbench/build-plan.md`, commit the deletion, and report
    completion — no human confirmation gate for this specific deletion,
    per ADR02.
+5. Add `templates/workbench-readme-template.md` (short — mirrors
+   `context-template.md`'s entry-point style: what `.ai/workbench/` is
+   for, that nothing in it is part of the permanent record). Update
+   `create-constitution-full/SKILL.md`'s step 2 ("first run only")
+   to copy it to `.ai/workbench/README.md`, alongside the existing
+   three template copies, only if it doesn't exist yet.
 
 ## Automatic validations
 
@@ -91,6 +105,9 @@ either automatically.
   `.ai/workbench/`-rooted path; none reference `.ai/context/`.
 - `.ai/workbench/` is documented in `workflow.md` §3's directory
   diagram.
+- `templates/workbench-readme-template.md` exists;
+  `create-constitution-full/SKILL.md`'s step 2 references it alongside
+  the other three first-run template copies.
 
 ## Manual validations
 
@@ -113,3 +130,4 @@ either automatically.
 | P03-T02 | Repoint `context-temp-template.md`/`context-build-plan-template.md` copy targets to `.ai/workbench/` | Templates declare the new location before the skill that uses them is updated | — | not-planned |
 | P03-T03 | Update `build-context-full/SKILL.md` to read/write `.ai/workbench/context.temp.md` and `.ai/workbench/build-plan.md` | Point the skill's `.assess`/`.plan`/`.iterate` steps at the new location | P03-T01, P03-T02 | not-planned |
 | P03-T04 | Make `build-context.iterate`'s finished-queue step delete both workbench files automatically | Replace the old ask-before-deleting step per ADR02 | P03-T03 | not-planned |
+| P03-T05 | Add `workbench-readme-template.md` and wire it into `create-constitution-full`'s first-run bootstrap step | New projects get `.ai/workbench/README.md` automatically, same as the other three first-run templates | — | not-planned |
