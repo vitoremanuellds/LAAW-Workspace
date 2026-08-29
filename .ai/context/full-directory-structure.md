@@ -30,9 +30,15 @@ via `create-constitution-full` (a template copy, same pattern as
 `info.md`/`context.md`/`decisions.md`). This repo's own `.ai/workbench/`
 was instantiated by hand (2026-08-29) rather than through a fresh
 `create-constitution-full` run — this repo already bootstrapped before
-P03 existed, and `.ai/workflow/` here stays a frozen snapshot until a
-real re-sync mechanism exists (P02) — so it never picks up new `full`
-features like this one automatically.
+P03 existed.
+
+`.ai/workflow/` here doesn't auto-track `Full-Local-Model-Agent-Workflow/` —
+there's no `git submodule update --remote` equivalent yet (that's
+P02's job). After P03's changes landed in the submodule, `.ai/workflow/`
+was manually re-synced (`rsync`, verified identical via `diff -rq`,
+2026-08-29) to pick them up. Until P02 automates this, re-check
+`.ai/workflow/` for drift after any phase that changes
+`Full-Local-Model-Agent-Workflow/`'s content.
 
 **Reminder for future phases in this project:** every edit to `full`'s
 actual content happens in `Full-Local-Model-Agent-Workflow/`'s own
