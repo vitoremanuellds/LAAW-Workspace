@@ -1,5 +1,13 @@
 # P01 — Design the `Light` workflow profile
 
+**Superseded 2026-08-29 by
+[ADR03](../decisions/adr03-single-modular-workflow.md):** `Light` as a
+separately-versioned repo/profile is retired in favor of one modular
+workflow with optional layers. No further work proceeds under this
+phase. Its successor (redesigning `Full-Local-Model-Agent-Workflow/`'s
+content around ADR03) is planned under a new phase ID — this file is
+kept for history, not reused.
+
 ## Context
 
 First of the mission's original two goals (see

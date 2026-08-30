@@ -3,21 +3,33 @@
 ## What
 
 This repo (`Local-Model-Agent-Workflow`) is the meta-project for the
-Local Model Agent Workflow family. It develops workflow variants
-lighter than [`Full-Local-Model-Agent-Workflow`](../../Full-Local-Model-Agent-Workflow/)
-(the only variant that exists today, still its own repo), and a
-mechanism for bootstrapping any variant into a target project's
-`.ai/workflow/` without a git submodule.
+Local Model Agent Workflow family. It develops **one modular
+workflow** — its content lives in
+[`Full-Local-Model-Agent-Workflow`](../../Full-Local-Model-Agent-Workflow/)'s
+own checkout — whose weight scales via optional layers rather than via
+separately-maintained variants, and a mechanism for bootstrapping it
+into a target project's `.ai/workflow/` without a git submodule. See
+[`adr03-single-modular-workflow.md`](../decisions/adr03-single-modular-workflow.md)
+for the full design.
 
 ## Why
 
 `Full-Local-Model-Agent-Workflow` used to ship `medium`/`lite`/`minimal`
-profiles alongside `full`, then dropped to `full`-only — maintaining
-several profiles inside one repo made every workflow change multiply
-across all of them. Developing lighter variants as their own
-repos/copies from this meta-project instead avoids that: each variant
-stays independently scoped, maintained, and versioned, the same way
-`full` already is.
+profiles alongside `full` inline, then dropped to `full`-only —
+maintaining several profiles inside one repo made every workflow change
+multiply across all of them. This project's original premise was that
+moving each lighter variant into its own independently-versioned repo
+would fix that. It didn't — it only relocated the multiplication: a
+core-mechanics change still has to be manually ported into every
+variant's own repo and history by hand, one at a time. ADR03 replaces
+that with a single workflow built on three independent axes:
+**presence** (every layer but tasks is optional, inferred from what
+exists on disk — no config to declare it), **granularity** (a task
+opts into a phase parent or not, independently of whether the project
+uses phases at all), and **locality** (one `.ai/` tree, always in-repo;
+a consuming project gitignores whatever layer it doesn't want
+committed). `full` and `Light` collapse into presets of this one
+design rather than separately-versioned document sets.
 
 Submodules were `full`'s original bootstrap mechanism, but carry real
 cost: `git submodule update --remote` against a dirty submodule ranges
@@ -35,11 +47,15 @@ The repo owner — solo maintenance for now.
 
 ## Goals
 
-- Design and ship at least one workflow variant lighter than `full`.
+- Redesign `Full-Local-Model-Agent-Workflow/`'s own content
+  (`workflow.md`, skills, templates, reference) around the three axes
+  in [`adr03-single-modular-workflow.md`](../decisions/adr03-single-modular-workflow.md) —
+  developed directly in its own checkout, committed to that repo's own
+  history — see Boundaries below.
 - Design and ship a copy-based bootstrap mechanism any project can use
-  to install a chosen variant into `.ai/workflow/`.
+  to install the workflow into `.ai/workflow/`.
 - Evolve core workflow mechanics that aren't specific to any one
-  profile's weight — a freeform temp/scratch workspace, context-build
+  layer's weight — a freeform temp/scratch workspace, context-build
   cleanup, git-history-driven context sync, and concurrency-safe
   phase/task planning. Developed directly in
   `Full-Local-Model-Agent-Workflow/`'s own checkout, committed to that
@@ -89,3 +105,15 @@ by reverting the `.ai/workflow/` edits and redoing them in
 `Full-Local-Model-Agent-Workflow/` (its own commit). Rewrote the third
 Goal and Boundaries above, which had the wrong location baked in, so
 P03-T02 through T04 and P04/P05 don't repeat it.
+
+**2026-08-29:** Project-level pivot, superseding the same-day note
+above about `Light`: rather than maintaining `full` and `Light` as
+separately-versioned repos, this project now builds **one** modular
+workflow whose weight is a function of which optional layers a
+consuming project turns on. See
+[`adr03-single-modular-workflow.md`](../decisions/adr03-single-modular-workflow.md).
+P01 is superseded — no `Light`-specific content work proceeds under it.
+`Light-Local-Model-Agent-Workflow/`'s submodule is left registered for
+now; whether to deregister it or mark it deprecated in place is a
+separate, still-open decision. What/Why/Goals above were rewritten to
+match; Boundaries' rules on where content work happens are unchanged.
