@@ -13,6 +13,7 @@ creating the ADR file.
 | ADR01 | Bootstrap workflow variants via plain copy, not git submodule | Consuming projects get `.ai/workflow/` via a copy script, not `git submodule add` — avoids submodule dirty-tree/update pain | valid | — |
 | ADR02 | Add `.ai/workbench/` as a freeform, disposable directory | Freeform scratch directory for planning notes/Q&A/prompt drafts; `build-context-full`'s temp files move there and get deleted by default once reconciled | valid | gitignore carve-out clause superseded by ADR03 |
 | ADR03 | Replace per-profile repos with one modular workflow | One workflow with optional layers (presence/granularity/locality axes) replaces separately-versioned `full`/`Light` repos; supersedes P01 | valid | supersedes ADR02 (workbench gitignore carve-out only) |
+| ADR04 | Record the installed workflow version as a sibling stamp file | The install/re-sync script writes `.ai/workflow-version` (source, commit SHA, date) beside `.ai/workflow/`, restoring the traceability a submodule gave for free | valid | resolves ADR01's version-traceability open question |
 
 **Status** is `valid` or `superseded`. When a later ADR supersedes an
 earlier one, update both rows' Relations column (`supersedes ADR01` /
