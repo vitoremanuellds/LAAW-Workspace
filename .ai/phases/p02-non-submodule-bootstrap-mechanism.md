@@ -44,6 +44,20 @@ The version-traceability question above is resolved by
 plain-text stamp file, `.ai/workflow-version`, written by the script
 itself beside `.ai/workflow/` on every bootstrap and re-sync.
 
+**P02-T02 shipped the script as `LAAW/sync-workflow.sh`, taking two
+*independent* optional positional arguments — `[source-dir]
+[target-root]`, not `sync-skills.sh`'s single-arg convention (which is
+always the destination, source always implicit).** Both default
+sensibly: source defaults to the script's own directory, target to the
+current working directory. The natural invocation from inside a
+project you want to bootstrap/re-sync is therefore **zero arguments**,
+run via the script's path inside a `LAAW` checkout —
+e.g. `cd your-project && ../LAAW/sync-workflow.sh` — not "run the
+script's own single argument as the target," which is what P02-T03's
+task file drafted before this task actually shipped. P02-T03 should
+document the real two-independent-args shape and the zero-arg common
+case, not the single-arg assumption its own draft prose used.
+
 One thing has simplified since ADR01's Consequences were written:
 [ADR03](../decisions/adr03-single-modular-workflow.md) collapsed the
 "per-profile repos" model into one workflow with optional layers.
@@ -186,7 +200,7 @@ this phase's script doesn't touch or duplicate.)
 | ID | Title | Purpose | Depends on | Status |
 |---|---|---|---|---|
 | P02-T01 | Design and record the version-stamp convention | Restore traceability of which `LAAW` commit is installed, without `.ai/workflow/` being a git repo | — | complete |
-| P02-T02 | Draft the copy/re-sync script | The actual install/update mechanism, generalizing `sync-skills.sh` | P02-T01 | reviewing |
+| P02-T02 | Draft the copy/re-sync script | The actual install/update mechanism, generalizing `sync-skills.sh` | P02-T01 | complete |
 | P02-T03 | Update `LAAW/README.md`'s bootstrapping/updating sections | Document the script as the install/update path, replacing `git submodule add` | P02-T02 | awaiting-plan-review |
 | P02-T04 | Update this repo's mission/techstack/ADR01 | Reflect the mechanism as shipped rather than "not yet built" | P02-T02, P02-T03 | awaiting-plan-review |
 | P02-T05 | Dogfood the script against this repo's own project root | Prove the mechanism against a real, previously hand-bootstrapped target | P02-T02 | awaiting-plan-review |
