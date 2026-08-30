@@ -18,6 +18,15 @@ table/tree (`## What's in this repo vs. what's in your project`,
 reworded so the README stays internally consistent, not just the two
 headline sections.
 
+**Replanned after P02-T02 shipped:** the owning phase file's Context
+now records the script's actual CLI shape — `sync-workflow.sh
+[source-dir] [target-root]`, two *independent* optional positional
+arguments (source defaults to the script's own directory, target to
+the current working directory), not `sync-skills.sh`'s single-arg
+(always-destination) convention. This task's Steps below were updated
+to match; the earlier draft assumed the single-arg shape before T02
+existed to check against.
+
 ## Implementation
 
 ### Objective
@@ -63,24 +72,29 @@ submodule add` against this repo.
 
 1. In "## Bootstrapping into a project," replace the `git submodule
    add <this-repo-url> .ai/workflow` code block with instructions to
-   run `sync-workflow.sh` against a local checkout (clone this repo
-   somewhere, then run `path/to/LAAW/sync-workflow.sh
-   /path/to/your-project`, or `cd` into the checkout and run it with
-   the target as an argument) — keep the numbered steps after it
+   clone this repo somewhere, then — from inside your own project —
+   run `<path-to-LAAW-checkout>/sync-workflow.sh` with **no
+   arguments** (source defaults to the script's own checkout location,
+   target defaults to the current directory, i.e. your project). If
+   you're not `cd`-ed into your project first, pass both explicitly
+   instead: `<path-to-LAAW-checkout>/sync-workflow.sh
+   <path-to-LAAW-checkout> /path/to/your-project` — there's no way to
+   give just the target and skip the source positionally, so don't
+   present a single-arg form. Keep the numbered steps after it
    (AGENTS.md wiring, bootstrapping info.md) unchanged, since those
    don't depend on how the files arrived.
 2. In "## Updating the workflow," replace the pin-to-a-commit
    `git -C .ai/workflow checkout <sha>` flow and the "if a submodule
    update leaves things broken" `git submodule deinit`/`add` flow with:
-   re-running `sync-workflow.sh` against the same target re-syncs it to
-   the source checkout's current `HEAD`; if you want to review changes
-   before adopting them, check them out at a specific commit in your
-   own separate `LAAW` clone first (`git -C
-   /path/to/LAAW-clone log`/`checkout <sha>`), then point
-   `sync-workflow.sh` at that clone. Keep the "this repo doesn't
-   publish tagged releases yet, review before adopting" caution — it
-   still applies, just phrased against a script re-run instead of a
-   submodule pin.
+   re-running the same `sync-workflow.sh` invocation against your
+   project re-syncs `.ai/workflow/` to the source checkout's current
+   `HEAD`; if you want to review changes before adopting them, check
+   them out at a specific commit in your own separate `LAAW` clone
+   first (`git -C /path/to/LAAW-clone log`/`checkout <sha>`), then
+   point `sync-workflow.sh` at that clone as the source argument. Keep
+   the "this repo doesn't publish tagged releases yet, review before
+   adopting" caution — it still applies, just phrased against a script
+   re-run instead of a submodule pin.
 3. Add a `sync-workflow.sh` row/line next to the existing
    `sync-skills.sh` ones in "## What's in this repo vs. what's in your
    project" and "## This repo's own structure."
