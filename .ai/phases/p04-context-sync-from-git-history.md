@@ -15,7 +15,7 @@ and `reference/` all mean the copies under
 `LAAW/`.
 
 The workflow already has two context sub-operations (`workflow.md`
-§9): `build-context-full` (survey an existing codebase from scratch)
+§9): `build-context` (survey an existing codebase from scratch)
 and `propagate-context` (promote what a just-completed task/phase
 learned). Neither covers a third case: an agent picking work back up
 after the repo moved on without it going through either of those
@@ -56,7 +56,7 @@ skill itself can work.
 - Real-time or background watching — `sync-context` is invoked
   on-demand (e.g. at the start of a session, or after a merge), not a
   daemon.
-- Changing what `build-context-full` or `propagate-context` themselves
+- Changing what `build-context` or `propagate-context` themselves
   do — `sync-context` is a third, additive sub-operation invoked
   between them when drift is suspected, not a replacement for either.
 

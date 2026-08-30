@@ -38,29 +38,24 @@ decisions stay in `.ai/`, marked as such, rather than deleted.
 README.md          ← this file
 AGENTS.md           ← agent entry point: read .ai/workflow/workflow.md first, every session
 LAAW/               ← submodule: LAAW's actual source, its own repo/history
-.ai/                ← this workspace's own project management (dogfoods an older,
-                       pre-redesign copy of the workflow — see note below)
-├── workflow/          ← frozen bootstrap snapshot, never edited here (see ADR01)
-├── info.md             ← policy: who's authorized for each gate
-├── constitution/        ← mission.md, techstack.md, roadmap.md
-├── context/              ← survey of this workspace's own structure
+.ai/                ← this workspace's own project management, bootstrapped from LAAW itself
+├── workflow/          ← plain-copy snapshot of LAAW, never edited here (see ADR01)
+├── info.md             ← policy only: who's authorized for each gate
+├── constitution/        ← mission.md, techstack.md — optional
+├── context/              ← survey of this workspace's own structure — optional
 ├── decisions/             ← ADRs — the actual decision trail behind LAAW's design
-├── phases/                 ← feature-sized slices of work on LAAW (P01–P06 so far)
-├── tasks/                   ← task breakdown per phase, plus orphan tasks (no phase parent)
-└── workbench/                ← freeform scratch, gitignored, disposable
+├── phases/                 ← phases.md (index) + one file per phase (P01–P06 so far) — optional
+├── tasks/                   ← tasks.md (orphan index) + one file per task, phase-linked or orphan
+└── workbench/                ← freeform scratch, gitignored, disposable — optional
 ```
 
-**Note on `.ai/workflow/`:** this workspace bootstrapped its own copy
-of the workflow before the ADR03 redesign existed, and — per that
-same redesign's own rules — never hand-edits it; a real re-bootstrap
-mechanism to pull in the redesigned version is its own planned phase
-(P02). So this repo's *own* `.ai/` still follows the older, pre-ADR03
-schema (a `roadmap.md` instead of `phases.md`, no orphan-task
-convention until it was retrofitted by hand for `T01`) even though the
-workflow it's busy designing — in `LAAW/` — has already moved past
-that schema. That's expected, not a bug: this workspace is a consumer
-of an old bootstrap, same as any other project would be until it
-re-bootstraps.
+**Note on `.ai/workflow/`:** this workspace re-bootstrapped its copy
+from `LAAW/`'s current content once the ADR03 redesign landed (P06) —
+a manual, one-off application of what P02 (still unplanned) means to
+eventually automate as a reusable mechanism. Per the workflow's own
+rule, it's never hand-edited here; a structural change to it always
+happens in `LAAW/`'s own checkout first, then gets pulled in by
+re-running the same copy.
 
 ## Where things actually get built
 
@@ -78,7 +73,7 @@ shape it.
   [`.ai/constitution/mission.md`](.ai/constitution/mission.md), then
   the ADRs in [`.ai/decisions/`](.ai/decisions/) in order.
 - Want to see what's actively being worked on? Check
-  [`.ai/constitution/roadmap.md`](.ai/constitution/roadmap.md) for
-  phases, [`.ai/tasks/tasks.md`](.ai/tasks/tasks.md) for orphan tasks.
+  [`.ai/phases/phases.md`](.ai/phases/phases.md) for phases,
+  [`.ai/tasks/tasks.md`](.ai/tasks/tasks.md) for orphan tasks.
 - Want to use LAAW in your own project? You don't need any of this
   repo — go straight to [`LAAW/README.md`](LAAW/README.md).

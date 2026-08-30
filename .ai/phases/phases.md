@@ -1,4 +1,9 @@
-# Roadmap
+# Phases
+
+Index/permanent record for phases — moved here from
+`.ai/constitution/roadmap.md` when this repo re-bootstrapped from
+LAAW's redesigned workflow (P06); same table, same rows, new location
+and name per [ADR03](../decisions/adr03-single-modular-workflow.md).
 
 Starting without a full plan up front, per `workflow.md`'s "starting
 without a plan" mode: P02 is still stubbed title-only. It gets its own

@@ -23,7 +23,7 @@ genuinely in flight at once, each needing their own "what am I on"
 pointer without overwriting anyone else's. Second, ID assignment
 (`P{NN}`, `P{NN}-T{NN}`) is sequential and never reused (`workflow.md`
 §3, §11): two contributors independently running
-`define-phase`/`define-task-full` around the same time could each pick
+`define-phase`/`define-task` around the same time could each pick
 the same next ID before either commits, a collision that only shows up
 at merge/push time.
 
@@ -50,8 +50,8 @@ next ID.
 - Updating `workflow.md` §5, §11, `reference/status-and-info.md`, and
   `info-template.md` to the new schema and conventions.
 - Updating every skill that reads/writes `.ai/info.md`'s Status
-  section (`define-phase`, `define-task-full`, `implement-task-full`,
-  `propagate-context`, and `create-constitution-full`'s bootstrap
+  section (`define-phase`, `define-task`, `implement-task`,
+  `propagate-context`, and `create-constitution`'s bootstrap
   step) to the new schema — none left writing the old single-pointer
   shape.
 
@@ -93,8 +93,8 @@ next ID.
    contributors claiming different items concurrently, and a worked
    example of the collision-resolution path.
 5. Update `info-template.md` to the new Status section shape.
-6. Update `define-phase`, `define-task-full`, `implement-task-full`,
-   `propagate-context`, and `create-constitution-full`'s bootstrap
+6. Update `define-phase`, `define-task`, `implement-task`,
+   `propagate-context`, and `create-constitution`'s bootstrap
    step — every place that reads or writes the old single `Active
    phase`/`Active task` pointer — to the new schema.
 
