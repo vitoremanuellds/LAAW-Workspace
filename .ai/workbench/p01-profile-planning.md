@@ -51,7 +51,7 @@ deliberately omit some of them.
 
 ## [QUESTION] Where does the new profile's source content live?
 
-`full` lives in its own repo (`Full-Local-Model-Agent-Workflow/`,
+`full` lives in its own repo (`LAAW/`,
 submodule of this one). Does the lighter profile get the same
 treatment (own repo, own submodule), or does it start life inside this
 meta-repo directly and get extracted once it stabilizes?

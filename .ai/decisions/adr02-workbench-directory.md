@@ -59,7 +59,7 @@ nobody actually wants to keep.
 - Every file named below (`workflow.md`, `reference/directory-and-links.md`,
   `build-context-full/SKILL.md`, `context-temp-template.md`,
   `context-build-plan-template.md`) is `full`'s actual source content —
-  edited in `Full-Local-Model-Agent-Workflow/`'s own checkout and
+  edited in `LAAW/`'s own checkout and
   committed to *its own* git history, never in this repo's
   `.ai/workflow/` copy (a frozen bootstrap snapshot, per ADR01 — see
   `mission.md`'s Boundaries for why this had to be corrected once,

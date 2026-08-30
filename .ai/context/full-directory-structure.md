@@ -1,6 +1,6 @@
 # `full`'s `.ai/` directory structure
 
-Snapshot of `Full-Local-Model-Agent-Workflow/workflow.md` §3's
+Snapshot of `LAAW/workflow.md` §3's
 directory-structure block, current as of P03. Kept here so P04/P05
 (which also touch `workflow.md`'s structural sections) don't have to
 re-read the whole submodule just to know what's already there —
@@ -32,16 +32,16 @@ was instantiated by hand (2026-08-29) rather than through a fresh
 `create-constitution-full` run — this repo already bootstrapped before
 P03 existed.
 
-`.ai/workflow/` here doesn't auto-track `Full-Local-Model-Agent-Workflow/` —
+`.ai/workflow/` here doesn't auto-track `LAAW/` —
 there's no `git submodule update --remote` equivalent yet (that's
 P02's job). After P03's changes landed in the submodule, `.ai/workflow/`
 was manually re-synced (`rsync`, verified identical via `diff -rq`,
 2026-08-29) to pick them up. Until P02 automates this, re-check
 `.ai/workflow/` for drift after any phase that changes
-`Full-Local-Model-Agent-Workflow/`'s content.
+`LAAW/`'s content.
 
 **Reminder for future phases in this project:** every edit to `full`'s
-actual content happens in `Full-Local-Model-Agent-Workflow/`'s own
+actual content happens in `LAAW/`'s own
 checkout, committed to *its own* git history — never this repo's
 `.ai/workflow/` copy above, which is read-only here. See `mission.md`'s
 Boundaries.

@@ -9,14 +9,14 @@ file expands into concrete plan steps — read the ADR first for the
 actual decision and its reasoning; this section doesn't repeat it.
 
 **Every file this phase's Plan touches is `full`'s actual source
-content, edited in `Full-Local-Model-Agent-Workflow/`'s own checkout
+content, edited in `LAAW/`'s own checkout
 and committed to *its own* git history — never this repo's
 `.ai/workflow/` copy, which stays a frozen bootstrap snapshot (see
 `mission.md`'s Boundaries; this was gotten wrong once already, in
 P03-T01, and corrected).** Below, `workflow.md`,
 `reference/directory-and-links.md`, `build-context-full/SKILL.md`, and
 the two templates all mean the copies under
-`Full-Local-Model-Agent-Workflow/`.
+`LAAW/`.
 
 Today, `.ai/` (in any project that bootstraps `full`) has no directory
 for informal, non-permanent-record content — every existing
@@ -100,7 +100,7 @@ either automatically.
 
 ## Automatic validations
 
-- `grep -rn "context\.temp\.md\|build-plan\.md" Full-Local-Model-Agent-Workflow/`
+- `grep -rn "context\.temp\.md\|build-plan\.md" LAAW/`
   (run from this repo's root) — every match resolves to an
   `.ai/workbench/`-rooted path; none reference `.ai/context/`.
 - `.ai/workbench/` is documented in `workflow.md` §3's directory
@@ -112,7 +112,7 @@ either automatically.
 ## Manual validations
 
 - Run `build-context-full` end to end against a small fixture project
-  (copy the updated `Full-Local-Model-Agent-Workflow/` content into
+  (copy the updated `LAAW/` content into
   that fixture's own `.ai/workflow/`, the same way any real consuming
   project would bootstrap it) and confirm `context.temp.md`/`build-plan.md`
   land in and get deleted from `.ai/workbench/`, with `.ai/context/*.md`

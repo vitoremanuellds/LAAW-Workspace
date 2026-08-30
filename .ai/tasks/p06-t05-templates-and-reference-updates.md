@@ -8,7 +8,7 @@ P06-T01–T04 (references the final skill names and layer conventions
 those tasks establish).
 
 **LAAW's actual source files, edited in
-`Full-Local-Model-Agent-Workflow/`'s own checkout, committed to *its
+`LAAW/`'s own checkout, committed to *its
 own* git history.**
 
 ## Implementation
@@ -44,12 +44,12 @@ updated, orphan-task convention documented where relevant.
 
 ### Files to modify
 
-- `Full-Local-Model-Agent-Workflow/templates/info-template.md`
-- `Full-Local-Model-Agent-Workflow/reference/directory-and-links.md`
-- `Full-Local-Model-Agent-Workflow/reference/status-and-info.md`
+- `LAAW/templates/info-template.md`
+- `LAAW/reference/directory-and-links.md`
+- `LAAW/reference/status-and-info.md`
   (rewritten, or removed if nothing survives — note the choice made)
-- `Full-Local-Model-Agent-Workflow/reference/starting-without-a-plan.md`
-- `Full-Local-Model-Agent-Workflow/reference/reread-skill-discipline.md`
+- `LAAW/reference/starting-without-a-plan.md`
+- `LAAW/reference/reread-skill-discipline.md`
 
 ### Files to create
 
@@ -78,11 +78,11 @@ Status, `roadmap.md`) or a renamed skill by its old name.
 
 ### Automatic validations
 
-- `grep -n "Status" Full-Local-Model-Agent-Workflow/templates/info-template.md`
+- `grep -n "Status" LAAW/templates/info-template.md`
   — no hits describing a pointer/fast-pointer section.
-- `grep -rln roadmap.md Full-Local-Model-Agent-Workflow/reference/`
+- `grep -rln roadmap.md LAAW/reference/`
   — no hits.
-- `grep -rln "\-full" Full-Local-Model-Agent-Workflow/reference/ Full-Local-Model-Agent-Workflow/templates/`
+- `grep -rln "\-full" LAAW/reference/ LAAW/templates/`
   — no hits.
 
 ### Manual validations

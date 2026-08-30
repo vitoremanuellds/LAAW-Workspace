@@ -13,16 +13,20 @@ user's own `.gitignore` — disposable, not load-bearing; everything it
 says that matters is already folded into ADR03).
 
 Unlike P01, this phase does not stand up a new repo — it redesigns
-`Full-Local-Model-Agent-Workflow/`'s own existing `workflow.md`,
+`LAAW/`'s own existing `workflow.md`,
 skills, templates, and reference files **in place**. That repo was
-renamed on GitHub to `LAAW` (`.gitmodules` and its own `origin` remote
-already repointed); its local submodule directory path and this outer
-repo's prose still say `Full-Local-Model-Agent-Workflow/` for now —
-deferred cleanup, not this phase's concern (ADR03 Consequences).
+renamed on GitHub to `LAAW` on 2026-08-29 (`.gitmodules` and its own
+`origin` remote repointed same-day); at the time this phase was
+planned, its local submodule directory path and this outer repo's own
+prose still said `Full-Local-Model-Agent-Workflow/` — noted here as
+deferred cleanup, out of this phase's own scope (ADR03 Consequences).
+**Update 2026-08-30:** that cleanup is done — see `mission.md`'s
+2026-08-30 note — so every reference in this file now reads `LAAW/`
+regardless of which task it was written under.
 
 **Same location discipline established the hard way in P03-T01, and
 carried by P01 before being superseded:** everything this phase's Plan
-produces is written in `Full-Local-Model-Agent-Workflow/`'s own
+produces is written in `LAAW/`'s own
 checkout and committed to *its own* git history — never this repo's
 `.ai/` tree, and never `.ai/workflow/` (a frozen bootstrap snapshot of
 the *pre*-this-redesign workflow, per ADR01 — this repo's own planning
@@ -114,7 +118,7 @@ P02).
   pointer pattern.
 - Commit discipline explicitly states gitignored files are exempt.
 - Every file this phase produces is written and committed in
-  `Full-Local-Model-Agent-Workflow/`'s own checkout/history — never
+  `LAAW/`'s own checkout/history — never
   this outer repo's `.ai/workflow/` copy, never absorbed into this
   outer repo's own commits.
 
@@ -150,14 +154,14 @@ P02).
 
 ## Automatic validations
 
-- `Full-Local-Model-Agent-Workflow/skills/bootstrap/SKILL.md` (or
+- `LAAW/skills/bootstrap/SKILL.md` (or
   whatever this phase's Plan step 1 settles on as its final name)
   exists.
-- `grep -rl roadmap.md Full-Local-Model-Agent-Workflow/` returns
+- `grep -rl roadmap.md LAAW/` returns
   nothing (no lingering references to the retired file).
-- `grep -rl 'Source' Full-Local-Model-Agent-Workflow/skills/*/SKILL.md`
+- `grep -rl 'Source' LAAW/skills/*/SKILL.md`
   shows no task-file `Source`/ticket-link field.
-- `git -C Full-Local-Model-Agent-Workflow log --oneline` shows this
+- `git -C LAAW log --oneline` shows this
   phase's commits, separate from this outer repo's own.
 
 ## Manual validations
@@ -195,7 +199,7 @@ P02).
   (`context-temp-template.md`, `context-build-plan-template.md`, both
   still naming `build-context-full`) needed the same sweep T05's listed
   files got. Justification: the phase's own Automatic validations grep
-  the *whole* `Full-Local-Model-Agent-Workflow/` tree for `roadmap.md`
+  the *whole* `LAAW/` tree for `roadmap.md`
   and `-full`, not just files each task named — leaving these stale
   would have failed that check regardless of which task "owned" them.
 - **`workflow.md` grew ~19% over baseline (1206 → 1432 words) despite

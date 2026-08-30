@@ -8,7 +8,7 @@ later via `define-phase`.
 P01 is superseded by
 [ADR03](../decisions/adr03-single-modular-workflow.md) — see its own
 file for what replaces it. P06 is its successor, redesigning
-`Full-Local-Model-Agent-Workflow/`'s content around ADR03's three axes,
+`LAAW/`'s content around ADR03's three axes,
 under a new ID rather than reusing P01's.
 
 P03–P05 cover the third mission goal (workflow-mechanics evolution)

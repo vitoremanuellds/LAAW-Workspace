@@ -4,7 +4,7 @@
 [ADR03](../decisions/adr03-single-modular-workflow.md):** `Light` as a
 separately-versioned repo/profile is retired in favor of one modular
 workflow with optional layers. No further work proceeds under this
-phase. Its successor (redesigning `Full-Local-Model-Agent-Workflow/`'s
+phase. Its successor (redesigning `LAAW/`'s
 content around ADR03) is planned under a new phase ID — this file is
 kept for history, not reused.
 
@@ -46,7 +46,7 @@ Boundaries): everything this phase's Plan produces is written in
 `Light-Local-Model-Agent-Workflow/`'s own checkout and committed to
 *its own* git history — never this repo's `.ai/` tree, and never
 `.ai/workflow/` (that's `full`'s frozen copy, unrelated to `Light`).**
-`Full-Local-Model-Agent-Workflow/` is this phase's reference pattern
+`LAAW/` is this phase's reference pattern
 (shape to adapt, not to copy) for what a variant's `workflow.md` +
 `skills/` + `templates/` + `reference/` looks like — read it for
 structure, don't reuse its ceremony wholesale.
@@ -136,7 +136,7 @@ not the same amount reorganized.
 - Every skill named in Plan step 2 has a matching
   `Light-Local-Model-Agent-Workflow/skills/*/SKILL.md`.
 - `wc -w Light-Local-Model-Agent-Workflow/workflow.md` is meaningfully
-  lower than `wc -w Full-Local-Model-Agent-Workflow/workflow.md`.
+  lower than `wc -w LAAW/workflow.md`.
 - `git -C Light-Local-Model-Agent-Workflow log --oneline` shows this
   phase's commits, separate from this outer repo's and from `full`'s.
 

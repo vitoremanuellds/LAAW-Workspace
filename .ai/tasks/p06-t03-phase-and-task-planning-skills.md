@@ -7,7 +7,7 @@ and [ADR03](../decisions/adr03-single-modular-workflow.md). Depends on
 P06-T01.
 
 **LAAW's actual source files, edited in
-`Full-Local-Model-Agent-Workflow/`'s own checkout, committed to *its
+`LAAW/`'s own checkout, committed to *its
 own* git history.**
 
 ## Implementation
@@ -46,8 +46,8 @@ convention.
 
 ### Files to modify
 
-- `Full-Local-Model-Agent-Workflow/skills/define-phase/SKILL.md`
-- `Full-Local-Model-Agent-Workflow/skills/define-task-full/SKILL.md`
+- `LAAW/skills/define-phase/SKILL.md`
+- `LAAW/skills/define-task-full/SKILL.md`
   (moved to `define-task/SKILL.md`)
 
 ### Files to create
@@ -75,11 +75,11 @@ P06-T01.
 
 ### Automatic validations
 
-- `test -f Full-Local-Model-Agent-Workflow/skills/define-task/SKILL.md`
-- `test ! -d Full-Local-Model-Agent-Workflow/skills/define-task-full`
-- `grep -n roadmap.md Full-Local-Model-Agent-Workflow/skills/define-phase/SKILL.md`
+- `test -f LAAW/skills/define-task/SKILL.md`
+- `test ! -d LAAW/skills/define-task-full`
+- `grep -n roadmap.md LAAW/skills/define-phase/SKILL.md`
   — no hits.
-- `grep -n "t{NN}-{name}" Full-Local-Model-Agent-Workflow/skills/define-task/SKILL.md`
+- `grep -n "t{NN}-{name}" LAAW/skills/define-task/SKILL.md`
   — at least one hit (orphan convention documented).
 
 ### Manual validations

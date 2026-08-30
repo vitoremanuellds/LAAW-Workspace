@@ -12,10 +12,10 @@ target) — both complete.
 
 **Same location rule as every other task in this phase: this is
 `full`'s actual source file, edited in
-`Full-Local-Model-Agent-Workflow/`'s own checkout and committed to
+`LAAW/`'s own checkout and committed to
 *its own* git history — never this repo's `.ai/workflow/` copy.**
 
-Read `Full-Local-Model-Agent-Workflow/skills/build-context-full/SKILL.md`
+Read `LAAW/skills/build-context-full/SKILL.md`
 in full before editing — every `.ai/context/context.temp.md` and
 `.ai/context/build-plan.md` reference across its three sub-operations
 (`.assess`, `.plan`, `.iterate`) needs to become `.ai/workbench/...`.
@@ -53,7 +53,7 @@ matching what the templates (T02) and the directory documentation
 
 ### Files to modify
 
-- `Full-Local-Model-Agent-Workflow/skills/build-context-full/SKILL.md`
+- `LAAW/skills/build-context-full/SKILL.md`
 
 ### Files to create
 
@@ -96,19 +96,19 @@ No occurrence of `.ai/context/context.temp.md` or
 `build-context-full/SKILL.md`; every reference to either file now
 reads `.ai/workbench/...`. Every reference to genuine reconciled
 `.ai/context/*.md` content is untouched. Committed inside
-`Full-Local-Model-Agent-Workflow/`'s own git history.
+`LAAW/`'s own git history.
 
 ### Automatic validations
 
-- `grep -n "\.ai/context/context\.temp\.md\|\.ai/context/build-plan\.md" Full-Local-Model-Agent-Workflow/skills/build-context-full/SKILL.md`
+- `grep -n "\.ai/context/context\.temp\.md\|\.ai/context/build-plan\.md" LAAW/skills/build-context-full/SKILL.md`
   returns nothing.
-- `grep -cn "\.ai/workbench/context\.temp\.md\|\.ai/workbench/build-plan\.md" Full-Local-Model-Agent-Workflow/skills/build-context-full/SKILL.md`
+- `grep -cn "\.ai/workbench/context\.temp\.md\|\.ai/workbench/build-plan\.md" LAAW/skills/build-context-full/SKILL.md`
   returns at least 6 (one per occurrence listed in Steps 1–8, some
   steps touch the same filename more than once across sub-operations).
-- `grep -n "\.ai/context/\*\.md" Full-Local-Model-Agent-Workflow/skills/build-context-full/SKILL.md`
+- `grep -n "\.ai/context/\*\.md" LAAW/skills/build-context-full/SKILL.md`
   still returns its existing matches (unchanged) — confirms the
   real-context references weren't accidentally touched.
-- `git -C Full-Local-Model-Agent-Workflow log --oneline -1` shows a
+- `git -C LAAW log --oneline -1` shows a
   commit for this change.
 
 ### Manual validations

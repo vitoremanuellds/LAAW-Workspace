@@ -5,7 +5,7 @@
 This repo (`Local-Model-Agent-Workflow`) is the meta-project for the
 Local Model Agent Workflow family. It develops **one modular
 workflow** — its content lives in
-[`Full-Local-Model-Agent-Workflow`](../../Full-Local-Model-Agent-Workflow/)'s
+[`LAAW`](../../LAAW/)'s
 own checkout — whose weight scales via optional layers rather than via
 separately-maintained variants, and a mechanism for bootstrapping it
 into a target project's `.ai/workflow/` without a git submodule. See
@@ -14,7 +14,7 @@ for the full design.
 
 ## Why
 
-`Full-Local-Model-Agent-Workflow` used to ship `medium`/`lite`/`minimal`
+`LAAW` used to ship `medium`/`lite`/`minimal`
 profiles alongside `full` inline, then dropped to `full`-only —
 maintaining several profiles inside one repo made every workflow change
 multiply across all of them. This project's original premise was that
@@ -47,7 +47,7 @@ The repo owner — solo maintenance for now.
 
 ## Goals
 
-- Redesign `Full-Local-Model-Agent-Workflow/`'s own content
+- Redesign `LAAW/`'s own content
   (`workflow.md`, skills, templates, reference) around the three axes
   in [`adr03-single-modular-workflow.md`](../decisions/adr03-single-modular-workflow.md) —
   developed directly in its own checkout, committed to that repo's own
@@ -58,14 +58,14 @@ The repo owner — solo maintenance for now.
   layer's weight — a freeform temp/scratch workspace, context-build
   cleanup, git-history-driven context sync, and concurrency-safe
   phase/task planning. Developed directly in
-  `Full-Local-Model-Agent-Workflow/`'s own checkout, committed to that
+  `LAAW/`'s own checkout, committed to that
   repo's own history — see Boundaries below.
 
 ## Boundaries
 
 - Changes to `full`'s actual content (`workflow.md`, `skills/`,
   `templates/`, `reference/`) are made in
-  `Full-Local-Model-Agent-Workflow/`'s own checkout and committed to
+  `LAAW/`'s own checkout and committed to
   *its own* git history — never absorbed into this outer repo's
   commits, and never hand-edited via this repo's `.ai/workflow/` copy.
   `.ai/workflow/` here stays a frozen bootstrap snapshot (per ADR01,
@@ -100,9 +100,9 @@ for the full scope.
 
 **2026-08-29:** Corrected a task-level deviation: P03-T01 was first
 implemented by hand-editing this repo's own `.ai/workflow/` copy
-instead of `Full-Local-Model-Agent-Workflow/`'s actual checkout. Fixed
+instead of `LAAW/`'s actual checkout. Fixed
 by reverting the `.ai/workflow/` edits and redoing them in
-`Full-Local-Model-Agent-Workflow/` (its own commit). Rewrote the third
+`LAAW/` (its own commit). Rewrote the third
 Goal and Boundaries above, which had the wrong location baked in, so
 P03-T02 through T04 and P04/P05 don't repeat it.
 
@@ -117,3 +117,14 @@ P01 is superseded — no `Light`-specific content work proceeds under it.
 now; whether to deregister it or mark it deprecated in place is a
 separate, still-open decision. What/Why/Goals above were rewritten to
 match; Boundaries' rules on where content work happens are unchanged.
+
+**2026-08-30:** Resolved the two open naming/registration items from
+the note above. `Light-Local-Model-Agent-Workflow`'s submodule is
+deregistered entirely (`git submodule deinit` + `git rm` +
+`.gitmodules` cleanup) — not left in place deprecated; there is no
+remaining trace of it in this repo beyond Git history. The remaining
+workflow repo's local submodule path is renamed from
+`Full-Local-Model-Agent-Workflow/` to `LAAW/` (matching its GitHub
+rename from the same day), and every path reference across this
+repo's own `.ai/` and `AGENTS.md` updated to match — the "deferred
+cleanup" both ADR03 and P06 mentioned is done.

@@ -12,7 +12,7 @@ and `.ai/workbench/build-plan.md`, which this task's deletion targets.
 
 **Same location rule as every other task in this phase: this is
 `full`'s actual source file, edited in
-`Full-Local-Model-Agent-Workflow/`'s own checkout and committed to
+`LAAW/`'s own checkout and committed to
 *its own* git history — never this repo's `.ai/workflow/` copy.**
 
 Current behavior (`build-context-full/SKILL.md`, `build-context.iterate`
@@ -50,7 +50,7 @@ itself and commits the deletion — no "ask the human first" step.
 
 ### Files to modify
 
-- `Full-Local-Model-Agent-Workflow/skills/build-context-full/SKILL.md`
+- `LAAW/skills/build-context-full/SKILL.md`
 
 ### Files to create
 
@@ -84,15 +84,15 @@ P03-T03 (complete).
 `build-context.iterate`'s finished-queue branch deletes both workbench
 files and commits that deletion without a human-confirmation step; the
 `## Output` section documents it. Committed inside
-`Full-Local-Model-Agent-Workflow/`'s own git history.
+`LAAW/`'s own git history.
 
 ### Automatic validations
 
-- `grep -n "ask whether" Full-Local-Model-Agent-Workflow/skills/build-context-full/SKILL.md`
+- `grep -n "ask whether" LAAW/skills/build-context-full/SKILL.md`
   returns nothing (the old ask-first phrasing is gone).
-- `grep -n "delete" Full-Local-Model-Agent-Workflow/skills/build-context-full/SKILL.md`
+- `grep -n "delete" LAAW/skills/build-context-full/SKILL.md`
   shows the new step 6 language.
-- `git -C Full-Local-Model-Agent-Workflow log --oneline -1` shows a
+- `git -C LAAW log --oneline -1` shows a
   commit for this change.
 
 ### Manual validations

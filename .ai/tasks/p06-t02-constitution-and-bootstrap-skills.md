@@ -8,7 +8,7 @@ P06-T01's `reference/scaffold-on-first-use.md` and renamed operation
 table existing first.
 
 **LAAW's actual source files, edited in
-`Full-Local-Model-Agent-Workflow/`'s own checkout, committed to *its
+`LAAW/`'s own checkout, committed to *its
 own* git history.**
 
 ## Implementation
@@ -56,12 +56,12 @@ layer's own scaffold step.
 
 ### Files to modify
 
-- `Full-Local-Model-Agent-Workflow/skills/create-constitution-full/SKILL.md`
+- `LAAW/skills/create-constitution-full/SKILL.md`
   (moved to `create-constitution/SKILL.md`)
 
 ### Files to create
 
-- `Full-Local-Model-Agent-Workflow/skills/bootstrap/SKILL.md`
+- `LAAW/skills/bootstrap/SKILL.md`
 
 ### Steps
 
@@ -91,10 +91,10 @@ ADR03.
 
 ### Automatic validations
 
-- `test -f Full-Local-Model-Agent-Workflow/skills/create-constitution/SKILL.md`
-- `test ! -d Full-Local-Model-Agent-Workflow/skills/create-constitution-full`
-- `test -f Full-Local-Model-Agent-Workflow/skills/bootstrap/SKILL.md`
-- `grep -n roadmap.md Full-Local-Model-Agent-Workflow/skills/create-constitution/SKILL.md`
+- `test -f LAAW/skills/create-constitution/SKILL.md`
+- `test ! -d LAAW/skills/create-constitution-full`
+- `test -f LAAW/skills/bootstrap/SKILL.md`
+- `grep -n roadmap.md LAAW/skills/create-constitution/SKILL.md`
   — no hits.
 
 ### Manual validations

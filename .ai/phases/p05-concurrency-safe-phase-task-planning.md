@@ -6,13 +6,13 @@ Part of the mission's third goal (workflow-mechanics evolution — see
 [`mission.md`](../constitution/mission.md#goals)).
 
 **Every file this phase's Plan touches is `full`'s actual source
-content, edited in `Full-Local-Model-Agent-Workflow/`'s own checkout
+content, edited in `LAAW/`'s own checkout
 and committed to *its own* git history — never this repo's
 `.ai/workflow/` copy, which stays a frozen bootstrap snapshot (see
 `mission.md`'s Boundaries; P03-T01 got this wrong once and was
 corrected — don't repeat it here).** Below, `workflow.md`,
 `reference/status-and-info.md`, `info-template.md`, and every skill
-named all mean the copies under `Full-Local-Model-Agent-Workflow/`.
+named all mean the copies under `LAAW/`.
 
 Two things about the current workflow assume a single worker at a
 time. First, `workflow.md` §11: `.ai/info.md`'s Status section tracks
@@ -100,7 +100,7 @@ next ID.
 
 ## Automatic validations
 
-- `grep -rn "Active phase\|Active task" Full-Local-Model-Agent-Workflow/`
+- `grep -rn "Active phase\|Active task" LAAW/`
   (run from this repo's root) — every remaining match uses the new
   schema's field names; none of the old singular-pointer shape
   survives outside historical ADR text.

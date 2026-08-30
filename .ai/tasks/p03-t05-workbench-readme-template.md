@@ -9,15 +9,15 @@ suggestion (not present in P03's original draft).
 
 **Same location rule as every other task in this phase: these are
 `full`'s actual source files, edited in
-`Full-Local-Model-Agent-Workflow/`'s own checkout and committed to
+`LAAW/`'s own checkout and committed to
 *its own* git history — never this repo's `.ai/workflow/` copy.** See
 P03-T01's Context for why this matters (it was gotten wrong once
 there and corrected).
 
 Relevant existing files/pattern to match:
-- `Full-Local-Model-Agent-Workflow/templates/context-template.md` —
+- `LAAW/templates/context-template.md` —
   the style to mirror: short, entry-point prose, no filler.
-- `Full-Local-Model-Agent-Workflow/skills/create-constitution-full/SKILL.md`
+- `LAAW/skills/create-constitution-full/SKILL.md`
   step 2 ("First run only") — currently copies `info-template.md` →
   `.ai/info.md`, `context-template.md` → `.ai/context/context.md`,
   `decisions-template.md` → `.ai/decisions/decisions.md`, each only if
@@ -53,16 +53,16 @@ via a new template file and one more copy step in
 
 ### Files to modify
 
-- `Full-Local-Model-Agent-Workflow/skills/create-constitution-full/SKILL.md`
+- `LAAW/skills/create-constitution-full/SKILL.md`
   — step 2, Inputs, Output.
 
 ### Files to create
 
-- `Full-Local-Model-Agent-Workflow/templates/workbench-readme-template.md`
+- `LAAW/templates/workbench-readme-template.md`
 
 ### Steps
 
-1. Create `Full-Local-Model-Agent-Workflow/templates/workbench-readme-template.md`
+1. Create `LAAW/templates/workbench-readme-template.md`
    with this content (flexible: exact wording, as long as it states
    the directory is freeform/disposable and not part of the permanent
    record):
@@ -94,18 +94,18 @@ None.
 
 ### Expected result
 
-`Full-Local-Model-Agent-Workflow/templates/workbench-readme-template.md`
+`LAAW/templates/workbench-readme-template.md`
 exists; `create-constitution-full/SKILL.md` copies it to
 `.ai/workbench/README.md` on a project's first run, same
 don't-overwrite guarantee as the other three templates. Committed
-inside `Full-Local-Model-Agent-Workflow/`'s own git history.
+inside `LAAW/`'s own git history.
 
 ### Automatic validations
 
-- `test -f Full-Local-Model-Agent-Workflow/templates/workbench-readme-template.md`
-- `grep -n "workbench-readme-template" Full-Local-Model-Agent-Workflow/skills/create-constitution-full/SKILL.md`
+- `test -f LAAW/templates/workbench-readme-template.md`
+- `grep -n "workbench-readme-template" LAAW/skills/create-constitution-full/SKILL.md`
   — matches in step 2, Inputs, and Output.
-- `git -C Full-Local-Model-Agent-Workflow log --oneline -1` shows a
+- `git -C LAAW log --oneline -1` shows a
   commit for this change.
 
 ### Manual validations

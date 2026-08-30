@@ -11,16 +11,16 @@ is freeform, disposable, git-tracked, and outside the permanent-record
 hierarchy — no skill treats its content as an input dependency.
 
 **These are `full`'s actual source files, edited in
-`Full-Local-Model-Agent-Workflow/`'s own checkout and committed to
+`LAAW/`'s own checkout and committed to
 *its own* git history — not this repo's `.ai/workflow/` copy.** (This
 task was first implemented against `.ai/workflow/` by mistake, then
 corrected — see `mission.md`'s 2026-08-29 note.)
 
 Relevant existing files:
-- `Full-Local-Model-Agent-Workflow/workflow.md` §3 (Directory
+- `LAAW/workflow.md` §3 (Directory
   structure) — the code block listing every `.ai/` subdirectory with a
   one-line role each, plus a short prose paragraph right after it.
-- `Full-Local-Model-Agent-Workflow/reference/directory-and-links.md` —
+- `LAAW/reference/directory-and-links.md` —
   detail/reasoning file for §3's rules; each existing section explains
   the "why" behind one directory/link convention.
 
@@ -51,10 +51,10 @@ subdirectory, and explained in `reference/directory-and-links.md`.
 
 ### Files to modify
 
-- `Full-Local-Model-Agent-Workflow/workflow.md` — add `.ai/workbench/`
+- `LAAW/workflow.md` — add `.ai/workbench/`
   to §3's directory block; add one sentence to §3's prose noting it's
   the one exception to "part of the permanent record."
-- `Full-Local-Model-Agent-Workflow/reference/directory-and-links.md` —
+- `LAAW/reference/directory-and-links.md` —
   add a new section explaining why `.ai/workbench/` exists and isn't
   read as a dependency.
 
@@ -64,7 +64,7 @@ None.
 
 ### Steps
 
-1. In `Full-Local-Model-Agent-Workflow/workflow.md` §3's
+1. In `LAAW/workflow.md` §3's
    directory-structure code block, add a line for `.ai/workbench/`
    after the existing `.ai/tasks/` line, matching the block's existing
    column-alignment style: `.ai/workbench/     freeform scratch —
@@ -78,7 +78,7 @@ None.
    the permanent record, and no skill reads it as an input dependency
    (see `reference/directory-and-links.md`). (flexible: exact
    phrasing, as long as it cross-links `reference/directory-and-links.md`.)
-3. In `Full-Local-Model-Agent-Workflow/reference/directory-and-links.md`,
+3. In `LAAW/reference/directory-and-links.md`,
    add a new section (heading level `##`, e.g. `## Why .ai/workbench/
    isn't part of the permanent record`) after the existing sections.
    Content: freeform/disposable/git-tracked (not gitignored), and
@@ -95,20 +95,20 @@ None — first task in this phase.
 
 ### Expected result
 
-`.ai/workbench/` is listed in `Full-Local-Model-Agent-Workflow/workflow.md`
+`.ai/workbench/` is listed in `LAAW/workflow.md`
 §3's directory block, has a short cross-linking note in §3's prose,
 and has its own explanatory section in
-`Full-Local-Model-Agent-Workflow/reference/directory-and-links.md`.
-Committed inside `Full-Local-Model-Agent-Workflow/`'s own git history.
+`LAAW/reference/directory-and-links.md`.
+Committed inside `LAAW/`'s own git history.
 
 ### Automatic validations
 
-- `grep -n "workbench" Full-Local-Model-Agent-Workflow/workflow.md` —
+- `grep -n "workbench" LAAW/workflow.md` —
   at least one match inside §3's code block, at least one in its
   prose.
-- `grep -n "workbench" Full-Local-Model-Agent-Workflow/reference/directory-and-links.md`
+- `grep -n "workbench" LAAW/reference/directory-and-links.md`
   — at least one match, inside its own new section.
-- `git -C Full-Local-Model-Agent-Workflow log --oneline -1` shows a
+- `git -C LAAW log --oneline -1` shows a
   commit for this change, separate from this outer repo's own commits.
 
 ### Manual validations

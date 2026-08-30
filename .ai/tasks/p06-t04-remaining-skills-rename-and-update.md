@@ -7,7 +7,7 @@ and [ADR03](../decisions/adr03-single-modular-workflow.md). Depends on
 P06-T01.
 
 **LAAW's actual source files, edited in
-`Full-Local-Model-Agent-Workflow/`'s own checkout, committed to *its
+`LAAW/`'s own checkout, committed to *its
 own* git history.**
 
 ## Implementation
@@ -50,15 +50,15 @@ for the removed `info.md` Status section and `phases.md` rename.
 
 ### Files to modify
 
-- `Full-Local-Model-Agent-Workflow/skills/implement-task-full/SKILL.md`
+- `LAAW/skills/implement-task-full/SKILL.md`
   (moved)
-- `Full-Local-Model-Agent-Workflow/skills/review-work-full/SKILL.md`
+- `LAAW/skills/review-work-full/SKILL.md`
   (moved)
-- `Full-Local-Model-Agent-Workflow/skills/validate-work-full/SKILL.md`
+- `LAAW/skills/validate-work-full/SKILL.md`
   (moved)
-- `Full-Local-Model-Agent-Workflow/skills/build-context-full/SKILL.md`
+- `LAAW/skills/build-context-full/SKILL.md`
   (moved)
-- `Full-Local-Model-Agent-Workflow/skills/propagate-context/SKILL.md`
+- `LAAW/skills/propagate-context/SKILL.md`
 
 ### Files to create
 
@@ -92,11 +92,11 @@ references.
 
 ### Automatic validations
 
-- `grep -rl "\-full" Full-Local-Model-Agent-Workflow/skills/*/SKILL.md`
+- `grep -rl "\-full" LAAW/skills/*/SKILL.md`
   — no hits.
-- `grep -n roadmap.md Full-Local-Model-Agent-Workflow/skills/propagate-context/SKILL.md`
+- `grep -n roadmap.md LAAW/skills/propagate-context/SKILL.md`
   — no hits.
-- `grep -n "Active phase\|Active task" Full-Local-Model-Agent-Workflow/skills/propagate-context/SKILL.md`
+- `grep -n "Active phase\|Active task" LAAW/skills/propagate-context/SKILL.md`
   — no hits.
 
 ### Manual validations

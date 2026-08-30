@@ -10,7 +10,7 @@ references the convention doc and `workflow.md` sections this one
 establishes.
 
 **LAAW's actual source files, edited in
-`Full-Local-Model-Agent-Workflow/`'s own checkout and committed to
+`LAAW/`'s own checkout and committed to
 *its own* git history — never this repo's `.ai/workflow/` copy.**
 
 ## Implementation
@@ -68,11 +68,11 @@ locality) instead of a fixed profile.
 
 ### Files to modify
 
-- `Full-Local-Model-Agent-Workflow/workflow.md`
+- `LAAW/workflow.md`
 
 ### Files to create
 
-- `Full-Local-Model-Agent-Workflow/reference/scaffold-on-first-use.md`
+- `LAAW/reference/scaffold-on-first-use.md`
 
 ### Steps
 
@@ -108,11 +108,11 @@ every later task's skill points back to.
 
 ### Automatic validations
 
-- `grep -n roadmap.md Full-Local-Model-Agent-Workflow/workflow.md` — no
+- `grep -n roadmap.md LAAW/workflow.md` — no
   hits.
-- `grep -n "\-full" Full-Local-Model-Agent-Workflow/workflow.md` — no
+- `grep -n "\-full" LAAW/workflow.md` — no
   hits (all skill references renamed).
-- `Full-Local-Model-Agent-Workflow/reference/scaffold-on-first-use.md`
+- `LAAW/reference/scaffold-on-first-use.md`
   exists.
 
 ### Manual validations

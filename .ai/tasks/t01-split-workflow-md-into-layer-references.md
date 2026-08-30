@@ -18,7 +18,7 @@ overall.
 **No phase.** Deliberately scoped as a standalone orphan task, not
 tied to any phase in this repo's roadmap — the first task to use
 ADR03's orphan-task convention in this repo. The actual file changes
-still happen and commit in `Full-Local-Model-Agent-Workflow/`'s own
+still happen and commit in `LAAW/`'s own
 checkout, same location discipline as every other content task in
 this project (see `mission.md` Boundaries) — this file only tracks the
 work item.
@@ -51,8 +51,8 @@ below) its pre-P06 baseline by extracting layer-specific detail into
 
 ### Files to modify
 
-- `Full-Local-Model-Agent-Workflow/workflow.md`
-- Relevant `Full-Local-Model-Agent-Workflow/reference/*.md` files
+- `LAAW/workflow.md`
+- Relevant `LAAW/reference/*.md` files
   (existing or new — exact split TBD during implementation)
 
 ### Files to create
@@ -87,8 +87,8 @@ detail lives in `reference/`, read only by the skills that need it.
 
 ### Automatic validations
 
-- `wc -w Full-Local-Model-Agent-Workflow/workflow.md` ≤ 1206.
-- `git -C Full-Local-Model-Agent-Workflow log --oneline -1` shows a
+- `wc -w LAAW/workflow.md` ≤ 1206.
+- `git -C LAAW log --oneline -1` shows a
   commit for this change.
 
 ### Manual validations

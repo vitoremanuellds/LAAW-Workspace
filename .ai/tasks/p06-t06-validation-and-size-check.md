@@ -19,12 +19,12 @@ outer meta-repo.
   together, against the final state (some may have been satisfied
   mid-way but regressed by a later task).
 - Word-count comparison: `wc -w workflow.md` before vs. after (use
-  `git -C Full-Local-Model-Agent-Workflow show <pre-P06-commit>:workflow.md | wc -w`
+  `git -C LAAW show <pre-P06-commit>:workflow.md | wc -w`
   for the "before" baseline) — confirm it didn't grow to cover all the
   new flexibility prose; per-operation reading load (a skill file +
   workflow.md) should be flat or lighter than before for any given
   layer combination.
-- Full-repo grep sweep across `Full-Local-Model-Agent-Workflow/` for
+- Full-repo grep sweep across `LAAW/` for
   `roadmap.md`, `-full` skill-name suffixes, and any task-file `Source`
   field — zero hits expected anywhere, not just the files earlier
   tasks touched directly.

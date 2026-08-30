@@ -6,13 +6,13 @@ Part of the mission's third goal (workflow-mechanics evolution — see
 [`mission.md`](../constitution/mission.md#goals)).
 
 **Every file this phase's Plan touches is `full`'s actual source
-content, edited in `Full-Local-Model-Agent-Workflow/`'s own checkout
+content, edited in `LAAW/`'s own checkout
 and committed to *its own* git history — never this repo's
 `.ai/workflow/` copy, which stays a frozen bootstrap snapshot (see
 `mission.md`'s Boundaries; P03-T01 got this wrong once and was
 corrected — don't repeat it here).** Below, `workflow.md`, its skills,
 and `reference/` all mean the copies under
-`Full-Local-Model-Agent-Workflow/`.
+`LAAW/`.
 
 The workflow already has two context sub-operations (`workflow.md`
 §9): `build-context-full` (survey an existing codebase from scratch)
@@ -86,11 +86,11 @@ skill itself can work.
    commit-step wording beyond a one-line reference.
 2. Update `workflow.md` §12 (Commit discipline) to reference the new
    convention from step 1.
-3. Draft `Full-Local-Model-Agent-Workflow/skills/sync-context/SKILL.md`:
+3. Draft `LAAW/skills/sync-context/SKILL.md`:
    inputs (`.ai/info.md`, `git log`), procedure (locate this agent's
    last commit → diff to HEAD → scope by Active phase/task → reconcile
    per §9), Can/Must/Cannot contract, output — same shape as every
-   other skill file in `Full-Local-Model-Agent-Workflow/skills/`.
+   other skill file in `LAAW/skills/`.
 4. Add a `sync-context` row to `workflow.md` §2's operation table.
 5. If the "locate last commit by this agent, per scope" logic needs a
    worked example beyond what fits in the skill file itself, add one
@@ -98,10 +98,10 @@ skill itself can work.
 
 ## Automatic validations
 
-- `Full-Local-Model-Agent-Workflow/skills/sync-context/SKILL.md`
+- `LAAW/skills/sync-context/SKILL.md`
   exists; its frontmatter has `name` and `description` fields matching
   the shape of every sibling skill file.
-- `Full-Local-Model-Agent-Workflow/workflow.md` §2's table includes a
+- `LAAW/workflow.md` §2's table includes a
   `sync-context` row.
 - Against a fixture repo with a synthetic agent-tagged commit history:
   running the skill's commit-location logic correctly identifies the

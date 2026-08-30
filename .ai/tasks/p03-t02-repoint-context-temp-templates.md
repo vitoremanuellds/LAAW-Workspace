@@ -8,15 +8,15 @@ See the owning phase file,
 
 **Same location rule as every other task in this phase: these are
 `full`'s actual source files, edited in
-`Full-Local-Model-Agent-Workflow/`'s own checkout and committed to
+`LAAW/`'s own checkout and committed to
 *its own* git history — never this repo's `.ai/workflow/` copy.** See
 P03-T01's Context for why this matters.
 
 Relevant existing files (read in full before editing):
-- `Full-Local-Model-Agent-Workflow/templates/context-temp-template.md`
+- `LAAW/templates/context-temp-template.md`
   — states its own copy target in a sentence near the top: "Copy
   target: `.ai/context/context.temp.md`."
-- `Full-Local-Model-Agent-Workflow/templates/context-build-plan-template.md`
+- `LAAW/templates/context-build-plan-template.md`
   — same pattern: "Copy target: `.ai/context/build-plan.md`."
 
 Neither template's own content changes otherwise — this task only
@@ -51,8 +51,8 @@ them) has a consistent destination to point at.
 
 ### Files to modify
 
-- `Full-Local-Model-Agent-Workflow/templates/context-temp-template.md`
-- `Full-Local-Model-Agent-Workflow/templates/context-build-plan-template.md`
+- `LAAW/templates/context-temp-template.md`
+- `LAAW/templates/context-build-plan-template.md`
 
 ### Files to create
 
@@ -78,17 +78,17 @@ this one, not the reverse).
 
 Both templates state `.ai/workbench/...` as their copy target;
 nothing else in either file changes. Committed inside
-`Full-Local-Model-Agent-Workflow/`'s own git history.
+`LAAW/`'s own git history.
 
 ### Automatic validations
 
-- `grep -n "Copy target" Full-Local-Model-Agent-Workflow/templates/context-temp-template.md`
+- `grep -n "Copy target" LAAW/templates/context-temp-template.md`
   shows `.ai/workbench/context.temp.md`.
-- `grep -n "Copy target" Full-Local-Model-Agent-Workflow/templates/context-build-plan-template.md`
+- `grep -n "Copy target" LAAW/templates/context-build-plan-template.md`
   shows `.ai/workbench/build-plan.md`.
-- `grep -n "\.ai/context/context\.temp\.md\|\.ai/context/build-plan\.md" Full-Local-Model-Agent-Workflow/templates/`
+- `grep -n "\.ai/context/context\.temp\.md\|\.ai/context/build-plan\.md" LAAW/templates/`
   returns nothing.
-- `git -C Full-Local-Model-Agent-Workflow log --oneline -1` shows a
+- `git -C LAAW log --oneline -1` shows a
   commit for this change.
 
 ### Manual validations

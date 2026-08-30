@@ -4,7 +4,7 @@
 
 Retire the "one independently-versioned repo per profile" model
 entirely. There is one workflow going forward — its content lives in
-`Full-Local-Model-Agent-Workflow/`'s own checkout — built around three
+`LAAW/`'s own checkout — built around three
 independent axes instead of fixed named profiles:
 
 - **Presence** — every layer except tasks is optional and inferred
@@ -112,7 +112,7 @@ separately-versioned document sets.
 
 ## Consequences
 
-- The actual redesign — `Full-Local-Model-Agent-Workflow/`'s
+- The actual redesign — `LAAW/`'s
   `workflow.md`, skills, templates, and reference files rebuilt around
   these three axes — is content work done in *its own* checkout and
   git history, never in this repo's `.ai/workflow/` copy (frozen
@@ -132,10 +132,12 @@ separately-versioned document sets.
   mechanism (P02) lets it pull in the redesigned workflow. Until then,
   this repo's own phase/task files keep using the old schema for
   anything drafted here.
-- Naming: `Full-Local-Model-Agent-Workflow/` no longer described "the
-  heaviest of several variants" once it's the only workflow. Renamed on
-  GitHub to `LAAW` (Local AI Agents Workflow); `.gitmodules`' URL
-  updated to match. Local submodule directory path
-  (`Full-Local-Model-Agent-Workflow/`) and this repo's own prose
-  references to that name are **not yet renamed** — a separate,
-  deliberately deferred cleanup, not part of this ADR.
+- Naming: the workflow repo (formerly `Full-Local-Model-Agent-Workflow/`)
+  no longer described "the heaviest of several variants" once it's the
+  only workflow. Renamed on GitHub to `LAAW` (Local AI Agents Workflow)
+  on 2026-08-29; `.gitmodules`' URL updated same-day. The local
+  submodule directory path and this repo's own prose references were
+  renamed to match on 2026-08-30 — no longer deferred (see `mission.md`'s
+  2026-08-30 note). `Light-Local-Model-Agent-Workflow/`'s submodule,
+  left registered as an open question above, is likewise resolved as of
+  2026-08-30: fully deregistered, not deprecated-in-place.

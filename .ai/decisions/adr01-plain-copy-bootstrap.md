@@ -9,7 +9,7 @@ way today, as the first proof of the mechanism.
 
 ## Context
 
-`Full-Local-Model-Agent-Workflow`'s README documents real submodule
+`LAAW`'s README documents real submodule
 pain: `git submodule update --remote` against a dirty submodule ranges
 from refusing to run to silently discarding uncommitted project work;
 the repo doesn't publish tagged releases yet, so every update is a
@@ -40,7 +40,7 @@ friction forward would work against that goal.
   .ai/workflow log`" traceability a submodule gives for free — a
   copy-based bootstrap needs its own way to record which variant and
   version was installed; open question for P02 to resolve.
-- `Full-Local-Model-Agent-Workflow/` stays a git submodule of this
+- `LAAW/` stays a git submodule of this
   repo, unaffected by this decision — it's this project's actual
   development checkout for the `full` variant, not a bootstrapped
   consumer copy.
