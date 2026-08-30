@@ -25,4 +25,4 @@ of the concurrency model P05 itself defines.
 | P03 | Workbench directory & context-build temp-file lifecycle | — | complete |
 | P04 | Context sync from git history | — | awaiting-plan-review |
 | P05 | Concurrency-safe phase/task planning | — | awaiting-plan-review |
-| P06 | Redesign LAAW as a single modular workflow | — | in-progress |
+| P06 | Redesign LAAW as a single modular workflow | — | complete |

@@ -179,9 +179,29 @@ P02).
 
 | ID | Title | Purpose | Depends on | Status |
 |---|---|---|---|---|
-| P06-T01 | Scaffold convention + `workflow.md` rewrite | Shared scaffold-on-first-use doc; rewrite directory structure, artifact hierarchy, Status/permanent-record framing, commit discipline | — | plan-approved |
-| P06-T02 | Constitution + `bootstrap` skills | Narrow `create-constitution-full`→`create-constitution`; add new `bootstrap` skill | P06-T01 | plan-approved |
-| P06-T03 | Phase + task planning skills | `define-phase` uses `phases.md`; `define-task-full`→`define-task` gains orphan-task convention | P06-T01 | plan-approved |
-| P06-T04 | Remaining skill renames + `propagate-context` | Drop remaining `-full` suffixes; scaffold-on-first-use for context/decisions/workbench; fix `propagate-context` | P06-T01 | plan-approved |
-| P06-T05 | Templates + `reference/` updates | `info-template.md`, `directory-and-links.md`, `status-and-info.md`, remaining reference files | P06-T01, P06-T02, P06-T03, P06-T04 | plan-approved |
-| P06-T06 | Validation + size check | Cross-file grep sweep, word-count comparison, manual walkthroughs, close out this repo's own bookkeeping | P06-T01, P06-T02, P06-T03, P06-T04, P06-T05 | plan-approved |
+| P06-T01 | Scaffold convention + `workflow.md` rewrite | Shared scaffold-on-first-use doc; rewrite directory structure, artifact hierarchy, Status/permanent-record framing, commit discipline | — | complete |
+| P06-T02 | Constitution + `bootstrap` skills | Narrow `create-constitution-full`→`create-constitution`; add new `bootstrap` skill | P06-T01 | complete |
+| P06-T03 | Phase + task planning skills | `define-phase` uses `phases.md`; `define-task-full`→`define-task` gains orphan-task convention | P06-T01 | complete |
+| P06-T04 | Remaining skill renames + `propagate-context` | Drop remaining `-full` suffixes; scaffold-on-first-use for context/decisions/workbench; fix `propagate-context` | P06-T01 | complete |
+| P06-T05 | Templates + `reference/` updates | `info-template.md`, `directory-and-links.md`, `status-and-info.md`, remaining reference files | P06-T01, P06-T02, P06-T03, P06-T04 | complete |
+| P06-T06 | Validation + size check | Cross-file grep sweep, word-count comparison, manual walkthroughs, close out this repo's own bookkeeping | P06-T01, P06-T02, P06-T03, P06-T04, P06-T05 | complete |
+
+## Deviations (resolved, kept for the record)
+
+- **T05 grew beyond its listed files:** `README.md`, `define-phase/SKILL.md`
+  (added a "stubbing only" mode — nothing owned the
+  "title-now-detail-later" phase pattern once `create-constitution`
+  stopped touching `phases.md`), and two template files
+  (`context-temp-template.md`, `context-build-plan-template.md`, both
+  still naming `build-context-full`) needed the same sweep T05's listed
+  files got. Justification: the phase's own Automatic validations grep
+  the *whole* `Full-Local-Model-Agent-Workflow/` tree for `roadmap.md`
+  and `-full`, not just files each task named — leaving these stale
+  would have failed that check regardless of which task "owned" them.
+- **`workflow.md` grew ~19% over baseline (1206 → 1432 words) despite
+  the "flat or lighter" requirement**, even after a trim pass in T06.
+  The remainder is genuinely new required knowledge (optional-layer
+  presence rules, phase-linked-vs-orphan task distinction,
+  gitignore-aware commit discipline) that didn't exist in the old
+  fixed-profile `workflow.md` at all. Accepted as a real, reported
+  trade-off rather than force-trimmed further at the cost of clarity.
