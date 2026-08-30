@@ -2,8 +2,9 @@
 
 ## What
 
-This repo (`Local-Model-Agent-Workflow`) is the meta-project for the
-Local Model Agent Workflow family. It develops **one modular
+This repo (`LAAW-Workspace`, renamed from `Local-Model-Agent-Workflow`)
+is the meta-project where **LAAW** (Local AI Agents Workflow) is
+designed, planned, and developed. It develops **one modular
 workflow** — its content lives in
 [`LAAW`](../../LAAW/)'s
 own checkout — whose weight scales via optional layers rather than via
@@ -128,3 +129,11 @@ workflow repo's local submodule path is renamed from
 rename from the same day), and every path reference across this
 repo's own `.ai/` and `AGENTS.md` updated to match — the "deferred
 cleanup" both ADR03 and P06 mentioned is done.
+
+**2026-08-30:** This outer meta-repo itself renamed on GitHub, from
+`Local-Model-Agent-Workflow` to `LAAW-Workspace`. Local `origin` remote
+repointed to match; the local directory path
+(`/home/vitor/Projects/personal/Local-Model-Agent-Workflow`) is
+untouched — not requested, and lower-stakes than the submodule
+renames above since nothing else references this repo's own directory
+name by path the way `LAAW/` is referenced throughout `.ai/`.

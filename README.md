@@ -1,7 +1,5 @@
 # LAAW Workspace
 
-*(this repository is in the process of being renamed to `LAAW-Workspace`)*
-
 The meta-project where **LAAW** (Local AI Agents Workflow) is
 designed, planned, and developed. LAAW itself — the actual workflow
 content (`workflow.md`, skills, templates, reference) — lives in its
