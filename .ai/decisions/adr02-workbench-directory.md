@@ -1,5 +1,12 @@
 # ADR02 — Add `.ai/workbench/` as a freeform, disposable directory
 
+**Partially superseded 2026-08-29 by
+[ADR03](adr03-single-modular-workflow.md):** the "no gitignore
+carve-out" clause below no longer holds — locality (gitignore or not)
+is now the consuming project's own per-layer choice, workbench
+included. Everything else here (workbench exists, is disposable, isn't
+schema-tracked) still stands.
+
 ## Decision
 
 Add `.ai/workbench/` as a new top-level directory under `.ai/`: no

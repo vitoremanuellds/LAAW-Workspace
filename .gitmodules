@@ -1,6 +1,6 @@
 [submodule "Full-Local-Model-Agent-Workflow"]
 	path = Full-Local-Model-Agent-Workflow
-	url = https://github.com/vitoremanuellds/Full-Local-Model-Agent-Workflow.git
+	url = https://github.com/vitoremanuellds/LAAW.git
 [submodule "Light-Local-Model-Agent-Workflow"]
 	path = Light-Local-Model-Agent-Workflow
 	url = https://github.com/vitoremanuellds/Light-Local-Model-Agent-Workflow.git

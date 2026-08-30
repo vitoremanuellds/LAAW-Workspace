@@ -26,6 +26,25 @@ independent axes instead of fixed named profiles:
 - **Locality** — one `.ai/` tree, always in-repo. A consuming project
   gitignores whichever layer(s) it doesn't want committed; there is no
   separate external-path storage mechanism to design or maintain.
+  Commit discipline (`workflow.md` §12) follows suit: "commit each
+  draft immediately" applies only to files that aren't gitignored — a
+  gitignored layer is exempt from commit discipline by definition, not
+  a special case of it. This generalizes to every layer, workbench
+  included, which **supersedes ADR02's specific "no gitignore
+  carve-out" stance for `.ai/workbench/`** — that stance existed so a
+  teammate or `sync-context` could see workbench content, but locality
+  is now the consuming project's own choice regardless of layer, and a
+  solo user with neither has no reason to keep it tracked. The rest of
+  ADR02 (workbench exists, is disposable, isn't schema-tracked) stands.
+
+`.ai/info.md` drops its Status section entirely — no more separate
+"fast pointer" to keep in sync. `phases.md`/`tasks.md`/a phase's own
+task table are now always the authoritative record whenever phases or
+tasks exist at all (true post-this-ADR in a way it wasn't before:
+orphan tasks previously had no top-level index, so `info.md`'s pointer
+was the only cheap way to find "what's active" without opening every
+phase file). `info.md` narrows to Policy only — gate authority, not
+status.
 
 Structural consequence inside `.ai/phases/`: the phase-level permanent
 record (today's `.ai/constitution/roadmap.md`) moves into
@@ -113,7 +132,10 @@ separately-versioned document sets.
   mechanism (P02) lets it pull in the redesigned workflow. Until then,
   this repo's own phase/task files keep using the old schema for
   anything drafted here.
-- Naming: `Full-Local-Model-Agent-Workflow/` no longer describes "the
-  heaviest of several variants" once it's the only workflow — left
-  as-is for now; revisit only if it becomes actively confusing, not
-  as part of this ADR.
+- Naming: `Full-Local-Model-Agent-Workflow/` no longer described "the
+  heaviest of several variants" once it's the only workflow. Renamed on
+  GitHub to `LAAW` (Local AI Agents Workflow); `.gitmodules`' URL
+  updated to match. Local submodule directory path
+  (`Full-Local-Model-Agent-Workflow/`) and this repo's own prose
+  references to that name are **not yet renamed** — a separate,
+  deliberately deferred cleanup, not part of this ADR.
