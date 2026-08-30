@@ -202,5 +202,5 @@ this phase's script doesn't touch or duplicate.)
 | P02-T01 | Design and record the version-stamp convention | Restore traceability of which `LAAW` commit is installed, without `.ai/workflow/` being a git repo | — | complete |
 | P02-T02 | Draft the copy/re-sync script | The actual install/update mechanism, generalizing `sync-skills.sh` | P02-T01 | complete |
 | P02-T03 | Update `LAAW/README.md`'s bootstrapping/updating sections | Document the script as the install/update path, replacing `git submodule add` | P02-T02 | complete |
-| P02-T04 | Update this repo's mission/techstack/ADR01 | Reflect the mechanism as shipped rather than "not yet built" | P02-T02, P02-T03 | awaiting-plan-review |
-| P02-T05 | Dogfood the script against this repo's own project root | Prove the mechanism against a real, previously hand-bootstrapped target | P02-T02 | awaiting-plan-review |
+| P02-T04 | Update this repo's mission/techstack/ADR01 | Reflect the mechanism as shipped rather than "not yet built" | P02-T02, P02-T03 | validating |
+| P02-T05 | Dogfood the script against this repo's own project root | Prove the mechanism against a real, previously hand-bootstrapped target | P02-T02 | in-progress |

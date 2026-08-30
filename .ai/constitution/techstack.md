@@ -6,11 +6,18 @@ runtime, no build system, no package manager — same convention as
 `LAAW`.
 
 **Bootstrap mechanism:** Shell (bash). `LAAW/sync-skills.sh`
-is the closest existing precedent — it copies `skills/` to
-`.agents/skills/` inside a consuming project. The bootstrap mechanism
-this project builds generalizes that pattern: copy a chosen variant's
-entire workflow content into a target project's `.ai/workflow/`,
-replacing `git submodule add` as the install step.
+was the closest existing precedent — it copies `skills/` to
+`.agents/skills/` inside a consuming project.
+[P02](../phases/p02-non-submodule-bootstrap-mechanism.md) generalized
+that pattern into `LAAW/sync-workflow.sh`: it copies
+the workflow's content (`workflow.md`, `skills/`, `templates/`,
+`reference/`, `README.md`) wholesale into a target project's
+`.ai/workflow/`, replacing `git submodule add`/`git submodule update
+--remote` as the install/update step. There's no "chosen variant" to
+select — ADR03 already collapsed that into one workflow, so the script
+always installs it wholesale. Every run also writes a version-stamp
+file beside `.ai/workflow/` (see
+[ADR04](../decisions/adr04-workflow-version-stamp.md)).
 
 **Versioning:** Git, one repo for the workflow itself —
 `LAAW/` (kept as a git submodule of this

@@ -38,9 +38,13 @@ from refusing to run to silently discarding uncommitted project work,
 the repo doesn't publish tagged releases yet so every update is a
 potential breaking change, and every consuming project needs its own
 submodule literacy just to get the files onto disk. This repo's own
-`.ai/workflow/` was bootstrapped today as a plain copy instead — proof
-of the mechanism this project exists to generalize (see
-[`adr01-plain-copy-bootstrap.md`](../decisions/adr01-plain-copy-bootstrap.md)).
+`.ai/workflow/` was first bootstrapped as a plain copy proving the
+mechanism was possible (see
+[`adr01-plain-copy-bootstrap.md`](../decisions/adr01-plain-copy-bootstrap.md));
+[P02](../phases/p02-non-submodule-bootstrap-mechanism.md) generalized
+that into `LAAW/sync-workflow.sh`, the actual
+install/re-sync script any project can run instead of `git submodule
+add`.
 
 ## Who
 
@@ -53,8 +57,10 @@ The repo owner — solo maintenance for now.
   in [`adr03-single-modular-workflow.md`](../decisions/adr03-single-modular-workflow.md) —
   developed directly in its own checkout, committed to that repo's own
   history — see Boundaries below.
-- Design and ship a copy-based bootstrap mechanism any project can use
-  to install the workflow into `.ai/workflow/`.
+- A copy-based bootstrap mechanism any project can use to install the
+  workflow into `.ai/workflow/` — shipped as
+  `LAAW/sync-workflow.sh` (see
+  [P02](../phases/p02-non-submodule-bootstrap-mechanism.md)).
 - Evolve core workflow mechanics that aren't specific to any one
   layer's weight — a freeform temp/scratch workspace, context-build
   cleanup, git-history-driven context sync, and concurrency-safe
@@ -137,3 +143,17 @@ repointed to match; the local directory path
 untouched — not requested, and lower-stakes than the submodule
 renames above since nothing else references this repo's own directory
 name by path the way `LAAW/` is referenced throughout `.ai/`.
+
+**2026-08-30:** [P02](../phases/p02-non-submodule-bootstrap-mechanism.md)
+shipped the copy-based bootstrap/re-sync mechanism this project's
+second Goal called for: `LAAW/sync-workflow.sh`
+installs/re-syncs the workflow into a target project's
+`.ai/workflow/`, replacing `git submodule add`/`git submodule update
+--remote`, plus a version-stamp file
+([ADR04](../decisions/adr04-workflow-version-stamp.md)) restoring the
+"which commit is installed" traceability a submodule gave for free.
+Variant selection (the "chosen variant" language ADR01 originally used)
+doesn't apply — ADR03 already collapsed that into one workflow, so the
+script always installs it wholesale. See the phase file for what's
+still explicitly out of scope (tagged releases, migrating a consuming
+project's own `.ai/` content).

@@ -32,14 +32,19 @@ friction forward would work against that goal.
 ## Consequences
 
 - A bootstrapped copy doesn't automatically track upstream changes —
-  re-running the (not yet built) bootstrap script is how a project
-  pulls in a newer variant version; there's no `git submodule update
-  --remote` equivalent yet. Designing that re-sync story is in scope
-  for P02.
+  [P02](../phases/p02-non-submodule-bootstrap-mechanism.md) built the
+  re-sync story: re-running
+  `LAAW/sync-workflow.sh` against an
+  already-bootstrapped project wholesale-replaces `.ai/workflow/` with
+  the source checkout's current state, the copy-based equivalent of
+  `git submodule update --remote`.
 - Loses the "pinned to an exact commit, verifiable via `git -C
-  .ai/workflow log`" traceability a submodule gives for free — a
-  copy-based bootstrap needs its own way to record which variant and
-  version was installed; open question for P02 to resolve.
+  .ai/workflow log`" traceability a submodule gives for free —
+  resolved by
+  [ADR04](adr04-workflow-version-stamp.md) (P02-T01):
+  `sync-workflow.sh` writes a version-stamp file,
+  `.ai/workflow-version`, as a sibling of `.ai/workflow/` on every run,
+  recording the source and commit copied from.
 - `LAAW/` stays a git submodule of this
   repo, unaffected by this decision — it's this project's actual
   development checkout for the `full` variant, not a bootstrapped
