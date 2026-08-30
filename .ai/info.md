@@ -29,7 +29,7 @@ phase's own file's task table (task). See
 `.ai/workflow/workflow.md §11`.
 
 ```
-Active phase: —
-Active task: —
+Active phase: P06
+Active task: P06-T01
 Blocked: none
 ```
