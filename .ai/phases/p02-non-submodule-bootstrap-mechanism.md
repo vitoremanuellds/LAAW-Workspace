@@ -58,6 +58,16 @@ task file drafted before this task actually shipped. P02-T03 should
 document the real two-independent-args shape and the zero-arg common
 case, not the single-arg assumption its own draft prose used.
 
+**Correction, discovered during P02-T05's dogfood run:** the copy set
+above (`workflow.md`, `skills/`, `templates/`, `reference/`,
+`README.md`) omitted `sync-skills.sh` — but
+`LAAW/README.md` itself documents running
+`.ai/workflow/sync-skills.sh` from inside a bootstrapped project, so
+that file has to land in `.ai/workflow/` too, the same as the other
+five. Fixed in `sync-workflow.sh` and in P02-T02's own task file. The
+real copy set is six items, not five, everywhere this Context and the
+task files describe it.
+
 One thing has simplified since ADR01's Consequences were written:
 [ADR03](../decisions/adr03-single-modular-workflow.md) collapsed the
 "per-profile repos" model into one workflow with optional layers.
@@ -171,8 +181,8 @@ this phase's script doesn't touch or duplicate.)
 - The script exists in `LAAW/`'s checkout, is
   executable, and running it with no arguments against a scratch
   target directory produces `.ai/workflow/{workflow.md, skills/,
-  templates/, reference/, README.md}` matching the source checkout's
-  content (`diff -r`, `.git` excluded, clean).
+  templates/, reference/, README.md, sync-skills.sh}` matching the
+  source checkout's content (`diff -r`, `.git` excluded, clean).
 - Running it a second time against the same target (re-sync) exits
   successfully and the target still matches the source.
 - A version-stamp marker exists after a run, and its recorded value
@@ -203,4 +213,4 @@ this phase's script doesn't touch or duplicate.)
 | P02-T02 | Draft the copy/re-sync script | The actual install/update mechanism, generalizing `sync-skills.sh` | P02-T01 | complete |
 | P02-T03 | Update `LAAW/README.md`'s bootstrapping/updating sections | Document the script as the install/update path, replacing `git submodule add` | P02-T02 | complete |
 | P02-T04 | Update this repo's mission/techstack/ADR01 | Reflect the mechanism as shipped rather than "not yet built" | P02-T02, P02-T03 | validating |
-| P02-T05 | Dogfood the script against this repo's own project root | Prove the mechanism against a real, previously hand-bootstrapped target | P02-T02 | in-progress |
+| P02-T05 | Dogfood the script against this repo's own project root | Prove the mechanism against a real, previously hand-bootstrapped target | P02-T02 | validating |

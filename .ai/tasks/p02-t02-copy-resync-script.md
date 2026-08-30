@@ -15,6 +15,16 @@ script generalizes that to the whole workflow content landing in
 Depends on P02-T01: the version-stamp file/format this script writes
 is decided there, not here.
 
+**Task-level deviation, discovered and fixed during P02-T05's dogfood
+run, after this task was already marked complete:** the script's copy
+list below originally omitted `sync-skills.sh`. `LAAW/README.md`'s own "Optional: sync skills to
+`.agents/skills/`" step documents running `.ai/workflow/sync-skills.sh`
+from inside a bootstrapped project — that file has to actually land in
+`.ai/workflow/` for that documented step to work, the same as the five
+items already listed. Fixed by adding it to the copy list in this
+task's own Steps/Files below and in the shipped script; no plan/scope
+change beyond correcting this omission.
+
 ## Implementation
 
 ### Objective
@@ -34,6 +44,10 @@ A bash script, `LAAW/sync-workflow.sh`, that installs or re-syncs
 - A source path argument (defaults to the script's own checkout, same
   as `sync-skills.sh`) and a target project root argument (defaults to
   the current directory).
+- Copying `sync-skills.sh` itself into `.ai/workflow/` alongside the
+  other five items (added per the deviation note above) — it has to
+  land there for `LAAW/README.md`'s own documented
+  `.ai/workflow/sync-skills.sh` step to work in a bootstrapped project.
 
 ### Out of scope
 
@@ -77,7 +91,8 @@ history, never absorbed into this outer repo's commits).
    Requirements: re-sync "replaces `.ai/workflow/`'s content with the
    source's current state").
 6. Create the destination and copy `workflow.md`, `skills/`,
-   `templates/`, `reference/`, and `README.md` from source into it.
+   `templates/`, `reference/`, `README.md`, and `sync-skills.sh` from
+   source into it.
 7. Write the version-stamp file per P02-T01's ADR (path/format as
    decided there) — recording at minimum the source repo and the
    commit SHA the copy was taken from (`git -C <source> rev-parse
@@ -102,7 +117,7 @@ was_existing = dest already exists
 
 if was_existing: remove dest entirely
 create dest
-copy workflow.md, skills/, templates/, reference/, README.md from source_dir into dest
+copy workflow.md, skills/, templates/, reference/, README.md, sync-skills.sh from source_dir into dest
 
 sha = `git -C source_dir rev-parse HEAD`, or "unknown" with a warning if source_dir isn't a git checkout
 write version-stamp file (path/format per P02-T01's ADR) with source repo + sha (+ date)
@@ -127,8 +142,9 @@ file, with no other part of the target's `.ai/` touched.
 - `LAAW/sync-workflow.sh` exists and is executable.
 - Running it against a scratch empty target directory produces
   `.ai/workflow/{workflow.md, skills/, templates/, reference/,
-  README.md}` matching the source checkout's content (`diff -r`,
-  `.git` excluded, clean) — the phase file's own automatic validation.
+  README.md, sync-skills.sh}` matching the source checkout's content
+  (`diff -r`, `.git` excluded, clean) — the phase file's own automatic
+  validation.
 - Running it a second time against the same scratch target exits `0`
   and the target still matches the source (re-sync path exercised).
 - The version-stamp file exists after a run at the path P02-T01's ADR
