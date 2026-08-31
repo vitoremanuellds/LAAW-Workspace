@@ -60,3 +60,22 @@ LAAW-Workspace/
 - **Versioning:** Git submodule for `LAAW/`; `sync-workflow.sh` also
   writes a `.ai/workflow-version` file with source URL, commit SHA, and
   date.
+
+## LAAW workflow structure
+
+The workflow (`LAAW/workflow.md`) is organized into 12 sections:
+
+1. **Principles** — persist knowledge not reasoning, read only what's needed
+2. **Starting point** — read `info.md` at every gate, read skill file every time
+3. **Directory structure** — `.ai/workflow/` (read-only), `.ai/info.md`, optional layers, tasks (mandatory)
+4. **Artifact hierarchy** — Constitution → Context → Decisions → Phases → Tasks
+5. **Lifecycle & gates** — gates for missing layers are skipped; modes: manual, assisted (default), autonomous, delegated
+6. **Deviations** — recorded inline in task files; lifecycle: OPEN → ADDRESSED → INCORPORATED
+7. **Decisions (ADRs)** — written by the owner at the moment of decision
+8. **Validation vs Review** — two distinct checks at completion-review
+9. **Context propagation** — task → phase Context → phase completion → promote to context/
+10. **Operation contracts** — authority always from `info.md`
+11. **Status** — the permanent record; `not-planned → awaiting-plan-review → plan-approved → in-progress → validating → reviewing → complete`
+12. **Commit discipline** — commit each draft immediately before requesting review
+
+**Path conventions:** All paths are `.ai/`-prefixed, never bare or dot-relative. Cross-references are `.ai/workflow/`-anchored. This prevents silent resolution bugs when files are copied to different depths (e.g., via `sync-skills.sh` to `.agents/skills/`).
