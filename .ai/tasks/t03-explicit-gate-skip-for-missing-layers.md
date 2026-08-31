@@ -60,7 +60,7 @@ it.
 | File | Change |
 |---|---|
 | `LAAW/README.md` | Add a bullet/paragraph after the lifecycle diagram in §5 stating that gates for missing layers are skipped |
-| `.ai/workflow/workflow.md` §5 | Same addition, consistent wording |
+| `LAAW/workflow.md` §5 | Same addition, consistent wording |
 
 ### Steps
 
@@ -79,7 +79,7 @@ it.
 
    (Wording is flexible — mark as `(flexible: exact wording)`.)
 
-3. Read `.ai/workflow/workflow.md` §5 to find the same insertion point
+3. Read `LAAW/workflow.md` §5 to find the same insertion point
    — after the lifecycle diagram, before the gate table.
 4. Add the same explicit statement with consistent wording.
 5. Verify both additions are present and consistent.
@@ -87,7 +87,7 @@ it.
 ### Automatic validations
 
 - `grep -c "Gates for missing layers" LAAW/README.md` returns 1
-- `grep -c "Gates for missing layers" .ai/workflow/workflow.md` returns 1
+- `grep -c "Gates for missing layers" LAAW/workflow.md` returns 1
 - The statement appears in both files with consistent meaning
 
 ### Manual validations
