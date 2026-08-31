@@ -98,4 +98,17 @@ LAAW ships 9 skills under `LAAW/skills/`, each with YAML frontmatter (`name` + `
 
 **Skill contract pattern:** Each skill states its own Can/Must/Cannot contract right after its frontmatter. Authority always comes from `.ai/info.md`, never self-assigned.
 
+**Implementation workflow:** `implement-task` is the most frequently invoked skill — it runs once per task, potentially many times per phase. It reads `workflow.md` in full (not from memory), reads `info.md` fresh, and reads only the files the task actually touches.
+
 **Skill files in `.agents/skills/`:** `sync-skills.sh` mirrors `LAAW/skills/` to `.agents/skills/` for harnesses that auto-discover skills from that directory. Cross-references use `.ai/workflow/`-anchored paths to survive this depth change.
+
+## Context propagation hierarchy
+
+`propagate-context` follows a strict two-level hierarchy:
+
+1. **Task completion → phase Context** (phase-linked tasks only): persistent facts discovered during implementation that matter to other tasks in the same phase. Written to the owning phase file's Context section, never directly to `context/`.
+2. **Phase completion → context/**: the phase's accumulated Context is reviewed once for relevance beyond the phase; sufficiently general, persistent knowledge is promoted to `context/`.
+
+Orphan tasks have no phase to route through — their persistent facts go directly to `context/` on completion.
+
+**Never propagated:** task history, temporary implementation details, information already recorded elsewhere, internal reasoning, progress reports.
