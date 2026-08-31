@@ -79,3 +79,23 @@ The workflow (`LAAW/workflow.md`) is organized into 12 sections:
 12. **Commit discipline** — commit each draft immediately before requesting review
 
 **Path conventions:** All paths are `.ai/`-prefixed, never bare or dot-relative. Cross-references are `.ai/workflow/`-anchored. This prevents silent resolution bugs when files are copied to different depths (e.g., via `sync-skills.sh` to `.agents/skills/`).
+
+## Skills overview
+
+LAAW ships 9 skills under `LAAW/skills/`, each with YAML frontmatter (`name` + `description`) and a Markdown body:
+
+| Skill | Operation | Purpose |
+|---|---|---|
+| `bootstrap` | Layer setup | Ask which optional layers to enable; delegates to each layer's scaffold-on-first-use; always ensures `.ai/info.md` exists first |
+| `create-constitution` | Constitution | Create/update `mission.md` + `techstack.md`; bootstraps `.ai/info.md` on first run |
+| `define-phase` | Phase planning | Define new phase or replan after deviation; writes Context+Requirements+Plan+Validations |
+| `define-task` | Task planning | Break phase plan into tasks (phase-linked or orphan); writes enough detail for implementation |
+| `implement-task` | Implementation | Write/modify/delete project code for approved task |
+| `validate-work` | Validation | Run task/phase validation (mechanical checks) before review |
+| `review-work` | Review | Check implementation for scope, complexity, architecture issues (judgment) |
+| `propagate-context` | Context propagation | Propagate reusable knowledge into `context/` after task/phase completes |
+| `build-context` | Context survey | Populate `context/` by surveying existing codebase (assess → plan → iterate) |
+
+**Skill contract pattern:** Each skill states its own Can/Must/Cannot contract right after its frontmatter. Authority always comes from `.ai/info.md`, never self-assigned.
+
+**Skill files in `.agents/skills/`:** `sync-skills.sh` mirrors `LAAW/skills/` to `.agents/skills/` for harnesses that auto-discover skills from that directory. Cross-references use `.ai/workflow/`-anchored paths to survive this depth change.
