@@ -9,15 +9,23 @@ re-verify against the actual file if it's been a while, this is a
 snapshot, not the source of truth.
 
 ```
-.ai/workflow/       submodule, never written to — workflow.md, reference/, templates/, skills/
-.ai/info.md         Policy only — gate authority; always present, not an optional layer
+.ai/workflow/       plain copy, managed by sync-workflow.sh (P02) — workflow.md, reference/, templates/, skills/
+.ai/info.md         Policy only — gate authority, always present, not an optional layer
 .ai/constitution/   mission.md, techstack.md — optional
 .ai/context/        context.md + whatever fits — optional
 .ai/decisions/      decisions.md + adr{NN}-{name}.md — optional
 .ai/phases/         phases.md (index) + p{NN}-{name}.md, own Context + task table — optional
 .ai/tasks/          tasks.md (orphan index) + p{NN}-t{NN}-{name}.md (phase-linked) + t{NN}-{name}.md (orphan) — the one mandatory layer
 .ai/workbench/      freeform scratch — planning notes, Q&A, prompt drafts; disposable, not part of the permanent record — optional
+.ai/workflow-version generated metadata (see below)
 ```
+
+Note: `LAAW/workflow.md` §3 still says "submodule" for `.ai/workflow/`
+in the snapshot above — P02 shipped `sync-workflow.sh` as the actual
+bootstrap/re-sync mechanism (a plain copy), but didn't update that
+section of the source-of-truth file. The actual mechanism is a plain
+copy managed by the script, not a git submodule. See
+[ADR04](../decisions/adr04-workflow-version-stamp.md).
 
 Presence is inferred from existence — no directory means that layer is
 off; `.ai/tasks/` is the only one every project has. How a layer comes
@@ -43,15 +51,17 @@ see `scaffold-on-first-use.md`. This repo's own `.ai/workbench/` was
 instantiated by hand (2026-08-29), before that convention existed in
 its current form.
 
-`.ai/workflow/` here doesn't auto-track `LAAW/` — there's no `git
-submodule update --remote` equivalent yet (that's P02's job). This
-workspace's own `.ai/workflow/` was manually re-bootstrapped (`cp -r`
-from `LAAW/`, `.git` stripped, 2026-08-30) to pick up the full P06
-redesign — this repo's own `.ai/constitution/roadmap.md` also moved to
+`.ai/workflow/` is managed by
+[`sync-workflow.sh`](../LAAW/sync-workflow.sh) (P02) — a plain copy
+from a `LAAW` checkout, not a git submodule. Running the script
+replaces `.ai/workflow/`'s content wholesale with the source's
+current state. This workspace's own `.ai/workflow/` was re-bootstrapped
+via `sync-workflow.sh` (2026-08-30) to pick up the full P06 redesign
+— this repo's own `.ai/constitution/roadmap.md` also moved to
 `.ai/phases/phases.md` and `info.md`'s Status section was dropped in
-the same pass, matching what `LAAW/workflow.md` now documents. Until
-P02 automates this, re-check `.ai/workflow/` for drift after any phase
-that changes `LAAW/`'s content.
+the same pass. The script also writes a `.ai/workflow-version` file
+(sibling to `.ai/workflow/`) recording the installed `LAAW` commit,
+source URL, and date — see [ADR04](../decisions/adr04-workflow-version-stamp.md).
 
 **Reminder for future phases in this project:** every edit to LAAW's
 actual content happens in `LAAW/`'s own checkout, committed to *its
