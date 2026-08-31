@@ -13,6 +13,8 @@ folder of classes.
 |---|---|---|---|
 <!-- auth-module.md | Auth flow, session handling, token lifecycle | active | related: score-engine.md -->
 | [full-directory-structure.md](full-directory-structure.md) | Snapshot of LAAW's `.ai/` directory structure, current as of the ADR03/P06 redesign and this workspace's own re-bootstrap | active | related: [ADR02](../decisions/adr02-workbench-directory.md), [ADR03](../decisions/adr03-single-modular-workflow.md) |
+| [purpose.md](purpose.md) | Project purpose, mission, goals, and history — LAAW = Local AI Agents Workflow | active | |
+| [architecture.md](architecture.md) | Project architecture: directory layout, key relationships, tech stack | active | related: [purpose.md](purpose.md) |
 
 **Status** is `active` or `superseded`. When an architecture changes,
 don't delete the old file — mark it superseded and point to what
