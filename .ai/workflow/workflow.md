@@ -44,7 +44,7 @@ linked where needed below.
 ## 3. Directory structure
 
 ```
-.ai/workflow/       submodule, never written to — workflow.md, reference/, templates/, skills/
+.ai/workflow/       plain copy, managed by sync-workflow.sh (P02), never written to — workflow.md, reference/, templates/, skills/
 .ai/info.md         Policy only — gate authority; always present, not an optional layer
 .ai/constitution/   mission.md, techstack.md — optional
 .ai/context/        context.md + whatever fits — optional
@@ -107,6 +107,13 @@ Constitution → Constitution Review → Phase → Phase Plan Review
   → Phase Completion Review (validate, then review)
   → Reconcile Phase/Project Context → Phase Complete
 ```
+
+**Gates for missing layers are skipped.** The lifecycle above shows
+the full set — a project never walks through every gate; it only
+encounters gates for layers that exist. If `constitution/` doesn't
+exist, `constitution-review` doesn't run. If `phases/` doesn't exist,
+`phase-review` and `phase-completion-review` don't run. If `context/`
+doesn't exist, `context-update` and `context-evaluation` don't run.
 
 | Gate | Runs after | Unlocks |
 |---|---|---|
@@ -237,9 +244,8 @@ a phase file's own task table (phase-linked task), or `tasks.md`'s
 Status column (orphan task). "What's active" is answered by reading
 the relevant table directly — no separate pointer to keep in sync.
 
-```
-not-planned → awaiting-plan-review → plan-approved → in-progress
-  → validating → reviewing → complete
+``` 
+not-planned → awaiting-plan-review → in-progress → reviewing → complete
 (blocked applies from any active state)
 ```
 

@@ -22,7 +22,7 @@ as every other skill — do not skip it for review.
 
 **All `.ai/`-artifact paths below are relative to the project root,
 not to this skill file — write the full `.ai/...` path.** Status
-values you set here (`reviewing`, `complete`) are two of exactly eight
+values you set here (`reviewing`, `complete`) are two of exactly six
 in a closed enum — see
 [.ai/workflow/workflow.md §11](.ai/workflow/workflow.md#11-status-the-permanent-record)
 for the full list; never invent one not on it.
@@ -80,7 +80,9 @@ naming note). Don't confuse the two just because both are called
    review, or `.ai/phases/phases.md` for a phase-level review), plus
    any context/ADR files you touched while flagging; the message
    should say what was reviewed and the verdict (see
-   [.ai/workflow/workflow.md §12](.ai/workflow/workflow.md#12-commit-discipline)).
+   [.ai/workflow/workflow.md §12](.ai/workflow/workflow.md#12-commit-discipline));
+   exclude any gitignored files — gitignored layers simply have nothing to
+   commit, not a violation of commit discipline.
    Stop for `task-completion-review` (task-level) or
    `phase-completion-review` (phase-level) — see `.ai/info.md`.
    **Clean findings are not themselves approval** — even if you found

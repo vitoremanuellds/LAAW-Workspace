@@ -58,8 +58,8 @@ that has caused a phase file to be created outside `.ai/` before: a
 bare or dot-relative path here gets resolved against your current
 working directory by a write tool, not against where this skill file
 lives. When in doubt, write the full `.ai/...` path. Status values you
-set here (`awaiting-plan-review`, `plan-approved`) are two of exactly
-eight in a closed enum — see
+set here (`awaiting-plan-review`, `in-progress`) are two of
+exactly six in a closed enum — see
 [.ai/workflow/workflow.md §11](.ai/workflow/workflow.md#11-status-the-permanent-record)
 for the full list; never invent one not on it.
 
@@ -76,7 +76,7 @@ stopping for anything. Only step 8 is gated.
    this is a first draft (fresh row you're adding now, or already
    `not-planned` if a title-only row exists from a prior session), a
    replan (already `in-progress`), or an append (already
-   `plan-approved`/`in-progress`/`complete` — nothing went wrong, just
+   `in-progress`/`complete` — nothing went wrong, just
    more scope), leave it as-is until step 5. Read only the
    `.ai/context/` files relevant to this phase — do not read the whole
    `context/` tree.
@@ -153,14 +153,16 @@ stopping for anything. Only step 8 is gated.
 8. Commit the draft: stage `.ai/phases/p{NN}-{name}.md`, `.ai/phases/phases.md`,
    and any new ADR + `.ai/decisions/decisions.md` row from step 7; the
    message should say what phase was drafted and why (see
-   [.ai/workflow/workflow.md §12](.ai/workflow/workflow.md#12-commit-discipline)). Stop for
+   [.ai/workflow/workflow.md §12](.ai/workflow/workflow.md#12-commit-discipline));
+   exclude any gitignored files — gitignored layers simply have nothing to
+   commit, not a violation of commit discipline. Stop for
    phase plan review (`phase-review` gate) — see `.ai/info.md` (read
    fresh, not from memory). Stop your turn here. Do not continue into
    task breakdown or task IDs — that's a separate operation
    ([define-task](.ai/workflow/skills/define-task/SKILL.md)). Approval unlocks task
    *planning*, not implementation — `task-review` is a separate gate
    still to come after tasks exist. **When approval comes back, that's
-   a separate turn:** set the phase's Status to `plan-approved` in
+   a separate turn:** set the phase's Status to `in-progress` in
    `.ai/phases/phases.md` — `define-task`'s own first step is
    what later moves it to `in-progress`, once task planning genuinely
    starts. In `manual`/`assisted` mode, report the approval and

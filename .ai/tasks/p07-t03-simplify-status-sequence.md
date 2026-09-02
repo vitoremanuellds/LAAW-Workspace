@@ -32,9 +32,9 @@ five-value sequence.
 
 ### In scope
 
-- `.ai/workflow/workflow.md` §11 (status sequence, enum, table)
-- `.ai/workflow/workflow.md` §4 (lifecycle diagram)
-- `.ai/workflow/reference/status-and-info.md` (lookup table, enum)
+- `LAAW/workflow.md` §11 (status sequence, enum, table)
+- `LAAW/workflow.md` §4 (lifecycle diagram)
+- `LAAW/reference/status-and-info.md` (lookup table, enum)
 - All skill files that set or check status values
 
 ### Out of scope
@@ -47,21 +47,24 @@ five-value sequence.
 
 ### Files to modify
 
-- `.ai/workflow/workflow.md`
-- `.ai/workflow/reference/status-and-info.md`
-- `.ai/workflow/skills/define-phase/SKILL.md`
-- `.ai/workflow/skills/define-task/SKILL.md`
-- `.ai/workflow/skills/implement-task/SKILL.md`
-- `.ai/workflow/skills/validate-work/SKILL.md`
-- `.ai/workflow/skills/review-work/SKILL.md`
-- `.ai/workflow/skills/propagate-context/SKILL.md`
-- `.ai/workflow/skills/create-constitution/SKILL.md`
-- `.ai/workflow/skills/bootstrap/SKILL.md`
-- `.ai/workflow/skills/build-context/SKILL.md`
+- `LAAW/workflow.md`
+- `LAAW/reference/status-and-info.md`
+- `LAAW/skills/define-phase/SKILL.md`
+- `LAAW/skills/define-task/SKILL.md`
+- `LAAW/skills/implement-task/SKILL.md`
+- `LAAW/skills/validate-work/SKILL.md`
+- `LAAW/skills/review-work/SKILL.md`
+- `LAAW/skills/propagate-context/SKILL.md`
+- `LAAW/skills/create-constitution/SKILL.md`
+- `LAAW/skills/bootstrap/SKILL.md`
+- `LAAW/skills/build-context/SKILL.md`
+
+After modifying all files in `LAAW/`, run `LAAW/sync-workflow.sh` to
+sync the changes into `.ai/workflow/`.
 
 ### Steps
 
-1. **Update workflow.md §11:**
+1. **Update LAAW/workflow.md §11:**
    - Change the status sequence from:
      `not-planned → awaiting-plan-review → plan-approved → in-progress
      → validating → reviewing → complete`
@@ -74,7 +77,7 @@ five-value sequence.
      → `in-progress`).
    - Update the "Where each value lives" section in status-and-info.md.
 
-2. **Update workflow.md §4 (lifecycle diagram):**
+2. **Update LAAW/workflow.md §4 (lifecycle diagram):**
    - Remove `plan-approved` from the lifecycle:
      `Constitution → Constitution Review → Phase → Phase Plan Review
      → Tasks → Task Plan Review → Implement → Task Completion Review
@@ -82,7 +85,7 @@ five-value sequence.
    - The diagram already groups validation and review under
      "Task Completion Review" — this is consistent with the merge.
 
-3. **Update reference/status-and-info.md:**
+3. **Update LAAW/reference/status-and-info.md:**
    - Change the lookup table:
      - Remove `plan-approved` row entirely.
      - Change `validating` row: merge into `reviewing` row.
@@ -93,40 +96,40 @@ five-value sequence.
 
 4. **Update skill files — status transitions:**
 
-   **define-phase:**
+   **define-phase (LAAW/skills/define-phase/SKILL.md):**
    - Remove all references to setting Status to `plan-approved`.
    - Step 8: When approval comes back, set Status to `in-progress`
      (not `plan-approved`). This is the signal that task planning
      is starting.
 
-   **define-task:**
+   **define-task (LAAW/skills/define-task/SKILL.md):**
    - Remove all references to setting Status to `plan-approved`.
    - Phase-linked step 8: When approval comes back, set Status to
      `in-progress` (not `plan-approved`).
    - Orphan step 7: When approval comes back, set Status to
      `in-progress` (not `plan-approved`).
 
-   **implement-task:**
+   **implement-task (LAAW/skills/implement-task/SKILL.md):**
    - Remove all references to `plan-approved` status check.
    - Step 3: Change the check from "It should be `plan-approved`"
      to "It should be `in-progress` — task planning has begun."
    - Update the Status enum list to the new five values.
 
-   **validate-work:**
+   **validate-work (LAAW/skills/validate-work/SKILL.md):**
    - Remove the `validating` status.
    - Step 1: Instead of setting Status to `validating`, set it to
      `reviewing`. Validation is the first part of the review process.
    - Step 4 (failure): Set Status back to `in-progress` (same as now).
    - Update the Status enum reference in the skill header.
 
-   **review-work:**
+   **review-work (LAAW/skills/review-work/SKILL.md):**
    - Keep `reviewing` status (it stays).
    - The procedure already sets Status to `reviewing` in step 1.
    - Update the Status enum reference in the skill header.
    - The two internal checks (validation, review) happen while
      Status is `reviewing` — this is the intended design.
 
-   **propagate-context:**
+   **propagate-context (LAAW/skills/propagate-context/SKILL.md):**
    - Remove references to checking Status `reviewing` as a
      precondition (it stays the same — the task/phase should be
      `reviewing` with approved completion-review).
@@ -134,17 +137,17 @@ five-value sequence.
    - Step 4 (phase): Set Status to `complete` (unchanged).
    - Update the Status enum reference in the skill header.
 
-   **create-constitution:**
+   **create-constitution (LAAW/skills/create-constitution/SKILL.md):**
    - No direct status changes needed (constitution doesn't use the
      phase/task status sequence).
    - Update any Status enum references in the skill header.
 
-   **bootstrap:**
+   **bootstrap (LAAW/skills/bootstrap/SKILL.md):**
    - No direct status changes needed (bootstrap doesn't set status
      values).
    - Update any Status enum references in the skill header.
 
-   **build-context:**
+   **build-context (LAAW/skills/build-context/SKILL.md):**
    - No direct status changes needed (build-context doesn't set
      task/phase status values).
    - Update any Status enum references in the skill header.
@@ -157,16 +160,16 @@ five-value sequence.
      `not-planned`).
 
 6. **Verify consistency:**
-   - `grep -r "plan-approved" .ai/workflow/` returns zero matches.
-   - `grep -r "validating" .ai/workflow/` returns zero matches
+   - `grep -r "plan-approved" LAAW/` returns zero matches.
+   - `grep -r "validating" LAAW/` returns zero matches
      (except "task-validation" / "phase-validation" gate names).
    - All skills that set Status have a valid value from the new
      five-value enum.
 
 ### Automatic validations
 
-- `grep -r "plan-approved" .ai/workflow/` returns zero matches.
-- `grep -r "validating" .ai/workflow/` returns zero matches
+- `grep -r "plan-approved" LAAW/` returns zero matches.
+- `grep -r "validating" LAAW/` returns zero matches
   (except gate names like "task-validation", "phase-validation").
 - The new Status enum in workflow.md §11 has exactly five values
   (not counting `blocked`).
