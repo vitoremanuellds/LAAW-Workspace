@@ -26,3 +26,4 @@ of the concurrency model P05 itself defines.
 | P04 | Context sync from git history | — | awaiting-plan-review |
 | P05 | Concurrency-safe phase/task planning | — | awaiting-plan-review |
 | P06 | Redesign LAAW as a single modular workflow | — | complete |
+| P07 | Feedback implementation improvements | — | awaiting-plan-review |
