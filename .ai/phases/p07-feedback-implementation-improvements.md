@@ -84,5 +84,5 @@ internal to the `.ai/workflow/` system — no project source code is touched.
 | ID | Title | Depends on | Status |
 |---|---|---|---|
 | P07-T01 | Add gitignore discipline to all skill commit steps | — | complete |
-| P07-T02 | Change define-task default to single-task | — | awaiting-plan-review |
+| P07-T02 | Change define-task default to single-task | — | complete |
 | P07-T03 | Simplify status sequence across workflow and skills | — | awaiting-plan-review |
