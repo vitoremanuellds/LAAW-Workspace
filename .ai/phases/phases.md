@@ -27,4 +27,4 @@ of the concurrency model P05 itself defines.
 | P05 | Concurrency-safe phase/task planning | — | awaiting-plan-review |
 | P06 | Redesign LAAW as a single modular workflow | — | complete |
 | P07 | Feedback implementation improvements | — | awaiting-plan-review |
-| P08 | Workflow improvements from feedback | — | awaiting-plan-review |
+| P08 | Workflow improvements from feedback | — | in-progress |
