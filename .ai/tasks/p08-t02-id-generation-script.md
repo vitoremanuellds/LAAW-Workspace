@@ -45,52 +45,45 @@ primary interface agents use to obtain IDs during operation.
 
 ### Steps
 
-1. **Create the script** — Write `LAAW/generate_id.py` with:
-   - Shebang: `#!/usr/bin/env python3`
-   - Imports: `sys`, `random`, and `constants` from the same directory
-   - Argument parsing: Accept a single positional argument (N, integer)
-     and an optional `--kind` flag (choices: `phase`, `task`, `decision`;
-     default: `phase`)
-   - Logic:
-     ```
-     parse arguments
-     for i from 0 to N-1:
-       generate_id with kind and random_seed=i
-       print the ID
-     ```
-   - Guard: If `__name__ == "__main__"`, run the logic.
+1. **Create the `LAAW/tools/` directory** — `mkdir -p LAAW/tools`.
 
-2. **Make it executable** — `chmod +x LAAW/generate_id.py`.
-
-3. **Create the script** — Write `LAAW/tools/generate_id.py` with:
+2. **Write `LAAW/tools/generate_id.py`** with:
    - Shebang: `#!/usr/bin/env python3`
-   - Imports: `sys`, `random`, and `constants` from the same directory
-   - Argument parsing: Accept optional `--count N` (default: 1) and
-     optional `--kind` flag (choices: `phase`, `task`, `decision`;
+   - Imports: `sys`, `random`, `argparse`, `os`
+   - Add parent directory to `sys.path` for importing `constants`
+   - Argument parsing: Accept optional positional `count` (default: 1)
+     and optional `--kind` flag (choices: `phase`, `task`, `decision`;
      default: `phase`)
    - Logic:
      ```
      parse arguments (default count=1, default kind=phase)
+     prefix = PREFIX_MAP[args.kind]
      for i from 0 to count-1:
-       generate_id with kind and random_seed=i
+       generate_id(prefix, f"batch-{i}", random_seed=i)
        print the ID
      ```
    - Guard: If `__name__ == "__main__"`, run the logic.
 
-4. **Make it executable** — `chmod +x LAAW/tools/generate_id.py`.
+3. **Make it executable** — `chmod +x LAAW/tools/generate_id.py`.
 
-5. **Verify the script works** — Run:
+4. **Verify default behavior** — Run:
    ```bash
    cd LAAW && python3 tools/generate_id.py
    ```
    Verify output is exactly one ID in format `{prefix}{minutes:07d}{random:05d}`
    (no name suffix).
 
-6. **Verify with --count flag** — Run:
+5. **Verify with --count flag** — Run:
    ```bash
    cd LAAW && python3 tools/generate_id.py --count 5
    ```
    Verify output is 5 unique IDs.
+
+6. **Verify with positional count** — Run:
+   ```bash
+   cd LAAW && python3 tools/generate_id.py 3
+   ```
+   Verify output is 3 unique IDs.
 
 7. **Verify with --kind flag** — Run:
    ```bash
@@ -99,12 +92,11 @@ primary interface agents use to obtain IDs during operation.
    ```
    Verify prefixes are `t` and `d` respectively.
 
-5. **Verify ordered output** — Run:
+8. **Verify combined flags** — Run:
    ```bash
-   cd LAAW && python3 generate_id.py 10 > /tmp/ids.txt
-   sort /tmp/ids.txt -c && echo "Sorted correctly"
+   cd LAAW && python3 tools/generate_id.py 5 --kind task
    ```
-   Verify the output is lexicographically sorted (chronological order).
+   Verify output is 5 task IDs starting with `t`.
 
 ### Dependencies
 
