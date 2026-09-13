@@ -1,5 +1,11 @@
 # AGENTS.md
 
+## Project Identity
+LAAW-Workspace is a **mirror** of the LAAW repository. It serves as the
+workspace for improving LAAW itself — think of it as LAAW being used to
+guide the development of LAAW. Any changes made here are intended to
+feed back into and improve the LAAW project itself.
+
 ## Agent Workflow
 This project uses a structured, modular agent workflow — one process,
 with optional layers rather than a profile choice:
