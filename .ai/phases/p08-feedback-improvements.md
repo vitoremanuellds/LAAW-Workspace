@@ -78,8 +78,12 @@ Relevant prior decisions: [ADR03](../decisions/adr03-single-modular-workflow.md)
    5 random digits = 100,000 combinations (~0.045% collision risk for
    10 concurrent requests). The epoch is set so the counter starts near
    zero and never resets during the project lifetime.
-2. **Implement the ID generation script** — Python script accepting N,
-   returning ordered IDs only. Place it under `.ai/workflow/`.
+2. **Create the `LAAW/tools/` directory** — dedicated folder for ID
+   generation and other utility Python scripts. Place `generate_id.py`
+   here alongside `constants.py`.
+3. **Implement the ID generation script** — Python script accepting
+   optional `--count` (default: 1) and `--kind` flags, returning ordered
+   IDs only. Place it under `LAAW/tools/`.
 3. **Update workflow.md** — reflect the new ID format in the directory
    structure (§3), ID conventions (§4), and any other references.
 4. **Restructure tasks/ folder** — create phase subdirectories; move

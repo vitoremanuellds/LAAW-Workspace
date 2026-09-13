@@ -20,9 +20,11 @@ primary interface agents use to obtain IDs during operation.
 
 ### In scope
 
-- Write `LAAW/generate_id.py` — executable Python script accepting N.
+- Create `LAAW/tools/` directory for Python utility scripts.
+- Write `LAAW/tools/generate_id.py` — executable Python script.
 - Use `LAAW/constants.py` for epoch and format constants.
 - Output only IDs, one per line, in order.
+- Accept optional `--count` flag (default: 1 — generate one ID if omitted).
 - Accept optional `--kind` flag to specify prefix (default: `phase`).
 
 ### Out of scope
@@ -34,8 +36,8 @@ primary interface agents use to obtain IDs during operation.
 
 ### Files to create
 
-- `LAAW/generate_id.py` — Executable Python script for generating N
-  ordered IDs.
+- `LAAW/tools/generate_id.py` — Executable Python script for generating
+  N ordered IDs (defaults to 1 if no count given).
 
 ### Files to modify
 
@@ -60,17 +62,40 @@ primary interface agents use to obtain IDs during operation.
 
 2. **Make it executable** — `chmod +x LAAW/generate_id.py`.
 
-3. **Verify the script works** — Run:
+3. **Create the script** — Write `LAAW/tools/generate_id.py` with:
+   - Shebang: `#!/usr/bin/env python3`
+   - Imports: `sys`, `random`, and `constants` from the same directory
+   - Argument parsing: Accept optional `--count N` (default: 1) and
+     optional `--kind` flag (choices: `phase`, `task`, `decision`;
+     default: `phase`)
+   - Logic:
+     ```
+     parse arguments (default count=1, default kind=phase)
+     for i from 0 to count-1:
+       generate_id with kind and random_seed=i
+       print the ID
+     ```
+   - Guard: If `__name__ == "__main__"`, run the logic.
+
+4. **Make it executable** — `chmod +x LAAW/tools/generate_id.py`.
+
+5. **Verify the script works** — Run:
    ```bash
-   cd LAAW && python3 generate_id.py 5
+   cd LAAW && python3 tools/generate_id.py
    ```
-   Verify output is 5 unique IDs in format `{prefix}{minutes:07d}{random:05d}`
+   Verify output is exactly one ID in format `{prefix}{minutes:07d}{random:05d}`
    (no name suffix).
 
-4. **Verify with --kind flag** — Run:
+6. **Verify with --count flag** — Run:
    ```bash
-   cd LAAW && python3 generate_id.py 3 --kind task
-   cd LAAW && python3 generate_id.py 3 --kind decision
+   cd LAAW && python3 tools/generate_id.py --count 5
+   ```
+   Verify output is 5 unique IDs.
+
+7. **Verify with --kind flag** — Run:
+   ```bash
+   cd LAAW && python3 tools/generate_id.py --kind task
+   cd LAAW && python3 tools/generate_id.py --kind decision
    ```
    Verify prefixes are `t` and `d` respectively.
 
@@ -93,10 +118,11 @@ primary interface agents use to obtain IDs during operation.
 
 ### Automatic validations
 
-- Run `cd LAAW && python3 generate_id.py 10` and verify it prints exactly 10 lines, each matching the pattern `{prefix}\d{7}\d{5}` (no name suffix).
-- Run `cd LAAW && python3 generate_id.py 5 --kind task` and verify all IDs start with `t`.
-- Run `cd LAAW && python3 generate_id.py 100` and verify all IDs are unique.
-- Verify the script is executable (`test -x LAAW/generate_id.py`).
+- Run `cd LAAW && python3 tools/generate_id.py` and verify it prints exactly 1 ID matching the pattern `{prefix}\d{7}\d{5}`.
+- Run `cd LAAW && python3 tools/generate_id.py --count 10` and verify it prints exactly 10 lines.
+- Run `cd LAAW && python3 tools/generate_id.py 5 --kind task` and verify all IDs start with `t`.
+- Run `cd LAAW && python3 tools/generate_id.py 100` and verify all IDs are unique.
+- Verify the script is executable (`test -x LAAW/tools/generate_id.py`).
 
 ### Manual validations
 
