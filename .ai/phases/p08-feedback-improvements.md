@@ -9,8 +9,9 @@ documented in [`.ai/workbench/feedback.md`](.ai/workbench/feedback.md).
 Key areas of improvement:
 
 - **ID generation format**: Current sequential IDs risk collisions when
-  multiple teams work concurrently. A timestamp + random component
-  provides safe concurrency.
+  multiple teams work concurrently. A zero-padded timestamp (10 digits,
+  fixed-width, sorted lexicographically) + 4-digit random component
+  provides safe concurrency and stable sort order.
 - **Task folder organization**: The flat `tasks/` folder becomes crowded.
   Moving to phase-folders (with orphan tasks remaining flat) is a
   deliberate tradeoff.
@@ -47,7 +48,9 @@ Relevant prior decisions: [ADR03](../decisions/adr03-single-modular-workflow.md)
 
 - **R01**: ID generation produces unique identifiers safe for concurrent
   multi-team use — no collisions even when two agents generate IDs at
-  the same second.
+  the same second. Format: `{prefix}{minutes:010d}{random:04d}-{name}`
+  (e.g., `p123456789012345-name`). Zero-padded to 10 digits for stable
+  lexicographic sort order.
 - **R02**: The ID generation script returns only IDs (not names), accepting
   a count parameter, and outputs them in order.
 - **R03**: New task files follow the `p{NN}/t{NN}-{name}.md` path under
@@ -63,9 +66,11 @@ Relevant prior decisions: [ADR03](../decisions/adr03-single-modular-workflow.md)
 
 ## Plan
 
-1. **Design the new ID format** — define the constant epoch, timestamp
-   component (minutes elapsed), random component (4 digits), and full
-   naming convention (`{p/t/d}{id}-{name}`).
+1. **Design the new ID format** — define the constant epoch, zero-padded
+   timestamp (10 digits, fixed-width, lexicographically sortable), random
+   component (4 digits), and full naming convention
+   (`{p/t/d}{id}-{name}`). Example: `p123456789012345-name`.
+   At current pace, 10 digits covers ~10,000 years before overflow.
 2. **Implement the ID generation script** — Python script accepting N,
    returning ordered IDs only. Place it under `.ai/workflow/`.
 3. **Update workflow.md** — reflect the new ID format in the directory
@@ -80,6 +85,10 @@ Relevant prior decisions: [ADR03](../decisions/adr03-single-modular-workflow.md)
    created automatically during phase definition.
 7. **Update ADR03** — cross-reference the new ID scheme and folder
    structure as an evolution of the existing design.
+8. **Document the epoch definition** — create a constant file (e.g.,
+   `.ai/workflow/constants.py` or equivalent) defining the custom epoch
+   start date used for the minutes-elapsed calculation, so all agents
+   compute IDs consistently.
 
 ## Automatic validations
 
