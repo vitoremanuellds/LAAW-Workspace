@@ -128,7 +128,7 @@ Relevant prior decisions: [ADR03](../decisions/adr03-single-modular-workflow.md)
 | ID | Title | Purpose | Depends on | Status |
 |---|---|---|---|---|
 | P08-T01 | Design the new ID format | Define epoch, format spec, naming convention | — | complete |
-| P08-T02 | Implement the ID generation script | Python script accepting N, returning ordered IDs only | P08-T01 | awaiting-plan-review |
+| P08-T02 | Implement the ID generation script | Python script accepting N, returning ordered IDs only | P08-T01 | validating |
 | P08-T03 | Update workflow.md | Reflect new ID format in directory structure (§3), conventions (§4) | P08-T01 | not-planned |
 | P08-T04 | Restructure tasks/ folder | Create phase subdirectories; move phase-linked tasks; orphans flat | P08-T01 | not-planned |
 | P08-T05 | Strengthen .gitignore discipline | Add emphatic agent instructions to workflow and AGENTS.md | P08-T01 | not-planned |
