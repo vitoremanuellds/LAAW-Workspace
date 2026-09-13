@@ -30,7 +30,7 @@ concurrently produce unique, lexicographically sortable identifiers.
 
 ### Files to create
 
-- `.ai/workflow/constants.py` — Python module defining `EPOCH`, `MIN_WIDTH`,
+- `LAAW/constants.py` — Python module defining `EPOCH`, `MIN_WIDTH`,
   `RANDOM_WIDTH`, `MIN_MAX`, `FORMAT_STRING`, and helper functions for
   ID generation. This is the single source of truth all agents read.
 - `.ai/decisions/adr08-id-format.md` — ADR documenting the ID format
@@ -55,7 +55,7 @@ concurrently produce unique, lexicographically sortable identifiers.
    - Name: lowercase, hyphen-separated, no spaces
    - Full example: `p00525960123456-feedback-improvements`
 
-3. **Create the constants file** — Write `.ai/workflow/constants.py` with:
+3. **Create the constants file** — Write `LAAW/constants.py` with:
    - `EPOCH = datetime(2020, 1, 1, 0, 0, 0)` (UTC)
    - `MIN_WIDTH = 7`
    - `RANDOM_WIDTH = 5`
@@ -82,7 +82,7 @@ concurrently produce unique, lexicographically sortable identifiers.
 
 6. **Validate the constants file** — Run:
    ```bash
-   python3 -c "from ai.workflow.constants import generate_id; print([generate_id('p', f'test-{i}') for i in range(5)])"
+   cd LAAW && python3 -c "from constants import generate_id; print([generate_id('p', f'test-{i}') for i in range(5)])"
    ```
    Verify output follows the expected format with 7-digit minutes and
    5-digit random components.
@@ -101,7 +101,7 @@ concurrently produce unique, lexicographically sortable identifiers.
 
 ### Automatic validations
 
-- Run `python3 -c "from ai.workflow.constants import generate_id; ids = [generate_id('p', f'test-{i}') for i in range(10)]; assert len(set(ids)) == len(ids), 'Collision detected'; print('All IDs unique'); print(ids[0])"` and verify it prints 10 unique IDs matching the format.
+- Run `cd LAAW && python3 -c "from constants import generate_id; ids = [generate_id('p', f'test-{i}') for i in range(10)]; assert len(set(ids)) == len(ids), 'Collision detected'; print('All IDs unique'); print(ids[0])"` and verify it prints 10 unique IDs matching the format.
 - Verify the constants file defines all required constants (`EPOCH`, `MIN_WIDTH`, `RANDOM_WIDTH`, `MIN_MAX`, `RANDOM_MAX`, `FORMAT_STRING`, `PREFIX_MAP`).
 - Verify the ADR file exists and contains the required sections (Title, Context, Decision, Consequences).
 - Verify the decisions.md row for ADR08 is present with correct description.

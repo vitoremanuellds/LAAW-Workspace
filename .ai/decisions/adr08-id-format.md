@@ -1,0 +1,46 @@
+# ADR08 — Collision-safe ID format with timestamp + random component
+
+## Decision
+
+Adopt the ID format `{prefix}{minutes:07d}{random:05d}-{name}` for all
+LAAW phases, tasks, and decisions. The format consists of:
+
+- **Prefix**: `p` (phase), `t` (task), `d` (decision)
+- **Minutes**: 7-digit zero-padded count of minutes since the epoch
+- **Random**: 5-digit zero-padded random integer (0–99,999)
+- **Name**: lowercase, hyphen-separated identifier
+
+Example: `p00525960123456-feedback-improvements`
+
+The epoch is fixed at `2020-01-01T00:00:00Z` and is defined in
+`LAAW/constants.py`.
+
+## Context
+
+Sequential IDs (e.g., `P01`, `T001`) risk collisions when multiple
+agents or teams generate IDs concurrently at the same moment. The
+feedback from [P08](../phases/p08-feedback-improvements.md) identified
+this as a critical issue for multi-team concurrency.
+
+## Alternatives Considered
+
+- **UUIDs** — Universally unique, but not human-readable or sortable by
+  time.
+- **Timestamp with microseconds** — Fine-grained but produces long IDs
+  and requires synchronized clocks.
+- **UUID with timestamp prefix** — Retains UUID length; the random
+  component alone is sufficient for collision avoidance.
+
+## Consequences
+
+- **Lexicographic sort order equals chronological order** — IDs sort
+  naturally by time, making `git log` and directory listings intuitive.
+- **Collision risk**: ~0.045% for 10 concurrent requests per minute
+  (100,000 random combinations).
+- **Lifespan**: 7 digits covers ~19 years (9,999,999 minutes) from the
+  epoch. The epoch was chosen far enough in the past that this is
+  comfortable for the project's lifetime.
+- **Single source of truth**: `LAAW/constants.py` defines all components;
+  agents read this module rather than computing IDs independently.
+- **No migration needed**: Existing IDs remain valid; new phases adopt
+  the new format.
