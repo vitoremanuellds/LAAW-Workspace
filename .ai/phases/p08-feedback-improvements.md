@@ -9,9 +9,11 @@ documented in [`.ai/workbench/feedback.md`](.ai/workbench/feedback.md).
 Key areas of improvement:
 
 - **ID generation format**: Current sequential IDs risk collisions when
-  multiple teams work concurrently. A zero-padded timestamp (10 digits,
+  multiple teams work concurrently. A zero-padded timestamp (7 digits,
   fixed-width, sorted lexicographically) + 4-digit random component
   provides safe concurrency and stable sort order.
+  7 digits covers ~19 years (5.3M minutes for 10 years, 10.5M for 20).
+  The epoch is set so the counter starts near zero and never resets.
 - **Task folder organization**: The flat `tasks/` folder becomes crowded.
   Moving to phase-folders (with orphan tasks remaining flat) is a
   deliberate tradeoff.
@@ -48,9 +50,9 @@ Relevant prior decisions: [ADR03](../decisions/adr03-single-modular-workflow.md)
 
 - **R01**: ID generation produces unique identifiers safe for concurrent
   multi-team use — no collisions even when two agents generate IDs at
-  the same second. Format: `{prefix}{minutes:010d}{random:04d}-{name}`
-  (e.g., `p123456789012345-name`). Zero-padded to 10 digits for stable
-  lexicographic sort order.
+  the same second. Format: `{prefix}{minutes:07d}{random:04d}-{name}`
+  (e.g., `p0052596012345-name`). Zero-padded to 7 digits for stable
+  lexicographic sort order; covers ~19 years from epoch.
 - **R02**: The ID generation script returns only IDs (not names), accepting
   a count parameter, and outputs them in order.
 - **R03**: New task files follow the `p{NN}/t{NN}-{name}.md` path under
@@ -67,10 +69,12 @@ Relevant prior decisions: [ADR03](../decisions/adr03-single-modular-workflow.md)
 ## Plan
 
 1. **Design the new ID format** — define the constant epoch, zero-padded
-   timestamp (10 digits, fixed-width, lexicographically sortable), random
+   timestamp (7 digits, fixed-width, lexicographically sortable), random
    component (4 digits), and full naming convention
-   (`{p/t/d}{id}-{name}`). Example: `p123456789012345-name`.
-   At current pace, 10 digits covers ~10,000 years before overflow.
+   (`{p/t/d}{id}-{name}`). Example: `p0052596012345-name`.
+   7 digits = max 9,999,999 minutes ≈ 19 years.
+   The epoch is set so the counter starts near zero and never resets
+   during the project lifetime.
 2. **Implement the ID generation script** — Python script accepting N,
    returning ordered IDs only. Place it under `.ai/workflow/`.
 3. **Update workflow.md** — reflect the new ID format in the directory
@@ -93,8 +97,8 @@ Relevant prior decisions: [ADR03](../decisions/adr03-single-modular-workflow.md)
 ## Automatic validations
 
 - Run the ID generation script with N=10 and verify all IDs are unique,
-  zero-padded to 10 digits for the minutes component, and follow the
-  `{minutes:010d}{random:04d}` format.
+  zero-padded to 7 digits for the minutes component, and follow the
+  `{minutes:07d}{random:04d}` format.
 - Grep all `.ai/` markdown files for references to task paths and
   verify they use the new `p{NN}/t{NN}-{name}.md` format.
 - Verify the `define-phase` skill file always includes the task table
