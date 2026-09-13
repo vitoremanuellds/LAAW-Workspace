@@ -3,7 +3,7 @@
 ## Context
 
 See the owning phase file,
-[`../phases/p02-non-submodule-bootstrap-mechanism.md`](../phases/p02-non-submodule-bootstrap-mechanism.md).
+[phase.md](phase.md).
 This is Plan step 3. `LAAW/README.md` currently
 documents `git submodule add` as the install step ("Bootstrapping into
 a project") and `git submodule update`/checkout-and-pin as the update

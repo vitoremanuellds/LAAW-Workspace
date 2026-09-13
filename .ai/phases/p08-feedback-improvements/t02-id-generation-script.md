@@ -2,7 +2,7 @@
 
 ## Context
 
-See [../phases/p08-feedback-improvements.md](../phases/p08-feedback-improvements.md)
+See [phase.md](phase.md)
 for the phase context, requirements, and plan.
 
 The ID generation script is a CLI tool that agents invoke to obtain

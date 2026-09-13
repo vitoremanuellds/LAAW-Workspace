@@ -3,7 +3,7 @@
 ## Context
 
 See the owning phase file,
-[`../phases/p02-non-submodule-bootstrap-mechanism.md`](../phases/p02-non-submodule-bootstrap-mechanism.md),
+[phase.md](phase.md),
 for full background. This task is Plan step 1 there: a plain copy of
 `LAAW`'s content loses the "pinned to a commit, verifiable via `git -C
 .ai/workflow log`" traceability a submodule gives for free

@@ -3,7 +3,7 @@
 ## Context
 
 See the owning phase file,
-[`../phases/p03-workbench-context-temp-lifecycle.md`](../phases/p03-workbench-context-temp-lifecycle.md)
+[phase.md](phase.md)
 — this task is its Plan step 4, decided in
 [ADR02](../decisions/adr02-workbench-directory.md). Depends on
 [P03-T03](p03-t03-repoint-build-context-full-skill.md) (complete) —

@@ -2,7 +2,7 @@
 
 ## Context
 
-See [`../phases/p06-redesign-laaw-modular-workflow.md`](../phases/p06-redesign-laaw-modular-workflow.md).
+See [phase.md](phase.md).
 Last task in the phase — depends on every other P06 task being done.
 
 ## Implementation

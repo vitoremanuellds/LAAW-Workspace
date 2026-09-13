@@ -3,7 +3,7 @@
 ## Context
 
 See the owning phase file,
-[`../phases/p02-non-submodule-bootstrap-mechanism.md`](../phases/p02-non-submodule-bootstrap-mechanism.md).
+[phase.md](phase.md).
 This is Plan step 2: the actual install/update mechanism ADR01 decided
 on but never built. `LAAW/sync-skills.sh` is the
 closest existing precedent — same repo, same self-locating pattern,

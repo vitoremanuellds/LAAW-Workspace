@@ -3,7 +3,7 @@
 ## Context
 
 See the owning phase file,
-[`../phases/p03-workbench-context-temp-lifecycle.md`](../phases/p03-workbench-context-temp-lifecycle.md)
+[phase.md](phase.md)
 — this task is its Plan step 2.
 
 **Same location rule as every other task in this phase: these are

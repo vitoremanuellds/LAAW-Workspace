@@ -3,7 +3,7 @@
 ## Context
 
 See the owning phase file,
-[`../phases/p03-workbench-context-temp-lifecycle.md`](../phases/p03-workbench-context-temp-lifecycle.md)
+[phase.md](phase.md)
 — this task is its Plan step 5, appended 2026-08-29 at the user's
 suggestion (not present in P03's original draft).
 

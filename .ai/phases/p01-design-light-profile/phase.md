@@ -1,7 +1,7 @@
 # P01 — Design the `Light` workflow profile
 
 **Superseded 2026-08-29 by
-[ADR03](../decisions/adr03-single-modular-workflow.md):** `Light` as a
+[ADR03](../../decisions/adr03-single-modular-workflow.md):** `Light` as a
 separately-versioned repo/profile is retired in favor of one modular
 workflow with optional layers. No further work proceeds under this
 phase. Its successor (redesigning `LAAW/`'s

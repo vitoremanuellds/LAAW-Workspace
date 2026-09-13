@@ -3,7 +3,7 @@
 ## Context
 
 See the owning phase file,
-[`../phases/p02-non-submodule-bootstrap-mechanism.md`](../phases/p02-non-submodule-bootstrap-mechanism.md).
+[phase.md](phase.md).
 This is Plan step 5, and the phase's own dogfood validation: this
 repo's `.ai/workflow/` was, until now, only ever bootstrapped/re-synced
 by hand (most recently in the commit that redid it post-P06). Running

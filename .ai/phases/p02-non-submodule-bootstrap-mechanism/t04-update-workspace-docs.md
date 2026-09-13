@@ -3,7 +3,7 @@
 ## Context
 
 See the owning phase file,
-[`../phases/p02-non-submodule-bootstrap-mechanism.md`](../phases/p02-non-submodule-bootstrap-mechanism.md).
+[phase.md](phase.md).
 This is Plan step 4. Three places in *this* repo (not
 `LAAW/`) currently describe the bootstrap mechanism as
 future work rather than something that exists:

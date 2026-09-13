@@ -2,7 +2,7 @@
 
 ## Context
 
-See [p07-feedback-implementation-improvements](../phases/p07-feedback-implementation-improvements.md).
+See [phase.md](phase.md).
 
 The current status sequence is too granular:
 `not-planned → awaiting-plan-review → plan-approved → in-progress

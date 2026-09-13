@@ -2,7 +2,7 @@
 
 ## Context
 
-See [p07-feedback-implementation-improvements](../phases/p07-feedback-implementation-improvements.md).
+See [phase.md](phase.md).
 
 Currently, `define-task` drafts **all** tasks in scope by default.
 The procedure says: "Steps 1–7 require no prior approval — draft

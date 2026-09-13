@@ -13,7 +13,7 @@ Boundaries; P03-T01 got this wrong once and was corrected — don't
 repeat it here).** Below, `workflow.md`, `skills/`, `templates/`,
 `reference/`, and `README.md` all mean the copies under `LAAW/`.
 
-[ADR01](../decisions/adr01-plain-copy-bootstrap.md) already decided
+[ADR01](../../decisions/adr01-plain-copy-bootstrap.md) already decided
 *that* bootstrapping happens by plain copy instead of `git submodule
 add`, and this repo's own `.ai/workflow/` (most recently re-copied by
 hand in the commit that redid it post-P06) is proof the copy itself
@@ -40,7 +40,7 @@ project" section still literally instructs `git submodule add` today
 this project now recommends.
 
 The version-traceability question above is resolved by
-[ADR04](../decisions/adr04-workflow-version-stamp.md) (P02-T01): a
+[ADR04](../../decisions/adr04-workflow-version-stamp.md) (P02-T01): a
 plain-text stamp file, `.ai/workflow-version`, written by the script
 itself beside `.ai/workflow/` on every bootstrap and re-sync.
 
@@ -69,7 +69,7 @@ real copy set is six items, not five, everywhere this Context and the
 task files describe it.
 
 One thing has simplified since ADR01's Consequences were written:
-[ADR03](../decisions/adr03-single-modular-workflow.md) collapsed the
+[ADR03](../../decisions/adr03-single-modular-workflow.md) collapsed the
 "per-profile repos" model into one workflow with optional layers.
 ADR01's own wording ("copy a chosen variant's entire workflow
 content") predates that collapse — there is no variant to choose

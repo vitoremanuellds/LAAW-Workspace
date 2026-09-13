@@ -3,7 +3,7 @@
 ## Context
 
 See the owning phase file,
-[`../phases/p03-workbench-context-temp-lifecycle.md`](../phases/p03-workbench-context-temp-lifecycle.md)
+[phase.md](phase.md)
 — this task is its Plan step 3. Depends on
 [P03-T01](p03-t01-document-workbench-directory.md) (the directory is
 documented) and [P03-T02](p03-t02-repoint-context-temp-templates.md)

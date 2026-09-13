@@ -2,7 +2,7 @@
 
 ## Context
 
-See [`../phases/p06-redesign-laaw-modular-workflow.md`](../phases/p06-redesign-laaw-modular-workflow.md)
+See [phase.md](phase.md)
 for full rationale; not repeated here. Decisions this task implements
 come from [ADR03](../decisions/adr03-single-modular-workflow.md) and
 its amendment. First task in the phase — every later P06 task

@@ -2,7 +2,7 @@
 
 ## Context
 
-See [`../phases/p06-redesign-laaw-modular-workflow.md`](../phases/p06-redesign-laaw-modular-workflow.md)
+See [phase.md](phase.md)
 and [ADR03](../decisions/adr03-single-modular-workflow.md). Depends on
 P06-T01's `reference/scaffold-on-first-use.md` and renamed operation
 table existing first.

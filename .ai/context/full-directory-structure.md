@@ -14,8 +14,13 @@ snapshot, not the source of truth.
 .ai/constitution/   mission.md, techstack.md — optional
 .ai/context/        context.md + whatever fits — optional
 .ai/decisions/      decisions.md + adr{NN}-{name}.md — optional
-.ai/phases/         phases.md (index) + p{NN}-{name}.md, own Context + task table — optional
-.ai/tasks/          tasks.md (orphan index) + p{NN}-t{NN}-{name}.md (phase-linked) + t{NN}-{name}.md (orphan) — the one mandatory layer
+.ai/phases/         phases.md (index) + p{NN}-{name}/phase.md
+                     (phase file in its folder) +
+                     t{NN}-{name}.md (phase-linked tasks in same folder)
+                     — optional
+.ai/tasks/          tasks.md (orphan index) +
+                     t{NN}-{name}.md (orphan, flat) —
+                     the one mandatory layer
 .ai/workbench/      freeform scratch — planning notes, Q&A, prompt drafts; disposable, not part of the permanent record — optional
 .ai/workflow-version generated metadata (see below)
 ```

@@ -3,7 +3,7 @@
 ## Context
 
 See the owning phase file,
-[`../phases/p03-workbench-context-temp-lifecycle.md`](../phases/p03-workbench-context-temp-lifecycle.md),
+[phase.md](phase.md),
 for the full rationale — not repeated here. The concrete decision this
 task documents was already made in
 [ADR02](../decisions/adr02-workbench-directory.md): `.ai/workbench/`

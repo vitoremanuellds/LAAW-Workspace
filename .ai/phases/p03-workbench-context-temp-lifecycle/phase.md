@@ -4,7 +4,7 @@
 
 Part of the mission's third goal (workflow-mechanics evolution — see
 [`mission.md`](../constitution/mission.md#goals)), decided via
-[ADR02](../decisions/adr02-workbench-directory.md), which this phase
+[ADR02](../../decisions/adr02-workbench-directory.md), which this phase
 file expands into concrete plan steps — read the ADR first for the
 actual decision and its reasoning; this section doesn't repeat it.
 

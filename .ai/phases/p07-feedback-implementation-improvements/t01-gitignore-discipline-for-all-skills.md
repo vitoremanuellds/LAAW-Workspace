@@ -2,7 +2,7 @@
 
 ## Context
 
-See [p07-feedback-implementation-improvements](../phases/p07-feedback-implementation-improvements.md).
+See [phase.md](phase.md).
 
 Workflow §12 already states: "Applies only to non-gitignored files:
 locality is a per-layer, per-project choice (§3), and a gitignored

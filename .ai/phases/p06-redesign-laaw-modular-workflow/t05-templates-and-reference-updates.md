@@ -2,7 +2,7 @@
 
 ## Context
 
-See [`../phases/p06-redesign-laaw-modular-workflow.md`](../phases/p06-redesign-laaw-modular-workflow.md)
+See [phase.md](phase.md)
 and [ADR03](../decisions/adr03-single-modular-workflow.md). Depends on
 P06-T01–T04 (references the final skill names and layer conventions
 those tasks establish).
