@@ -23,7 +23,8 @@ primary interface agents use to obtain IDs during operation.
 - Create `LAAW/tools/` directory for Python utility scripts.
 - Write `LAAW/tools/generate_id.py` — executable Python script.
 - Use `LAAW/constants.py` for epoch and format constants.
-- Output only the ID portion (`{minutes:07d}{random:05d}`), one per line.
+- Output only the ID portion (`{minutes:07d}{random:05d}`), one per line,
+  **sorted ascending**.
 - Accept optional `--count` flag (default: 1 — generate one ID if omitted).
 - **No prefix, no name**: the script outputs only the 12-digit ID component.
   The caller prepends the prefix (p/t/d) themselves.
@@ -59,9 +60,13 @@ primary interface agents use to obtain IDs during operation.
      parse arguments (default count=1)
      now = datetime.now(timezone.utc)
      minutes_elapsed = int((now - EPOCH).total_seconds() // 60)
+     ids = []
      for i from 0 to count-1:
        random_value = random.randint(0, RANDOM_MAX - 1)
-       print f"{minutes_elapsed:07d}{random_value:05d}"
+       ids.append(f"{minutes_elapsed:07d}{random_value:05d}")
+     ids.sort()
+     for id in ids:
+       print(id)
      ```
    - Guard: If `__name__ == "__main__"`, run the logic.
 
@@ -73,11 +78,11 @@ primary interface agents use to obtain IDs during operation.
    ```
    Verify output is exactly one 12-digit ID (`{minutes:07d}{random:05d}`).
 
-5. **Verify with --count flag** — Run:
+5. **Verify sorted output** — Run:
    ```bash
    cd LAAW && python3 tools/generate_id.py --count 5
    ```
-   Verify output is 5 unique 12-digit IDs.
+   Verify output is 5 unique 12-digit IDs sorted ascending.
 
 6. **Verify format** — Run:
    ```bash
@@ -104,6 +109,7 @@ primary interface agents use to obtain IDs during operation.
 ### Automatic validations
 
 - Run `cd LAAW && python3 tools/generate_id.py` and verify it prints exactly 1 ID of 12 digits.
+- Run `cd LAAW && python3 tools/generate_id.py --count 5` and verify output is sorted ascending.
 - Run `cd LAAW && python3 tools/generate_id.py --count 10` and verify it prints exactly 10 lines.
 - Run `cd LAAW && python3 tools/generate_id.py 100 | sort -u | wc -l` and verify it prints 100 (all unique).
 - Verify the script is executable (`test -x LAAW/tools/generate_id.py`).
