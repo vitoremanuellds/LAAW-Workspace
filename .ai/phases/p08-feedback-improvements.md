@@ -92,8 +92,9 @@ Relevant prior decisions: [ADR03](../decisions/adr03-single-modular-workflow.md)
 
 ## Automatic validations
 
-- Run the ID generation script with N=10 and verify all IDs are unique
-  and follow the `{minutes}{random}` format (4-digit random).
+- Run the ID generation script with N=10 and verify all IDs are unique,
+  zero-padded to 10 digits for the minutes component, and follow the
+  `{minutes:010d}{random:04d}` format.
 - Grep all `.ai/` markdown files for references to task paths and
   verify they use the new `p{NN}/t{NN}-{name}.md` format.
 - Verify the `define-phase` skill file always includes the task table
