@@ -267,3 +267,8 @@ is a per-layer, per-project choice (§3), and a gitignored layer simply
 has nothing to commit — not a violation of this discipline. Message
 format and type selection are your project's own convention (see your
 `AGENTS.md`); each skill's own commit step says what to stage.
+
+**NEVER commit files that `.gitignore` excludes.** Before every commit,
+run `git diff --cached` and verify no `.gitignore`d files appear in
+the staged list. This is not optional — committing ignored files is a
+violation of this discipline.

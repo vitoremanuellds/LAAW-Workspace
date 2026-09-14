@@ -25,3 +25,11 @@ consistently traced back to this step being skipped.
 deliberate for this repo (see `.ai/decisions/adr01-plain-copy-bootstrap.md`
 once it exists). Don't reintroduce a submodule here without checking
 that ADR first.
+
+## Git Discipline
+
+**NEVER commit files that `.gitignore` excludes.** Before every commit,
+run `git diff --cached` and verify no `.gitignore`d files appear in the
+staged list. This is a hard rule — see
+[`.ai/workflow/workflow.md §12`](.ai/workflow/workflow.md#12-commit00hk1f4discipline)
+for the detailed procedure.
