@@ -50,7 +50,7 @@ linked where needed below.
 .ai/context/        context.md + whatever fits — optional
 .ai/decisions/      decisions.md + adr{NN}-{name}.md — optional
 .ai/phases/         phases.md (index) + p{NN}-{name}.md, own Context + task table — optional
-.ai/tasks/          tasks.md (orphan index) + p{NN}-t{NN}-{name}.md (phase-linked) + t{NN}-{name}.md (orphan) — the one mandatory layer
+.ai/tasks/          tasks.md (orphan index) + p{NN}-{name}/t{minutes:07d}{random:05d}-{name}.md (phase-linked, in phase folder) + t{minutes:07d}{random:05d}-{name}.md (orphan) — the one mandatory layer
 .ai/workbench/      freeform scratch — planning notes, Q&A, prompt drafts; disposable, not part of the permanent record — optional
 ```
 
@@ -61,8 +61,8 @@ How a layer comes into existence on first use: see
 (or run `bootstrap` to set up several at once).
 
 `.ai/tasks/` holds two task-file shapes, distinguished by filename
-alone, each its own ID sequence: `p{NN}-t{NN}-{name}.md` (linked to a
-phase) and `t{NN}-{name}.md` (orphan — no phase, whether this project
+alone, each its own ID sequence: `p{NN}-{name}/t{minutes:07d}{random:05d}-{name}.md` (linked to a
+phase, in phase folder) and `t{minutes:07d}{random:05d}-{name}.md` (orphan — no phase, whether this project
 has no `phases/` at all or this task just doesn't need one). A
 phase-linked task is indexed only in its phase file's task table; an
 orphan task is indexed in `.ai/tasks/tasks.md` — never both, never
