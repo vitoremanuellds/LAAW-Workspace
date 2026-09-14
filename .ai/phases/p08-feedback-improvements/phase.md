@@ -133,6 +133,6 @@ Relevant prior decisions: [ADR03](../../decisions/adr03-single-modular-workflow.
 | P08-T04 | Restructure tasks/ folder | Move phase files into .ai/phases/p{NN}-{name}/phase.md; move phase-linked tasks alongside phase file; orphans flat in .ai/tasks/ | P08-T01 | complete |
 | P08-T05 | Update LAAW files for phase-folder structure | Update workflow.md, skills, templates, references to new phase-folder layout | P08-T01 | complete |
 | P08-T06 | Strengthen .gitignore discipline | Add emphatic agent instructions to workflow and AGENTS.md | P08-T01 | complete |
-| T07 | Update define-phase skill | Always create task table automatically during phase definition | — | awaiting-plan-review |
-| T08 | Update ADR03 | Cross-reference new ID scheme and folder structure | T01 | awaiting-plan-review |
-| T09 | Document the epoch definition | Verify and improve epoch documentation in LAAW/constants.py | T02 | awaiting-plan-review |
+| T07 | Update define-phase skill | Always create task table automatically during phase definition | — | complete |
+| T08 | Update ADR03 | Cross-reference new ID scheme and folder structure | T01 | complete |
+| T09 | Document the epoch definition | Verify and improve epoch documentation in LAAW/constants.py | T02 | complete |

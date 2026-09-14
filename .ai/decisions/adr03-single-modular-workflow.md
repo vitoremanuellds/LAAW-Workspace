@@ -92,6 +92,10 @@ project turns on. `full` and `Light` (and any future named variant)
 collapse into presets of the same underlying design rather than
 separately-versioned document sets.
 
+
+Note: The ID format and folder conventions described in the Decision section
+were further refined in [Phase P08](../phases/p08-feedback-improvements/phase.md)
+for concurrency safety and navigability — see the Evolutions section.
 ## Alternatives Considered
 
 - **Keep the status quo** (one repo per profile, this repo's original
@@ -141,3 +145,20 @@ separately-versioned document sets.
   2026-08-30 note). `Light-Local-Model-Agent-Workflow/`'s submodule,
   left registered as an open question above, is likewise resolved as of
   2026-08-30: fully deregistered, not deprecated-in-place.
+
+## Evolutions
+
+The following refinements were introduced in [Phase P08](../phases/p08-feedback-improvements/phase.md)
+and represent evolutions of this ADR's design decisions, not contradictions:
+
+- **ID format evolution:** ADR03's granularity axis described sequential
+  IDs (`p{NN}-t{NN}-{name}.md`). P08 introduced a collision-safe format
+  `{prefix}{minutes:07d}{random:05d}-{name}` (e.g., `p00525960123456-name`) with
+  a 7-digit zero-padded minutes-elapsed component and 5-digit random component.
+  Defined in `LAAW/tools/generate_id.py` and `LAAW/constants.py`.
+  The three-axis design (presence, granularity, locality) remains unchanged.
+- **Task folder structure evolution:** ADR03 specified flat task files in
+  `.ai/tasks/`. P08 introduced phase-folders: phase-linked tasks now live under
+  `.ai/phases/p{NN}-{name}/t{NN}-{name}.md` alongside their phase file, while
+  orphan tasks remain flat in `.ai/tasks/`. This is a deliberate navigability
+  tradeoff that preserves the flat-orphan convention ADR03 established.
