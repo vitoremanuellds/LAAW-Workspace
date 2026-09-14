@@ -21,11 +21,11 @@ Ensure the `define-phase` skill always creates the task table (with header row) 
 
 ### Files to modify
 
-- `.ai/workflow/skills/define-phase/SKILL.md` — Step 2 of the skill's procedure currently says to leave the task table empty. Update to always include the header row `| ID | Title | Purpose | Depends on | Status |`.
+- `LAAW/skills/define-phase/SKILL.md` — Step 2 of the skill's procedure currently says to leave the task table empty. Update to always include the header row `| ID | Title | Purpose | Depends on | Status |`.
 
 ### Steps
 
-1. Read the current `.ai/workflow/skills/define-phase/SKILL.md` file.
+1. Read the current `LAAW/skills/define-phase/SKILL.md` file.
 2. Locate Step 2 in the Procedure section where the phase file is written. The current text says:
    ```
    - **Tasks** — a table, initially with **no rows** (or, if
@@ -45,7 +45,7 @@ Ensure the `define-phase` skill always creates the task table (with header row) 
 
 ### Automatic validations
 
-- Grep `.ai/workflow/skills/define-phase/SKILL.md` for the task table header pattern `| ID | Title | Purpose | Depends on | Status |` and confirm it appears in the Step 2 description.
+- Grep `LAAW/skills/define-phase/SKILL.md` for the task table header pattern `| ID | Title | Purpose | Depends on | Status |` and confirm it appears in the Step 2 description.
 - Confirm the word "empty" no longer appears in the context of "task table" in the Step 2 description (replaced with "header only" or similar).
 
 ### Manual validations
