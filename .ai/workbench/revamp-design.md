@@ -26,61 +26,186 @@ simplifications decided so far. Working draft — iterate freely.
 ├── workflow/        installed workflow (read-only, synced wholesale)
 ├── info.md          policy only: mode + per-gate authority (unchanged in spirit)
 ├── context/         THE one context layer (merged)
-│   ├── context.md          mission + techstack + index of the rest
-│   ├── decisions.md        index of decisions
-│   ├── adr-NN-*.md         one file per decision
-│   └── *.md                architecture / invariants / whatever fits
+│   ├── context.md          mission + techstack + the index table
+│   ├── c-{ID}.md           one file per context item (code description,
+│   │                       decision/ADR, architecture, invariants, ...)
+│   └── index-*.md          (optional) sub-index tables, only when
+│                           context.md's index would grow too big
+│                           (exempt from ids — they are indexes)
 ├── tasks/
-│   ├── tasks.md             index: every task, one row, status + owner
-│   └── t-NN-*.md            task files (may define subtasks)
+│   ├── tasks.md             root index: one row per top-level task
+│   │                        (id, name, description, depends-on, status)
+│   ├── t{ID}.md             a task with NO subtasks (a leaf)
+│   └── t{ID}/               a task WITH subtasks (a folder)
+│       ├── t{ID}.md         the parent task — same id as the folder,
+│       │                    same layout as a leaf t{ID}.md
+│       └── t{ID}*.md / ...  each subtask is its own file (its own id);
+│                            a subtask with subtasks becomes a folder
+│                            the same way
 └── workbench/       freeform scratch (unchanged in spirit)
 ```
 
 - `context.md` is a **small index + the mission/techstack core** — the
   first thing an agent reads; everything else is reached by link.
-  Small files, links, lazy reading — no single big file.
+  Small files, links, lazy reading — no single big file. Its index is
+  a table (see [Context index](#context-index)).
+- **The task folder rule is recursive.** Every task id is a globally
+  unique `t{ID}` (see [IDs](#ids)). A leaf task is a single file
+  `tasks/t{ID}.md`. The moment it has subtasks it *becomes a folder*
+  `tasks/t{ID}/` whose `t{ID}.md` (named after the folder) is the
+  parent task and whose other entries are its subtasks. A subtask is
+  just a task with its own unique id, so it follows the same rule:
+  leaf = file, has-subtasks = folder with its own `t{ID}.md`. There is
+  no third shape.
 - Presence rules collapse: `tasks/` is mandatory; `context/` is
   effectively mandatory (even one small file is enough); `workbench/`
   optional. No more five-axis presence matrix — the axes
   (presence/granularity/locality) survive as: *what you keep in git is
   up to the project* and *a task opts into subtasks or not*.
 
+## IDs
+
+Every **addressable file** — every task file and every context file —
+gets a **globally unique id**, so references work without collisions and
+without scoped or renumbered ids. **Exempt:** index files
+(`context.md`, `tasks.md`, and `index-*.md` sub-indexes) and everything
+under `workbench/` — those are not addressable units.
+
+An id has **two components**, in this order:
+
+1. **timestamp** — whole **minutes elapsed since a fixed project epoch**,
+   zero-padded to **7 digits**.
+2. **random** — **5 random digits** (`00000`–`99999`), to break ties
+   between ids minted in the same minute.
+
+- **Full form:** `<prefix>-xxx-yyyy-zzzzz` — dash-separated for
+  readability: the 7-digit timestamp split as **3+4** (`xxx-yyyy`), then
+  the 5-digit random (`zzzzz`). e.g. `t005-4321-48213` (task) or
+  `c005-4321-48213` (context). The dashes are part of the id — use this
+  exact shape everywhere.
+- **Prefix:** `t` for tasks, `c` for context. Tasks and context draw
+  from independent id spaces; the id *is* the filename stem, so a task's
+  folder and parent file share it — `t{ID}/t{ID}.md` — and a context
+  file is just `c{ID}.md`.
+- **Epoch:** a fixed project constant (e.g. `2025-01-01T00:00:00Z`).
+  Record it once (in `context.md`) so any agent can compute the
+  timestamp. With 7 digits the ceiling is 9,999,999 min ≈ **19 years**
+  (2025 → ~2044); the id is minted once and never renumbered or
+  re-scoped.
+- **Collision math:** the random part is a *per-minute* namespace of 10⁵.
+  Two files collide only if they are minted in the same minute *and*
+  draw the same 5 digits. With 10–20 concurrent authors that is well
+  under 1% per crowded minute, and only if many files land in the same
+  minute — accepted, since this is **not** a PM tool and heavy concurrent
+  minting is out of scope. One knob if it ever matters: widen the random
+  part (6–7 digits → 10⁶+ ≈ never).
+
 ## Task model
 
 A **task** is one mechanical unit of work, written small enough that
 its spec fits comfortably in a context window.
 
-Task file, compressed:
+A task file has this layout, in this order:
 
 ```markdown
-# t-NN-name
-**Status:** in-progress
-**Owner:** (who/which agent, if a team)
-**Spec:**            ← narrow, precise (anti-hallucination)
-  - touches exactly these files/areas
-  - inputs, expected output, done-when (acceptance)
-  - out of scope
-**Subtasks:**        ← optional; none = task is its own subtask
-  | # | what | status |
-  |---|------|--------|
-  | 1 | ...  | done   |
-**Handoff:**        ← last session's state, ≤ few lines
-  last: <what's done, what's next, gotchas>
+# <name>
+**ID:** t{ID}       **Status:** in-progress
+
+## Description
+<what this task is and why — the intent, one short paragraph>
+
+## TL;DR
+<the fastest possible orientation to the task — what it does, in a
+ line or two, for an agent deciding whether to open the full file>
+
+## Context
+### Before
+<the knowledge/situation the agent needs to START this task — state of
+ the relevant code, constraints, assumptions. Not a work log.>
+### After
+<the context/understanding this task PRODUCES once implemented — what
+ the agent now knows that wasn't obvious before. This is earned
+ knowledge, not a record of effort. Propagated to context/ (c-{ID}) if
+ it
+ is useful beyond this task.>
+
+## In scope
+- <the changes this task makes; names the files/areas touched>
+
+## Out of scope
+- <what is explicitly NOT touched, and what "done" concretely means>
+
+## Steps
+1. <ordered step>
+2. <ordered step>
+   - <pseudocode here where it helps, otherwise plain prose>
+
+## Validations
+- <how to check done — the mechanical checks + the judgment checks>
+
+## Subtasks            ← optional; omit for a leaf task
+| id | name | description | depends on | status |
+|----|------|-------------|------------|--------|
 ```
 
-- **Subtasks** are table rows in the task file — like the old
-  phase-task table, but owned by the task. A subtask that outgrows a
-  row gets its own file linked from the row. Task ≈ old phase file;
-  subtask ≈ old task file. Nothing else changes conceptually.
-- **Narrow specs are the anti-hallucination mechanism.** A task file
-  must name the files it touches, what "done" concretely looks like,
-  and what is out of scope. An agent that needs more information than
-  the file + its links holds should stop and ask, not invent.
-- **Handoff section is the session-persistence mechanism.** When a
-  session ends mid-task, the agent leaves ≤ a few lines: what's done,
-  what's next, gotchas. A new session starts by reading the task file —
-  enough to resume without replaying history. (Optional: a single
-  shared `workbench/session.md` for cross-task session notes.)
+- **Subtasks are their own files, always** — never inline detail. The
+  `Subtasks` table in the parent only *indexes* them (one row each);
+  the substance lives in a subtask file following the folder rule above.
+  The table columns are the task columns: **id, name, description,
+  depends on, status.**
+- **Narrow specs are the anti-hallucination mechanism.** In scope names
+  the files touched; out of scope names what "done" concretely means
+  and what is left alone. An agent that needs more information than the
+  file + its links holds should stop and ask, not invent.
+- **Context (Before/After) replaces "handoff."** It is *not* a labor
+  log ("what I did / what's next"). It is the **context the task
+  established**: Before is what you needed to start; After is what you
+  now understand as a result. A resuming agent reads Before+After to
+  pick up without replaying history, and After is the candidate for
+  promotion into `context/` when it outlives the task. (Optional:
+  a single shared `workbench/session.md` for transient cross-task
+  session notes that are not yet durable context.)
+
+## Task index (root task folder)
+
+`tasks/tasks.md` is the index of the **root task folder** — one row per
+*top-level* task, using the same column shape as a task's subtask table:
+
+| id | name | description | depends on | status |
+|----|------|-------------|------------|--------|
+| t-01 | ...  | <short> | — | in-progress |
+
+It points at the task's file or folder (`t{ID}.md` / `t{ID}/`); it does
+not duplicate their contents. Subtasks are *not* listed here — each
+lives only in its parent's subtask table (one status owner per fact).
+
+## Context index
+
+`context.md` opens with the **mission + techstack core inline**, then an
+**index table** over the `c-{ID}` files. Mission and techstack are
+themselves context — essential to understanding the project, and small
+enough to keep inline in `context.md` rather than split out. Every
+other context file has its own **id** (`c{ID}`):
+
+| id | name | description | relation | superseded by |
+|----|------|-------------|----------|---------------|
+| c-{ID} | ... | <short> | c-{ID} | — |
+
+- **Files:** each `c-{ID}.md` is one unit of context — either a general
+  description/information about the code (architecture, invariants,
+  conventions) or a **decision** (the reason it was made + the approach
+  taken). No separate `decisions.md` — decisions are context rows too.
+- **relation** names the *other* context file(s) whose information is
+  related to this row's (by convention the link is bidirectional: if A
+  relates to B, both point at each other).
+- **superseded by** names the file that supersedes this one — a
+  decision is never deleted, it is superseded by a later `c-{ID}`
+  (keeps the supersede-not-delete rule).
+- **Lazy reading / size:** the index can **point to another index**
+  (`index-*.md`, exempt from ids) if it would grow too big, and always
+  points out
+  to the individual context files it indexes. Small files, links, no
+  big blob.
 
 ## Gates & statuses
 
@@ -116,14 +241,16 @@ not-started → planned → in-progress → done
   whole while subtasks are picked up by different people/agents.
 - **Git is the sync layer:** commit each draft/step; review happens via
   diff, as before. No locks beyond the Owner field.
-- **Handoff lines matter more in a team:** they are what the next
-  person (human or agent) reads before touching the task.
+- **Context (Before/After) matters more in a team:** it is what the
+  next person (human or agent) reads before touching the task — and
+  where a deviation from the plan gets recorded if it isn't a full
+  replan.
 
 ## What each principle buys
 
 | Concern | Mechanism |
 |---|---|
-| Limited context window | small files + index `context.md` + links + "read only this file" rule; handoff lines instead of session history |
+| Limited context window | small files + index `context.md` + links + "read only this file" rule; Context Before/After instead of session history |
 | Hallucination | narrow task specs (files, done-when, out-of-scope); ask-don't-invent rule |
 | Teams | owner per task, file-overlap visibility, subtask parallelism, git diff review |
 | Not source of truth | task files are guidance; acceptance is checked against the code/behavior, not the doc |
@@ -131,26 +258,38 @@ not-started → planned → in-progress → done
 | Compressed info | everything small by design; anything long gets split + linked |
 | Lazy reading | index files (`context.md`, `tasks.md`) hold only pointers + status |
 
-## Open questions
+## Resolved (from the revamp discussion)
 
-1. **Subtask files:** worth allowing subtasks to become their own files,
-   or keep subtasks strictly as table rows (force the task to be split
-   into two tasks instead)?
-2. **`context.md` contents:** mission + techstack + index inline (as
-   proposed), or mission/techstack as their own files linked from
-   `context.md`? (Inline keeps it to one read; linked keeps the file
-   smaller. Tension between two of our own rules.)
-3. **Decisions index:** keep a `decisions.md` index, or list decisions
-   in `context.md`'s index section too (one index to rule them all)?
-4. **Orphan tasks vs. tasks:** with phases gone, every task is flat in
-   `tasks.md`. Does "planning scope" (the old phase plan) need *any*
-   artifact, or is it just a task with a coarse spec and no subtasks
-   yet?
-5. **Handoff location:** inside the task file (one per task) vs. a
-   single shared session file (one per project)?
-6. **Bootstrap/skills:** do we keep the skill-per-operation shape, or
-   collapse to fewer skills (e.g. plan / implement / review /
-   context)?
-7. **Deviations:** with no phase layer, where does "work diverged from
-   plan" land? Simplest: replan the task file + note in handoff;
-   ADR only if architecturally significant. Confirm.
+- **Subtasks are always separate files**, indexed in the parent's table
+  (see the folder rule above).
+- **Decisions live in the single `context.md` index** as `c-{ID}` rows
+  with `relation` / `superseded by`; there is no standalone
+  `decisions.md`.
+- **Context (Before/After) lives inside the task file** — the old
+  handoff is reframed as earned context, not a labor log. A shared
+  `workbench/session.md` remains an optional extra for transient notes
+  only.
+- **IDs are timestamp+random, globally unique, not scoped.** Every file
+  is `t{ID}`/`c{ID}`; a folder and its parent file share one id
+  (`t{ID}/t{ID}.md`). No scoped/renumbered ids (see [IDs](#ids)).
+- **Mission + techstack are context, kept inline** in `context.md` —
+  they are essential to understanding the project and small enough not
+  to warrant their own files.
+- **Deviations create decisions.** Any deviation from an approved plan
+  is recorded as a **decision** (`c-{ID}` ADR row) — the deviation
+  itself is part of that decision (what changed, why, and the approach
+  taken). Replan the task file to match, and the decision row is the
+  durable trace. There is no separate "deviation" state or artifact.
+- **No orphan-task concept / no planning artifact.** A task with no
+  subtasks is just a task in `tasks/`; a *phase* is simply a task with
+  subtasks. Planning scope is the parent task's `Steps` + subtask
+  table — no extra artifact. **Breaking a prompt into a single task vs.
+  task-with-subtasks is the agent's/human's judgment**, made when
+  drafting (and revisited at the plan-review gate if the breakdown looks
+  off).
+- **Skills stay per-operation, with a router.** Keep one skill per
+  operation (plan / implement / review / context, ...). In front of them
+  sits a **router skill**: the user states what they want in plain
+  terms, and the router points the agent to the correct operation skill
+  — the user does **not** have to name a skill. This is routing, not a
+  fourth skill doing the operation's work.

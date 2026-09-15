@@ -44,12 +44,16 @@ worse, and LAAW exists to counter each:
   always means two distinct checks: mechanical validation (does it meet
   requirements) and judgment review (is it appropriate and coherent).
   They are never merged or skipped silently.
-- **Deviations are first-class.** When work diverges from an approved
-  plan, that is a named, recorded state with its own lifecycle and
-  owner — not a silent drift.
+- **Deviations are first-class, and are decisions.** When work diverges
+  from an approved plan, that is a named, recorded state with its own
+  lifecycle and owner — not a silent drift. The deviation itself is
+  captured *as a decision*: what changed, why, and the approach taken.
+  There is no separate deviation artifact; the decision is the durable
+  trace, and the plan is replanned to match it.
 - **Deliberate decisions leave durable traces (ADRs).** A decision
   written when made, by whoever owned the scope — and superseding
-  rather than deleting its predecessor.
+  rather than deleting its predecessor. A deviation's decision
+  supersedes the plan it deviated from.
 - **Context flows upward, deliberately.** Facts earned in fine-grained
   work are evaluated for promotion to coarser levels only at
   completion boundaries — never written sideways or scattered.

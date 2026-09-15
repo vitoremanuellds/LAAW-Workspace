@@ -1,2 +1,5 @@
 # .ai/workbench/
 .agents/skills/
+
+# Python
+__pycache__/
