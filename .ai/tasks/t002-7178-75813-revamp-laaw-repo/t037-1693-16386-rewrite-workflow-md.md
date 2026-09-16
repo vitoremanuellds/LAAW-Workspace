@@ -1,6 +1,6 @@
 # Rewrite `workflow.md`
 
-**ID:** t037-1693-16386       **Status:** not-started
+**ID:** t037-1693-16386       **Status:** validating
 
 ## Description
 
