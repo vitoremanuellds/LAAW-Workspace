@@ -1,6 +1,6 @@
 # Revamp the LAAW repo to the simplified design
 
-**ID:** t002-7178-75813       **Status:** planned
+**ID:** t002-7178-75813       **Status:** done
 
 ## Description
 
@@ -219,11 +219,11 @@ Judgment (at `task-completion-review`):
 | t037-1693-16386 | rewrite-workflow-md | Full rewrite of workflow.md to the two-gate, no-phase, single-context process | t037-1693-02727 | done |
 | t037-1693-17315 | rewrite-core-skills | define-task / implement-task / validate-work / review-work; delete define-phase | t037-1693-16386 | done |
 | t037-1693-28735 | rewrite-context-skills | create-constitution / build-context / propagate-context / bootstrap for the single context folder | t037-1693-16386 | done |
-| t037-1693-50470 | add-router-skill | New router skill: plain-language request → correct operation skill | t037-1693-16386 | not-started |
-| t037-1693-59324 | update-reference-docs | Rewrite all five reference/ files to the new model | t037-1693-16386 | not-started |
-| t037-1693-63951 | update-templates | New task/context templates; drop decisions/adr templates | t037-1693-16386 | not-started |
-| t037-1693-66263 | update-readme | README rewrite to the new design | t037-1693-16386 | not-started |
-| t037-1693-73540 | crossplatform-python-sync-scripts | Move + rewrite sync-workflow/sync-skills as tools/sync-workflow.py / tools/sync-skills.py — cross-platform Python (Windows/macOS/Linux), shipping the whole tools/ incl. .epoch | t037-1693-02727 | not-started |
+| t037-1693-50470 | add-router-skill | New router skill: plain-language request → correct operation skill | t037-1693-16386 | done |
+| t037-1693-59324 | update-reference-docs | Rewrite all five reference/ files to the new model | t037-1693-16386 | done |
+| t037-1693-63951 | update-templates | New task/context templates; drop decisions/adr templates | t037-1693-16386 | done |
+| t037-1693-66263 | update-readme | README rewrite to the new design | t037-1693-16386 | done |
+| t037-1693-73540 | crossplatform-python-sync-scripts | Move + rewrite sync-workflow/sync-skills as tools/sync-workflow.py / tools/sync-skills.py — cross-platform Python (Windows/macOS/Linux), shipping the whole tools/ incl. .epoch | t037-1693-02727 | done |
 
 *(Subtask files are drafted as `t037-1693-02727-new-id-system.md` etc.
 under this parent's folder when implementation starts — filename is
