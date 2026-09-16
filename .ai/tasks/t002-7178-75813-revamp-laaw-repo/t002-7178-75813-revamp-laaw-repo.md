@@ -216,7 +216,7 @@ Judgment (at `task-completion-review`):
 | id | name | description | depends on | status |
 |----|------|-------------|------------|--------|
 | t037-1693-02727 | new-id-system | Rewrite generate-id.py to the dash-separated timestamp+random format; epoch handling | — | done |
-| t037-1693-16386 | rewrite-workflow-md | Full rewrite of workflow.md to the two-gate, no-phase, single-context process | t037-1693-02727 | awaiting-plan-review |
+| t037-1693-16386 | rewrite-workflow-md | Full rewrite of workflow.md to the two-gate, no-phase, single-context process | t037-1693-02727 | validating |
 | t037-1693-17315 | rewrite-core-skills | define-task / implement-task / validate-work / review-work; delete define-phase | t037-1693-16386 | not-started |
 | t037-1693-28735 | rewrite-context-skills | create-constitution / build-context / propagate-context / bootstrap for the single context folder | t037-1693-16386 | not-started |
 | t037-1693-50470 | add-router-skill | New router skill: plain-language request → correct operation skill | t037-1693-16386 | not-started |
