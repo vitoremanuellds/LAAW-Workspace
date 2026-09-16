@@ -1,13 +1,9 @@
 # Tasks
 
-Index/permanent record for **orphan** tasks only — tasks with no phase
-parent. Phase-linked tasks stay indexed solely in their own phase
-file's task table, never duplicated here (see
-[ADR03](../decisions/adr03-single-modular-workflow.md)).
+Index/permanent record for root-level tasks. Subtask statuses live in
+their parent task file's Subtasks table, never duplicated here.
 
 | ID | Title | Purpose | Depends on | Status |
 |---|---|---|---|---|
-| T01 | Split `workflow.md`'s per-layer detail into `reference/` files | Get `workflow.md` back to its pre-P06 size without cutting real content | — | awaiting-plan-review |
-| T02 | Fix LAAW's remaining "submodule" mislabel | Update `LAAW/workflow.md` §3 and `build-context` skill to say "plain copy" instead of "submodule" | — | complete |
-| T03 | Explicit gate-skip for missing layers | Add explicit statement to README.md and workflow.md that gates for non-existent layers are skipped | — | complete |
 | [t002-7178-75813](t002-7178-75813-revamp-laaw-repo/t002-7178-75813-revamp-laaw-repo.md) | revamp-laaw-repo | Rewrite LAAW's workflow.md, skills, reference/, templates/, id tool, README, and sync scripts to the revamped single-process design | — | planned |
+| [t003](t003-migrate-workspace-to-new-model/t003-migrate-workspace-to-new-model.md) | migrate-workspace-to-new-model | Migrate LAAW-Workspace's own .ai/ tree to the revamped single-process design (merge constitution/decisions/phases into context, flatten phases→tasks, update info.md, re-sync workflow) | t002-7178-75813 | not-started |

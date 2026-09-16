@@ -1,0 +1,182 @@
+# Migrate LAAW-Workspace's .ai/ to the new simplified design
+
+**ID:** t003-XXXX-XXXXX       **Status:** planned
+
+## Description
+
+Migrate LAAW-Workspace's own `.ai/` tree to match the revamped LAAW
+design that t002-7178-75813 just completed: one context layer
+(merged), tasks-with-subtasks instead of phases, two gates, the new
+id format, and the cross-platform Python sync scripts. This consumes
+the output of t002-7178-75813 — the LAAW submodule has been updated
+to the revamped design.
+
+**Out of scope** (from t002-7178-75813): migrating this workspace's
+`.ai/` tree was deliberately deferred to this follow-up task.
+
+## TL;DR
+
+- Merge `constitution/` into `context/` (mission + techstack inline)
+- Merge `decisions/` into `context/` (ADRs → c-{ID}-{name}.md rows)
+- Delete `phases/` — flatten phase-linked tasks into tasks-with-subtasks
+- Restructure `tasks/` from phase-linked to new format
+- Update `info.md` (remove `delegated` mode)
+- Re-sync `.ai/workflow/` from new LAAW
+- Update `.agents/skills/` (add router, remove define-phase)
+- Update `AGENTS.md` to new paths
+- Clean up `workbench/`
+
+## Context
+
+### Before
+
+LAAW-Workspace's `.ai/` uses the old three-layer model:
+- `.ai/constitution/` — mission.md, techstack.md
+- `.ai/context/` — architecture.md, purpose.md, context.md, 3 c-{ID}
+  context items
+- `.ai/decisions/` — 5 ADR files (adr01–adr08) + decisions.md index
+- `.ai/phases/` — 8 phases (P01–P08) with phase-linked tasks
+- `.ai/tasks/` — 3 orphan tasks + 1 parent task with subtasks
+- `.ai/workbench/` — 6 scratch files
+- `.ai/workflow/` — stale workflow (pre-revamp: no router, no
+  Python sync scripts, no tools/ folder)
+- `.ai/info.md` — has `delegated` mode reference
+- `.agents/skills/` — stale skills (no router, has define-phase)
+- `AGENTS.md` — references stale paths and concepts
+
+### After
+
+One context layer (`context/` with inline mission/techstack),
+tasks-with-subtasks (no phases), two gates, new id format, router
+skill, Python sync scripts.
+
+## In scope
+
+### 1. Merge constitution → context
+
+- Read `constitution/mission.md` and `constitution/techstack.md`
+- Create/rewrite `context/context.md` with inline `## Mission` and
+  `## Techstack` sections (per the new template format)
+- Add all existing context files to the new `context.md` index table
+  with columns: File, Description, Relation, Superseded by
+- Delete `constitution/` folder
+
+### 2. Merge decisions → context
+
+- Read each ADR file from `decisions/`
+- Convert each to a `c-{ID}-{name}.md` context item in `context/`
+  using the new decision shape (Decision/Context/Alternatives/
+  Consequences)
+- Update `context.md` index table with all decision context items
+- Delete `decisions/` folder
+
+### 3. Flatten phases → tasks-with-subtasks
+
+- Read `phases/phases.md` and all phase files
+- For each phase that has completed tasks:
+  - Convert the phase into a parent task file
+  - Move phase-linked tasks into the parent's subtask folder
+  - Update task IDs to the new format (t{xxx-yyyy-zzzzz})
+  - Update status values (remove `awaiting-plan-review`, use
+    `planned`/`in-progress`/`done`)
+- For phases with no tasks or that are obsolete:
+  - Delete the phase file
+  - Remove from `phases.md`
+- Delete `phases/` folder entirely
+- Update `tasks/tasks.md` to reference the new parent tasks
+
+### 4. Restructure tasks
+
+- Update orphan tasks (t01, t02, t03) to new id format if they have
+  new IDs; update their status to the new enum
+- Update the parent task (t002-7178-75813) file to the new layout
+  (already in new format from t002, just update references)
+- Update all cross-references in task files to new paths
+
+### 5. Update info.md
+
+- Remove `delegated` from the mode comment
+- Remove `delegated` mode description from overrides section
+- Update to match the new template format
+
+### 6. Re-sync .ai/workflow/
+
+- Run `sync-workflow.py` from the updated LAAW submodule to refresh
+  `.ai/workflow/` with the new design
+- Verify: router skill present, define-phase removed, tools/
+  present, Python sync scripts present
+
+### 7. Update .agents/skills/
+
+- Run `sync-skills.py` to mirror the new skills
+- Verify: router skill present, define-phase removed
+
+### 8. Update AGENTS.md
+
+- Update the AGENTS.md snippet to reference the router skill for
+  bootstrap
+- Update the workflow.md reference to the new path
+- Update the commit discipline reference to the new section path
+  (§12 instead of §12-commit00hk1f4discipline)
+
+### 9. Clean up workbench/
+
+- Remove old scratch files that are no longer relevant:
+  `p01-profile-planning.md`, `feedback.md`, `idea.md`
+- Keep relevant files: `README.md`, `revamp-context.md`,
+  `revamp-design.md`
+- Update `workbench/README.md` if needed
+
+### 10. Update .ai/workflow-version
+
+- The re-sync from step 6 will update this automatically
+
+## Out of scope
+
+- Changes to the LAAW repo itself — that was t002-7178-75813
+- Changes to the LAAW submodule commit — it already points to the
+  revamped design
+- Creating new context content that doesn't exist yet — only
+  migrating what's already in constitution/decisions/phases
+- Updating any consuming project's `.ai/` — only this workspace
+
+## Steps
+
+1. **Merge constitution → context:** Read mission.md and techstack.md,
+   write them inline into context/context.md, update the index table,
+   delete constitution/.
+2. **Merge decisions → context:** Convert each ADR to a c-{ID}-{name}.md
+   context item, update context.md index, delete decisions/.
+3. **Flatten phases → tasks:** Convert phase-linked tasks to
+   tasks-with-subtasks, update IDs to new format, update statuses,
+   delete phases/.
+4. **Restructure tasks:** Update orphan task IDs/statuses, update
+   parent task references, update tasks/tasks.md.
+5. **Update info.md:** Remove delegated mode, match new template.
+6. **Re-sync .ai/workflow/:** Run sync-workflow.py from LAAW.
+7. **Update .agents/skills/:** Run sync-skills.py.
+8. **Update AGENTS.md:** New paths, router reference, new section ref.
+9. **Clean up workbench/:** Remove obsolete files.
+10. **Validate:** Grep for stale concepts, verify all files exist,
+    verify no .gitignore'd files staged.
+
+## Validations
+
+- `constitution/`, `decisions/`, `phases/` are all deleted
+- `context/context.md` has inline Mission + Techstack + index table
+- All ADRs are now `c-{ID}-{name}.md` context items in context/
+- No phase-linked tasks remain; all tasks use new id format
+- `info.md` has no `delegated` mode reference
+- `.ai/workflow/` has router skill, no define-phase, tools/ present
+- `.agents/skills/` has router skill, no define-phase
+- `AGENTS.md` references router for bootstrap, new section paths
+- Grep for `phase` (as a layer), `constitution/` (as a folder),
+  `decisions/` (as a folder), `awaiting-plan-review`, `reviewing`
+  (as status), `delegated`, `define-phase`, `sync-workflow.sh` —
+  all gone or explained
+- No `.gitignore`d files in git staging area
+
+## Subtasks
+
+*(To be created during task planning — each step above becomes a
+subtask file under this folder)*
