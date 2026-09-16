@@ -189,7 +189,7 @@ skill, Python sync scripts.
 |----|------|-------------|------------|--------|
 | t037-2379-60933 | merge-constitution-into-context | Merge constitution/mission.md and constitution/techstack.md inline into context/context.md, update index table, delete constitution/ | — | done |
 | t037-2379-29422 | merge-decisions-into-context | Convert each ADR to a c-{ID}-{name}.md context item, update context.md index, delete decisions/ | t037-2379-60933 | done |
-| t037-2379-45184 | flatten-phases-into-tasks | Convert phase-linked tasks to tasks-with-subtasks, update IDs to new format, update statuses, delete phases/ | t037-2379-29422 | planned |
+| t037-2379-45184 | flatten-phases-into-tasks | Convert phase-linked tasks to tasks-with-subtasks, update IDs to new format, update statuses, delete phases/ | t037-2379-29422 | done |
 | t037-2379-62995 | restructure-tasks | Update orphan task IDs/statuses, update parent task references, update tasks/tasks.md | t037-2379-45184 | not-started |
 | t037-2379-12115 | update-info-md | Remove delegated mode from info.md, match new template | t037-2379-62995 | not-started |
 | t037-2379-58844 | re-sync-workflow | Run sync-workflow.py from updated LAAW to refresh .ai/workflow/ | t037-2379-12115 | not-started |
