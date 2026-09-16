@@ -1,6 +1,6 @@
 # Rewrite context skills
 
-**ID:** t037-1693-28735       **Status:** validating
+**ID:** t037-1693-28735       **Status:** reviewing
 
 ## Description
 
