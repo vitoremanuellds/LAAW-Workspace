@@ -2,6 +2,22 @@
 
 **ID:** t037-1693-50470       **Status:** done
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [Description](#description)
+  - [TL;DR](#tldr)
+  - [Context](#context)
+    - [Before](#before)
+    - [After](#after)
+  - [In scope](#in-scope)
+  - [Out of scope](#out-of-scope)
+  - [Steps](#steps)
+  - [Validations](#validations)
+
+</details>
 ## Description
 
 Create the router skill (`LAAW/skills/route/SKILL.md`) — a plain-language

@@ -2,6 +2,17 @@
 
 **ID:** t037-2386-60598       **Status:** done
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [Description](#description)
+  - [TL;DR](#tldr)
+  - [Steps](#steps)
+  - [Validations](#validations)
+
+</details>
 ## Description
 
 Update LAAW/README.md's "Bootstrapping into a project" and "Updating

@@ -2,6 +2,17 @@
 
 **ID:** t037-2386-20798       **Status:** done
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [Description](#description)
+  - [TL;DR](#tldr)
+  - [Steps](#steps)
+  - [Validations](#validations)
+
+</details>
 ## Description
 
 Change define-task default behavior from "draft all in scope" to

@@ -1,5 +1,20 @@
 # Context
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [Mission](#mission)
+    - [What](#what)
+    - [Why](#why)
+    - [Who](#who)
+    - [Goals](#goals)
+    - [Boundaries](#boundaries)
+  - [Techstack](#techstack)
+  - [Index](#index)
+
+</details>
 ## Mission
 
 ### What

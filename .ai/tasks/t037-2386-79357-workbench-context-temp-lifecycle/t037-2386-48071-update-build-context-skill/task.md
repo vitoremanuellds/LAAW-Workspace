@@ -2,6 +2,17 @@
 
 **ID:** t037-2386-48071       **Status:** done
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [Description](#description)
+  - [TL;DR](#tldr)
+  - [Steps](#steps)
+  - [Validations](#validations)
+
+</details>
 ## Description
 
 Update build-context-full/SKILL.md: every reference to

@@ -2,6 +2,17 @@
 
 **ID:** t037-2386-07232       **Status:** done
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [Description](#description)
+  - [TL;DIR](#tldir)
+  - [Steps](#steps)
+  - [Validations](#validations)
+
+</details>
 ## Description
 
 Dogfood: run the new script against this repo's own project root

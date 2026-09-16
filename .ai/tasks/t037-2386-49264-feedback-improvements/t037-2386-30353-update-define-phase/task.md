@@ -2,6 +2,17 @@
 
 **ID:** t037-2386-30353       **Status:** done
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [Description](#description)
+  - [TL;DIR](#tldir)
+  - [Steps](#steps)
+  - [Validations](#validations)
+
+</details>
 ## Description
 
 Ensure the task table is always created automatically during phase

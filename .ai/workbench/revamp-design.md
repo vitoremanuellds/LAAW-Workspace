@@ -4,6 +4,33 @@ Companion to [`revamp-context.md`](revamp-context.md) (the abstract ideas
 this must keep). This draft proposes a concrete new design based on the
 simplifications decided so far. Working draft — iterate freely.
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [Guiding decisions (from the revamp discussion)](#guiding-decisions-from-the-revamp-discussion)
+  - [Proposed structure](#proposed-structure)
+  - [IDs](#ids)
+  - [Task model](#task-model)
+  - [Description](#description)
+  - [TL;DR](#tldr)
+  - [Context](#context)
+    - [Before](#before)
+    - [After](#after)
+  - [In scope](#in-scope)
+  - [Out of scope](#out-of-scope)
+  - [Steps](#steps)
+  - [Validations](#validations)
+  - [Subtasks            ← optional; omit for a leaf task](#subtasks-optional-omit-for-a-leaf-task)
+  - [Task index (root task folder)](#task-index-root-task-folder)
+  - [Context index](#context-index)
+  - [Gates & statuses](#gates-statuses)
+  - [Teams (many developers)](#teams-many-developers)
+  - [What each principle buys](#what-each-principle-buys)
+  - [Resolved (from the revamp discussion)](#resolved-from-the-revamp-discussion)
+
+</details>
 ## Guiding decisions (from the revamp discussion)
 
 1. **No phases.** A phase was just a super-task with subtasks, so: only

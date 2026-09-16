@@ -2,6 +2,27 @@
 
 **ID:** t037-1693-16386       **Status:** done
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [Description](#description)
+  - [TL;DR](#tldr)
+  - [Context](#context)
+    - [Before](#before)
+    - [After](#after)
+  - [In scope](#in-scope)
+  - [Out of scope](#out-of-scope)
+  - [Files to modify](#files-to-modify)
+  - [Files to create](#files-to-create)
+  - [Steps](#steps)
+  - [Dependencies](#dependencies)
+  - [Expected result](#expected-result)
+  - [Automatic validations](#automatic-validations)
+  - [Manual validations](#manual-validations)
+
+</details>
 ## Description
 
 Full rewrite of LAAW's `workflow.md` to the two-gate, no-phase,

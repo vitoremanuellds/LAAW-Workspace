@@ -2,6 +2,17 @@
 
 **ID:** t037-2386-48921       **Status:** done
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [Description](#description)
+  - [TL;DR](#tldr)
+  - [Steps](#steps)
+  - [Validations](#validations)
+
+</details>
 ## Description
 
 Verify and improve epoch documentation in LAAW/constants.py.

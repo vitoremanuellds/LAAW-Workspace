@@ -7,6 +7,17 @@ is now the consuming project's own per-layer choice, workbench
 included. Everything else here (workbench exists, is disposable, isn't
 schema-tracked) still stands.
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [Decision](#decision)
+  - [Context](#context)
+  - [Alternatives Considered](#alternatives-considered)
+  - [Consequences](#consequences)
+
+</details>
 ## Decision
 
 Add `.ai/workbench/` as a new top-level directory under `.ai/`: no

@@ -2,6 +2,17 @@
 
 **ID:** t037-2379-69158       **Status:** not-started
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [Description](#description)
+  - [TL;DR](#tldr)
+  - [Steps](#steps)
+  - [Validations](#validations)
+
+</details>
 ## Description
 
 Remove obsolete scratch files from workbench/, keep relevant ones.

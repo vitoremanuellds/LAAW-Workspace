@@ -2,6 +2,17 @@
 
 **ID:** t037-2379-09630       **Status:** not-started
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [Description](#description)
+  - [TL;DR](#tldr)
+  - [Steps](#steps)
+  - [Validations](#validations)
+
+</details>
 ## Description
 
 Run sync-skills.py to mirror the new skills. Verify: router skill

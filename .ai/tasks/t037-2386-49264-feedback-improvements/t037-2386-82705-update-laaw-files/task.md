@@ -2,6 +2,17 @@
 
 **ID:** t037-2386-82705       **Status:** done
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [Description](#description)
+  - [TL;DR](#tldr)
+  - [Steps](#steps)
+  - [Validations](#validations)
+
+</details>
 ## Description
 
 Update workflow.md, skills, templates, references to new phase-folder

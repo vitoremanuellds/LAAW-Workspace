@@ -2,6 +2,17 @@
 
 **ID:** t037-2386-70136       **Status:** done
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [Description](#description)
+  - [TL;DIR](#tldir)
+  - [Steps](#steps)
+  - [Validations](#validations)
+
+</details>
 ## Description
 
 Drop remaining -full suffixes; scaffold-on-first-use for

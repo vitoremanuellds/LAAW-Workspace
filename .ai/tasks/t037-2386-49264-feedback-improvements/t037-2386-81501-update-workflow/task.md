@@ -2,6 +2,17 @@
 
 **ID:** t037-2386-81501       **Status:** done
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [Description](#description)
+  - [TL;DR](#tldr)
+  - [Steps](#steps)
+  - [Validations](#validations)
+
+</details>
 ## Description
 
 Reflect new ID format in directory structure (§3), conventions (§4),

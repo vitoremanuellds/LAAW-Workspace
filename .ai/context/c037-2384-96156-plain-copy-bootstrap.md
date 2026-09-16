@@ -1,5 +1,16 @@
 # c037-2384-96156 — Bootstrap workflow variants via plain copy, not git submodule
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [Decision](#decision)
+  - [Context](#context)
+  - [Alternatives Considered](#alternatives-considered)
+  - [Consequences](#consequences)
+
+</details>
 ## Decision
 
 Bootstrap a workflow variant into a project's `.ai/workflow/` by

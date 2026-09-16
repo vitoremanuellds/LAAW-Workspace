@@ -1,6 +1,23 @@
 # fix-define-task-description
-**ID:** t037-2427-22222       **Status:** in-progress
+**ID:** t037-2427-22222       **Status:** done
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [Description](#description)
+  - [TL;DR](#tldr)
+  - [Context](#context)
+    - [Before](#before)
+    - [After](#after)
+  - [In scope](#in-scope)
+  - [Out of scope](#out-of-scope)
+  - [Steps](#steps)
+  - [Validations](#validations)
+  - [Rule](#rule)
+
+</details>
 ## Description
 Fix the broken description in `LAAW/skills/define-task/SKILL.md` that
 complains about `"{}"` and `":"` characters. The frontmatter description

@@ -2,6 +2,29 @@
 
 **ID:** t037-1693-28735       **Status:** done
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [Description](#description)
+  - [TL;DR](#tldr)
+  - [Context](#context)
+    - [Before](#before)
+    - [After](#after)
+  - [In scope](#in-scope)
+  - [Out of scope](#out-of-scope)
+  - [Steps](#steps)
+    - [Step 1 — Rewrite `create-constitution`](#step-1-rewrite-create-constitution)
+    - [Step 2 — Rewrite `build-context`](#step-2-rewrite-build-context)
+    - [Step 3 — Rewrite `propagate-context`](#step-3-rewrite-propagate-context)
+    - [Step 4 — Rewrite `bootstrap`](#step-4-rewrite-bootstrap)
+  - [Dependencies](#dependencies)
+  - [Expected result](#expected-result)
+  - [Automatic validations](#automatic-validations)
+  - [Manual validations](#manual-validations)
+
+</details>
 ## Description
 
 Rewrite LAAW's four context skills (`create-constitution`, `build-context`,

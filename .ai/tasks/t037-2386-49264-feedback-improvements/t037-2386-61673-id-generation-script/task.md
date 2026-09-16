@@ -2,6 +2,17 @@
 
 **ID:** t037-2386-61673       **Status:** done
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [Description](#description)
+  - [TL;DR](#tldr)
+  - [Steps](#steps)
+  - [Validations](#validations)
+
+</details>
 ## Description
 
 Python script accepting N, returning ordered IDs only. Place under

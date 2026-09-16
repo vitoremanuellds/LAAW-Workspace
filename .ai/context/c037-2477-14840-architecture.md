@@ -4,6 +4,19 @@ LAAW-Workspace is a meta-project with a **submodule-based architecture**.
 The actual workflow lives inside a git submodule; this repo is the
 development/iteration workspace around it.
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [Directory structure](#directory-structure)
+  - [Key relationships](#key-relationships)
+  - [Tech stack](#tech-stack)
+  - [LAAW workflow structure](#laaw-workflow-structure)
+  - [Skills overview](#skills-overview)
+  - [Context propagation hierarchy](#context-propagation-hierarchy)
+
+</details>
 ## Directory structure
 
 ```

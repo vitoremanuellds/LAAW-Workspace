@@ -1,5 +1,17 @@
 # c037-2384-01677 — Replace per-profile repos with one modular workflow
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [Decision](#decision)
+  - [Context](#context)
+  - [Alternatives Considered](#alternatives-considered)
+  - [Consequences](#consequences)
+  - [Evolutions](#evolutions)
+
+</details>
 ## Decision
 
 Retire the "one independently-versioned repo per profile" model

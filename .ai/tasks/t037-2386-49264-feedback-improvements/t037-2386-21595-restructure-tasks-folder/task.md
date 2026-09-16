@@ -2,6 +2,17 @@
 
 **ID:** t037-2386-21595       **Status:** done
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [Description](#description)
+  - [TL;DR](#tldr)
+  - [Steps](#steps)
+  - [Validations](#validations)
+
+</details>
 ## Description
 
 Move phase files into .ai/phases/p{NN}-{name}/phase.md; move

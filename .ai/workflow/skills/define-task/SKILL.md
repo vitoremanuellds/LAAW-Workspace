@@ -1,6 +1,6 @@
 ---
 name: define-task
-description: Break a plan into individual tasks (tasks/t{ID}-{name}/task.md), or draft a standalone task with no parent (tasks/t{ID}-{name}/task.md, indexed in tasks/tasks.md). Writes enough detail (files, ordered steps, optional pseudocode) that implementation is close to mechanical. On first use, scaffolds .ai/tasks/tasks.md. Supports subtasks: a parent task gets subtask rows in its table during parent planning (status not-started); subtasks are planned separately, one by one or all, each getting its own file and status moving to planned. Not for implementing code.
+description: Break a plan into individual tasks, each with its own task.md file, or draft a standalone task with no parent. Writes enough detail (files, ordered steps, optional pseudocode) that implementation is close to mechanical. On first use, scaffolds .ai/tasks/tasks.md. Supports subtasks — a parent task gets subtask rows in its table during parent planning; subtasks are planned separately, one by one or all, each getting its own file and status moving to planned. Not for implementing code.
 ---
 
 # Skill: define-task
@@ -27,6 +27,33 @@ generation across the entire project.
 Read [.ai/workflow/workflow.md](.ai/workflow/workflow.md) in full, same
 as every other skill — do not skip it for task planning.
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [When to use](#when-to-use)
+  - [Subtasks](#subtasks)
+  - [Inputs](#inputs)
+  - [Procedure](#procedure)
+    - [Planning a parent task (with or without subtasks)](#planning-a-parent-task-with-or-without-subtasks)
+    - [Planning subtasks (after parent is planned)](#planning-subtasks-after-parent-is-planned)
+  - [Task file body](#task-file-body)
+  - [Description](#description)
+  - [TL;DR](#tldr)
+  - [Context](#context)
+    - [Before](#before)
+    - [After](#after)
+  - [In scope](#in-scope)
+  - [Out of scope](#out-of-scope)
+  - [Steps](#steps)
+  - [Validations](#validations)
+  - [Subtasks            ← optional; omit for a leaf task](#subtasks-optional-omit-for-a-leaf-task)
+  - [Output](#output)
+
+</details>
+
+- **Include a Table of Contents** with internal anchor links for files with 2+ `##` sections
 ## When to use
 
 Task planning: breaking a plan into individual tasks; replanning after

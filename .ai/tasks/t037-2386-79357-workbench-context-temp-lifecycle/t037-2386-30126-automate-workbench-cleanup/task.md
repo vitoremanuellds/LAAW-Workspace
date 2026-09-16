@@ -2,6 +2,17 @@
 
 **ID:** t037-2386-30126       **Status:** done
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [Description](#description)
+  - [TL;DR](#tldr)
+  - [Steps](#steps)
+  - [Validations](#validations)
+
+</details>
 ## Description
 
 Replace the old ask-before-deleting step per ADR02: delete both

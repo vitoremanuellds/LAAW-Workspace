@@ -2,6 +2,21 @@
 
 **ID:** t037-2386-24191       **Status:** done
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [Description](#description)
+  - [TL;DR](#tldr)
+  - [Context](#context)
+    - [Before](#before)
+    - [After](#after)
+  - [In scope](#in-scope)
+  - [Out of scope](#out-of-scope)
+  - [Subtasks](#subtasks)
+
+</details>
 ## Description
 
 Converted from P06 — Redesign LAAW as a single modular workflow.

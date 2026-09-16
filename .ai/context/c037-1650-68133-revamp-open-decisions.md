@@ -9,6 +9,15 @@ The open items the revamp design deliberately left open, plus two
 follow-ups, settled 2026-09-16 during plan review of
 `t002-7178-75813`. These bind that task's implementation.
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [Decisions](#decisions)
+  - [Rationale](#rationale)
+
+</details>
 ## Decisions
 
 1. **Shipped default epoch: `2026-01-01T00:00:00Z`.** Start of 2026,

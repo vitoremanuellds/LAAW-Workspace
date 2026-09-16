@@ -9,6 +9,33 @@
 > The script uses the new dash-separated format: `{prefix}{xxx-yyyy-zzzzz}`
 > (7-digit minutes since epoch, split 3+4, plus 5 random digits).
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [Description](#description)
+  - [TL;DR](#tldr)
+  - [Context](#context)
+    - [Before](#before)
+    - [After](#after)
+  - [In scope](#in-scope)
+    - [1. Merge constitution → context](#1-merge-constitution-context)
+    - [2. Merge decisions → context](#2-merge-decisions-context)
+    - [3. Flatten phases → tasks-with-subtasks](#3-flatten-phases-tasks-with-subtasks)
+    - [4. Restructure tasks](#4-restructure-tasks)
+    - [5. Update info.md](#5-update-infomd)
+    - [6. Re-sync .ai/workflow/](#6-re-sync-aiworkflow)
+    - [7. Update .agents/skills/](#7-update-agentsskills)
+    - [8. Update AGENTS.md](#8-update-agentsmd)
+    - [9. Clean up workbench/](#9-clean-up-workbench)
+    - [10. Update .ai/workflow-version](#10-update-aiworkflow-version)
+  - [Out of scope](#out-of-scope)
+  - [Steps](#steps)
+  - [Validations](#validations)
+  - [Subtasks](#subtasks)
+
+</details>
 ## Description
 
 Migrate LAAW-Workspace's own `.ai/` tree to match the revamped LAAW

@@ -2,6 +2,17 @@
 
 **ID:** t037-2386-63379       **Status:** done
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [Description](#description)
+  - [TL;DR](#tldr)
+  - [Steps](#steps)
+  - [Validations](#validations)
+
+</details>
 ## Description
 
 Cross-file grep sweep, word-count comparison, manual walkthroughs,

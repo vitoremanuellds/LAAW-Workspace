@@ -1,6 +1,23 @@
 # add-section-index-to-all-md-files
 **ID:** t037-2427-44444       **Status:** in-progress
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [Description](#description)
+  - [TL;DR](#tldr)
+  - [Context](#context)
+    - [Before](#before)
+    - [After](#after)
+  - [In scope](#in-scope)
+  - [Out of scope](#out-of-scope)
+  - [Steps](#steps)
+  - [Rule](#rule)
+  - [Validations](#validations)
+
+</details>
 ## Description
 Add Table of Contents (TOC) to all multi-section markdown files in
 `.ai/` and `LAAW/`, and update skills to include TOC requirement as a
@@ -18,8 +35,15 @@ creation instruction.
 - Skills don't mention TOC requirement as a creation instruction
 
 ### After
-- All multi-section markdown files have a TOC with internal anchor links
-- Skills include TOC requirement as a creation instruction
+- All multi-section markdown files in `.ai/` and `LAAW/` have a collapsible
+  TOC with internal anchor links, inserted after the H1 title and before
+  the first `##` section
+- All 18 SKILL.md files across `LAAW/skills/`, `.agents/skills/`, and
+  `.ai/workflow/skills/` include the creation instruction:
+  "Include a Table of Contents with internal anchor links for files with
+  2+ `##` sections"
+- `.agents/skills/` and `.ai/workflow/skills/` are synced from `LAAW/skills/`
+- `tools/add-toc.py` provides the automation for TOC generation
 
 ## In scope
 - Scan all `.ai/` and `LAAW/` markdown files for 2+ sections

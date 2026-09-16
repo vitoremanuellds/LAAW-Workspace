@@ -2,6 +2,17 @@
 
 **ID:** t037-2386-10444       **Status:** done
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [Description](#description)
+  - [TL;DR](#tldr)
+  - [Steps](#steps)
+  - [Validations](#validations)
+
+</details>
 ## Description
 
 Add gitignore checks to all skill commit steps — explicitly check

@@ -4,6 +4,16 @@
 **Status:** decided 2026-09-17, during task-review of t037-1693-02727
 **Relation:** c037-1650-68133, c037-1675-68146
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [Decision](#decision)
+  - [Consequences](#consequences)
+  - [Consequence (2026-09-17)](#consequence-2026-09-17)
+
+</details>
 ## Decision
 
 Every task table — `tasks.md` and each parent task's `Subtasks`

@@ -2,6 +2,17 @@
 
 **ID:** t037-2386-74033       **Status:** done
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [Description](#description)
+  - [TL;DR](#tldr)
+  - [Steps](#steps)
+  - [Validations](#validations)
+
+</details>
 ## Description
 
 Cross-reference the new ID scheme and folder structure as an evolution

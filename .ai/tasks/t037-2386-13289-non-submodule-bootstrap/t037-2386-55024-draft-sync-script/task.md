@@ -2,6 +2,17 @@
 
 **ID:** t037-2386-55024       **Status:** done
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [Description](#description)
+  - [TL;DR](#tldr)
+  - [Steps](#steps)
+  - [Validations](#validations)
+
+</details>
 ## Description
 
 Draft the script in LAAW/ checkout: given source and target paths,

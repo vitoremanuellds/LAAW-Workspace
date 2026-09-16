@@ -1,6 +1,23 @@
 # review-context-id-pattern
 **ID:** t037-2427-33333       **Status:** in-progress
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [Description](#description)
+  - [TL;DR](#tldr)
+  - [Context](#context)
+    - [Before](#before)
+    - [After](#after)
+  - [In scope](#in-scope)
+  - [Out of scope](#out-of-scope)
+  - [Steps](#steps)
+  - [Validations](#validations)
+  - [Rule](#rule)
+
+</details>
 ## Description
 Review the three context files that don't follow the `c{ID}-{name}.md`
 pattern (`architecture.md`, `full-directory-structure.md`, `purpose.md`),

@@ -2,6 +2,23 @@
 
 **ID:** t002-7178-75813       **Status:** done
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [Description](#description)
+  - [TL;DR](#tldr)
+  - [Context](#context)
+    - [Before](#before)
+    - [After](#after)
+  - [In scope](#in-scope)
+  - [Out of scope](#out-of-scope)
+  - [Steps](#steps)
+  - [Validations](#validations)
+  - [Subtasks](#subtasks)
+
+</details>
 ## Description
 
 Rewrite the LAAW repository (the workflow source, currently at

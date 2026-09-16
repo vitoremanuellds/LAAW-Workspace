@@ -2,6 +2,17 @@
 
 **ID:** t037-2386-09452       **Status:** done
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [Description](#description)
+  - [TL;DR](#tldr)
+  - [Steps](#steps)
+  - [Validations](#validations)
+
+</details>
 ## Description
 
 Add templates/workbench-readme-template.md (short — mirrors

@@ -1,5 +1,16 @@
 # c037-2384-76968 — Record the installed workflow version as a sibling stamp file
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [Decision](#decision)
+  - [Context](#context)
+  - [Alternatives Considered](#alternatives-considered)
+  - [Consequences](#consequences)
+
+</details>
 ## Decision
 
 The copy-based install/re-sync script (P02-T02) writes a plain-text

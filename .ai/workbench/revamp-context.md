@@ -5,6 +5,17 @@ why* — the abstract ideas, mission, and concepts — deliberately **not**
 the current project's structure, naming, or layout. The revamp is free
 to redesign how these ideas are realized.
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [Mission](#mission)
+  - [The problem it solves](#the-problem-it-solves)
+  - [Core ideas](#core-ideas)
+  - [Design values (implicit in everything above)](#design-values-implicit-in-everything-above)
+
+</details>
 ## Mission
 
 A file-based workflow for developing software with AI coding agents,

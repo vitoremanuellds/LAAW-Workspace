@@ -2,6 +2,17 @@
 
 **ID:** t037-2386-23102       **Status:** done
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [Description](#description)
+  - [TL;DR](#tldr)
+  - [Steps](#steps)
+  - [Validations](#validations)
+
+</details>
 ## Description
 
 Shared scaffold-on-first-use doc; rewrite directory structure, artifact

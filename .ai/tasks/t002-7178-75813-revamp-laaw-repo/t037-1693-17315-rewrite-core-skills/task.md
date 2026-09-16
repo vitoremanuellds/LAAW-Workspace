@@ -2,6 +2,33 @@
 
 **ID:** t037-1693-17315       **Status:** done
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [Description](#description)
+  - [TL;DR](#tldr)
+  - [Context](#context)
+    - [Before](#before)
+    - [After](#after)
+  - [In scope](#in-scope)
+  - [Out of scope](#out-of-scope)
+  - [Files to modify](#files-to-modify)
+  - [Files to create](#files-to-create)
+  - [Files to delete](#files-to-delete)
+  - [Steps](#steps)
+    - [Step 1 — Rewrite `define-task`](#step-1-rewrite-define-task)
+    - [Step 2 — Rewrite `implement-task`](#step-2-rewrite-implement-task)
+    - [Step 3 — Rewrite `validate-work`](#step-3-rewrite-validate-work)
+    - [Step 4 — Rewrite `review-work`](#step-4-rewrite-review-work)
+    - [Step 5 — Delete `skills/define-phase/`](#step-5-delete-skillsdefine-phase)
+  - [Dependencies](#dependencies)
+  - [Expected result](#expected-result)
+  - [Automatic validations](#automatic-validations)
+  - [Manual validations](#manual-validations)
+
+</details>
 ## Description
 
 Rewrite LAAW's four core operation skills (`define-task`, `implement-task`,

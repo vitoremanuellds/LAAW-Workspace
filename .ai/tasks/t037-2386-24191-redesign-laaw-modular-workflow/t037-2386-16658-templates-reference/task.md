@@ -2,6 +2,17 @@
 
 **ID:** t037-2386-16658       **Status:** done
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [Description](#description)
+  - [TL;DR](#tldr)
+  - [Steps](#steps)
+  - [Validations](#validations)
+
+</details>
 ## Description
 
 info-template.md, directory-and-links.md, status-and-info.md,

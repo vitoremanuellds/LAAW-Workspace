@@ -2,6 +2,17 @@
 
 **ID:** t037-2386-33377       **Status:** not-started
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [Description](#description)
+  - [TL;DR](#tldr)
+  - [Steps](#steps)
+  - [Validations](#validations)
+
+</details>
 ## Description
 
 Simplify status sequence: remove plan-approved, merge validating into

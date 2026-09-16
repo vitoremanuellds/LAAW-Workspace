@@ -2,6 +2,17 @@
 
 **ID:** t037-2386-49725       **Status:** done
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [Description](#description)
+  - [TL;DR](#tldr)
+  - [Steps](#steps)
+  - [Validations](#validations)
+
+</details>
 ## Description
 
 Update context-temp-template.md and context-build-plan-template.md:

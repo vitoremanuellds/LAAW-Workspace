@@ -2,6 +2,17 @@
 
 **ID:** t037-2389-85710       **Status:** not-started
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [Description](#description)
+  - [TL;DR](#tldr)
+  - [Steps](#steps)
+  - [Validations](#validations)
+
+</details>
 ## Description
 
 Update orphan tasks (t01, t02, t03) to new ID format, update their

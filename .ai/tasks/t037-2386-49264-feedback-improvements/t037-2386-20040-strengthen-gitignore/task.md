@@ -2,6 +2,17 @@
 
 **ID:** t037-2386-20040       **Status:** done
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [Description](#description)
+  - [TL;DR](#tldr)
+  - [Steps](#steps)
+  - [Validations](#validations)
+
+</details>
 ## Description
 
 Add emphatic agent instructions to workflow and AGENTS.md about never

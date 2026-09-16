@@ -2,6 +2,17 @@
 
 **ID:** t037-2389-30353       **Status:** not-started
 
+
+
+<!-- TOC -->
+<details><summary>Table of Contents</summary>
+
+  - [Description](#description)
+  - [TL;DR](#tldr)
+  - [Steps](#steps)
+  - [Validations](#validations)
+
+</details>
 ## Description
 
 Remove `delegated` from the mode comment, remove `delegated` mode
