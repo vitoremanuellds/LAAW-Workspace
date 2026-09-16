@@ -38,11 +38,11 @@ enums to the four-value list; drop ADR-writing from `implement-task`
 - `LAAW/skills/review-work/SKILL.md` — 5.6 KB; task + phase review;
   reads ADRs from `.ai/decisions/`; six-value status enum.
 - `LAAW/skills/define-phase/SKILL.md` — to be deleted entirely.
-- Parent task [t002-7178-75813](t002-7178-75813-revamp-laaw-repo.md)
+- Parent task [t002-7178-75813](../task.md)
   step 3.
 - Already-done subtasks:
-  [t037-1693-02727](t037-1693-02727-new-id-system.md) (new id system),
-  [t037-1693-16386](t037-1693-16386-rewrite-workflow-md.md) (workflow.md
+  [t037-1693-02727](../task.md) (new id system),
+  [t037-1693-16386](../task.md) (workflow.md
   rewrite).
 - Reference files are still the old versions — this task does not update
   them (that is step 6 of the parent task).

@@ -24,7 +24,7 @@ all of which are replaced.
 
 ### Before
 
-- Parent task [t002-7178-75813](t002-7178-75813-revamp-laaw-repo.md) — the LAAW revamp.
+- Parent task [t002-7178-75813](../task.md) — the LAAW revamp.
   Depends on t037-1693-16386 (workflow.md rewrite, done).
 - Current README (13301 bytes) covers:
   - Three-layer model (constitution, context, decisions folders).

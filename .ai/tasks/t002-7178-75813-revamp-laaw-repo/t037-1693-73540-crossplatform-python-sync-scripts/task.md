@@ -29,7 +29,7 @@ stamp, skills mirror). The old `.sh` files are deleted.
 
 ### Before
 
-- Parent task [t002-7178-75813](t002-7178-75813-revamp-laaw-repo.md) — the LAAW revamp.
+- Parent task [t002-7178-75813](../task.md) — the LAAW revamp.
   Depends on t037-1693-02727 (new id system, done) and
   t037-1693-16386 (workflow.md rewrite, done — the README and
   workflow.md already reference `sync-workflow.py`).

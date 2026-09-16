@@ -23,7 +23,7 @@ in plain terms."
 
 ### Before
 
-- Parent task [t002-7178-75813](t002-7178-75813-revamp-laaw-repo.md) — the LAAW revamp.
+- Parent task [t002-7178-75813](../task.md) — the LAAW revamp.
   Depends on t037-1693-16386 (workflow.md rewrite, done), which already
   lists `route` in the operation table.
 - Decision [c037-1650-68133](../../context/c037-1650-68133-revamp-open-decisions.md)

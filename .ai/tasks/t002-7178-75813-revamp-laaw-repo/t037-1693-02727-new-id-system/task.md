@@ -24,7 +24,7 @@ biggest).
 
 ### Before
 
-- Parent task [t002-7178-75813](t002-7178-75813-revamp-laaw-repo.md) — the LAAW revamp.
+- Parent task [t002-7178-75813](../task.md) — the LAAW revamp.
   This subtask has no depends-on; the `workflow.md` rewrite
   (t037-1693-16386) and the sync scripts (t037-1693-73540) depend on
   it.

@@ -23,7 +23,7 @@ residue. The router skill (step 5) is referenced in `reread-skill-discipline.md`
 
 ### Before
 
-- Parent task [t002-7178-75813](t002-7178-75813-revamp-laaw-repo.md) — the LAAW revamp.
+- Parent task [t002-7178-75813](../task.md) — the LAAW revamp.
   Depends on t037-1693-16386 (workflow.md rewrite, done).
 - Five reference files, all on the old model:
   - `status-and-info.md` — old statuses (`not-planned`, `awaiting-plan-review`,

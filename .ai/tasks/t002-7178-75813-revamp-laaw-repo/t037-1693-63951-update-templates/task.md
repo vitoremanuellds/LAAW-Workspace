@@ -26,7 +26,7 @@ tasks-with-subtasks model.
 
 ### Before
 
-- Parent task [t002-7178-75813](t002-7178-75813-revamp-laaw-repo.md) — the LAAW revamp.
+- Parent task [t002-7178-75813](../task.md) — the LAAW revamp.
   Depends on t037-1693-16386 (workflow.md rewrite, done).
 - Decision [c037-1650-68133](../../context/c037-1650-68133-revamp-open-decisions.md)
   settles the final template set (7 files) and their names.
