@@ -27,7 +27,7 @@ simplifications decided so far. Working draft — iterate freely.
 ├── info.md          policy only: mode + per-gate authority (unchanged in spirit)
 ├── context/         THE one context layer (merged)
 │   ├── context.md          mission + techstack + the index table
-│   ├── c-{ID}.md           one file per context item (code description,
+│   ├── c-{ID}-{name}.md    one file per context item (code description,
 │   │                       decision/ADR, architecture, invariants, ...)
 │   └── index-*.md          (optional) sub-index tables, only when
 │                           context.md's index would grow too big
@@ -35,13 +35,13 @@ simplifications decided so far. Working draft — iterate freely.
 ├── tasks/
 │   ├── tasks.md             root index: one row per top-level task
 │   │                        (id, name, description, depends-on, status)
-│   ├── t{ID}.md             a task with NO subtasks (a leaf)
-│   └── t{ID}/               a task WITH subtasks (a folder)
-│       ├── t{ID}.md         the parent task — same id as the folder,
-│       │                    same layout as a leaf t{ID}.md
-│       └── t{ID}*.md / ...  each subtask is its own file (its own id);
-│                            a subtask with subtasks becomes a folder
-│                            the same way
+│   ├── t{ID}-{name}.md      a task with NO subtasks (a leaf)
+│   └── t{ID}-{name}/        a task WITH subtasks (a folder)
+│       ├── t{ID}-{name}.md  the parent task — same stem as the folder,
+│       │                    same layout as a leaf
+│       └── ...              each subtask is its own file, named the
+│                            same way (its own id + name); a subtask
+│                            with subtasks becomes a folder the same way
 └── workbench/       freeform scratch (unchanged in spirit)
 ```
 
@@ -51,11 +51,14 @@ simplifications decided so far. Working draft — iterate freely.
   a table (see [Context index](#context-index)).
 - **The task folder rule is recursive.** Every task id is a globally
   unique `t{ID}` (see [IDs](#ids)). A leaf task is a single file
-  `tasks/t{ID}.md`. The moment it has subtasks it *becomes a folder*
-  `tasks/t{ID}/` whose `t{ID}.md` (named after the folder) is the
+  `tasks/t{ID}-{name}.md` — id plus the file's kebab-case name, never
+  the bare id. The moment it has subtasks it *becomes a folder*
+  `tasks/t{ID}-{name}/` whose `t{ID}-{name}.md` (named after the
+  folder) is the
   parent task and whose other entries are its subtasks. A subtask is
   just a task with its own unique id, so it follows the same rule:
-  leaf = file, has-subtasks = folder with its own `t{ID}.md`. There is
+  leaf = file, has-subtasks = folder with its own `t{ID}-{name}.md`.
+  Context files take the same treatment: `c{ID}-{name}.md`. There is
   no third shape.
 - Presence rules collapse: `tasks/` is mandatory; `context/` is
   effectively mandatory (even one small file is enough); `workbench/`
@@ -84,9 +87,11 @@ An id has **two components**, in this order:
   `c005-4321-48213` (context). The dashes are part of the id — use this
   exact shape everywhere.
 - **Prefix:** `t` for tasks, `c` for context. Tasks and context draw
-  from independent id spaces; the id *is* the filename stem, so a task's
-  folder and parent file share it — `t{ID}/t{ID}.md` — and a context
-  file is just `c{ID}.md`.
+  from independent id spaces. Filenames are `{id}-{name}` — a task's
+  folder and parent file share the full stem
+  (`t{ID}-{name}/t{ID}-{name}.md`) and a context file is
+  `c{ID}-{name}.md` (settled 2026-09-17, workspace context
+  `c037-1675-68146`).
 - **Epoch:** a fixed project constant (e.g. `2025-01-01T00:00:00Z`).
   Record it once (in `context.md`) so any agent can compute the
   timestamp. With 7 digits the ceiling is 9,999,999 min ≈ **19 years**
@@ -175,7 +180,8 @@ A task file has this layout, in this order:
 |----|------|-------------|------------|--------|
 | t-01 | ...  | <short> | — | in-progress |
 
-It points at the task's file or folder (`t{ID}.md` / `t{ID}/`); it does
+It points at the task's file or folder (`t{ID}-{name}.md` /
+`t{ID}-{name}/`); it does
 not duplicate their contents. Subtasks are *not* listed here — each
 lives only in its parent's subtask table (one status owner per fact).
 
@@ -191,7 +197,8 @@ other context file has its own **id** (`c{ID}`):
 |----|------|-------------|----------|---------------|
 | c-{ID} | ... | <short> | c-{ID} | — |
 
-- **Files:** each `c-{ID}.md` is one unit of context — either a general
+- **Files:** each `c-{ID}-{name}.md` is one unit of context — either a
+  general
   description/information about the code (architecture, invariants,
   conventions) or a **decision** (the reason it was made + the approach
   taken). No separate `decisions.md` — decisions are context rows too.
@@ -271,8 +278,9 @@ not-started → planned → in-progress → done
   `workbench/session.md` remains an optional extra for transient notes
   only.
 - **IDs are timestamp+random, globally unique, not scoped.** Every file
-  is `t{ID}`/`c{ID}`; a folder and its parent file share one id
-  (`t{ID}/t{ID}.md`). No scoped/renumbered ids (see [IDs](#ids)).
+  is named `t{ID}-{name}`/`c{ID}-{name}`; a folder and its parent file
+  share the full stem (`t{ID}-{name}/t{ID}-{name}.md`). No
+  scoped/renumbered ids (see [IDs](#ids)).
 - **Mission + techstack are context, kept inline** in `context.md` —
   they are essential to understanding the project and small enough not
   to warrant their own files.

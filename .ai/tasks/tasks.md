@@ -10,4 +10,4 @@ file's task table, never duplicated here (see
 | T01 | Split `workflow.md`'s per-layer detail into `reference/` files | Get `workflow.md` back to its pre-P06 size without cutting real content | — | awaiting-plan-review |
 | T02 | Fix LAAW's remaining "submodule" mislabel | Update `LAAW/workflow.md` §3 and `build-context` skill to say "plain copy" instead of "submodule" | — | complete |
 | T03 | Explicit gate-skip for missing layers | Add explicit statement to README.md and workflow.md that gates for non-existent layers are skipped | — | complete |
-| [t002-7178-75813](t002-7178-75813/t002-7178-75813.md) | Revamp the LAAW repo to the simplified design | Rewrite LAAW's workflow.md, skills, reference/, templates/, id tool, README, and sync scripts to the revamped single-process design | — | planned |
+| [t002-7178-75813](t002-7178-75813-revamp-laaw-repo/t002-7178-75813-revamp-laaw-repo.md) | revamp-laaw-repo | Rewrite LAAW's workflow.md, skills, reference/, templates/, id tool, README, and sync scripts to the revamped single-process design | — | planned |

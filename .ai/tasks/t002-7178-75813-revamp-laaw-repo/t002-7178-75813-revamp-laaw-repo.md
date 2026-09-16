@@ -57,7 +57,13 @@ project and grepping for stale concepts.
   for LAAW's own minting, router skill name, exact template set).
   **Resolved 2026-09-16 at step 0** — recorded as a decision in this
   project's `context/` (new model, per the decision itself):
-  [c037-1650-68133](../../context/c037-1650-68133.md).
+  [c037-1650-68133](../../context/c037-1650-68133-revamp-open-decisions.md).
+- **Filenames amended 2026-09-17** (during task-review of
+  t002-7178-26058): every id'd file is named `{id}-{name}` — the
+  unique id plus the file's kebab-case name — for task leaf files,
+  folders with parent files, and context files alike; the design
+  doc's bare-`t{ID}` folder rule is amended, not restated. Settled
+  as [c037-1675-68146](../../context/c037-1675-68146-id-name-filenames.md).
 
 ### After
 
@@ -97,7 +103,7 @@ Only the LAAW repo (`LAAW/`). Files/areas touched:
 ## Steps
 
 0. **Settle the open design decisions** — *resolved 2026-09-16*,
-   recorded in [c037-1650-68133](../../context/c037-1650-68133.md):
+   recorded in [c037-1650-68133](../../context/c037-1650-68133-revamp-open-decisions.md):
    (a) shipped default epoch `2026-01-01T00:00:00Z`; (b) router skill
    named `route`; (c) final template set per step 7. All subtasks may
    proceed.
@@ -119,8 +125,9 @@ Only the LAAW repo (`LAAW/`). Files/areas touched:
    constitution-review, context-update gate.
 3. **Rewrite core skills** (t002-7178-97526): `define-task` (new task
    file layout exactly as the design; recursive folder rule — leaf =
-   `tasks/t{ID}.md`, has-subtasks = `tasks/t{ID}/` with parent file
-   `t{ID}.md`; subtask table columns id/name/description/depends
+   `tasks/t{ID}-{name}.md`, has-subtasks = `tasks/t{ID}-{name}/` with
+   parent file `t{ID}-{name}.md` (per c037-1675-68146); subtask table
+   columns id/name/description/depends
    on/status; no phase link, no orphan concept), `implement-task`,
    `validate-work`, `review-work` (each re-anchored to the two
    gates). Delete `skills/define-phase/`.
@@ -211,6 +218,7 @@ Judgment (at `task-completion-review`):
 | t002-7178-69484 | update-readme | README rewrite to the new design | t002-7178-76890 | not-started |
 | t002-7190-44432 | crossplatform-python-sync-scripts | Move + rewrite sync-workflow/sync-skills as tools/sync-workflow.py / tools/sync-skills.py — cross-platform Python (Windows/macOS/Linux), shipping the whole tools/ incl. .epoch | t002-7178-26058 | not-started |
 
-*(Subtask files are drafted as `t002-7178-26058.md` etc. under this
-parent's folder when implementation starts — this table is the index;
+*(Subtask files are drafted as `t002-7178-26058-new-id-system.md` etc.
+under this parent's folder when implementation starts — filename is
+`{id}-{name}` per c037-1675-68146 — this table is the index;
 substance goes in the subtask files.)*

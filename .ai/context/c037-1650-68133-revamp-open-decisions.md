@@ -2,7 +2,7 @@
 
 **ID:** c037-1650-68133
 **Name:** revamp-open-decisions
-**Relation:** —
+**Relation:** c037-1675-68146
 **Superseded by:** —
 
 The open items the revamp design deliberately left open, plus two
