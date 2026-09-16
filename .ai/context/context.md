@@ -12,7 +12,7 @@ workflow** — its content lives in
 own checkout — whose weight scales via optional layers rather than via
 separately-maintained variants, and a mechanism for bootstrapping it
 into a target project's `.ai/workflow/` without a git submodule. See
-[`adr03-single-modular-workflow.md`](../decisions/adr03-single-modular-workflow.md)
+[`c037-2384-01677-single-modular-workflow`](c037-2384-01677-single-modular-workflow.md)
 for the full design.
 
 ### Why
@@ -42,8 +42,8 @@ potential breaking change, and every consuming project needs its own
 submodule literacy just to get the files onto disk. This repo's own
 `.ai/workflow/` was first bootstrapped as a plain copy proving the
 mechanism was possible (see
-[`adr01-plain-copy-bootstrap.md`](../decisions/adr01-plain-copy-bootstrap.md));
-[P02](../phases/p02-non-submodule-bootstrap-mechanism.md) generalized
+[`c037-2384-96156-plain-copy-bootstrap`](c037-2384-96156-plain-copy-bootstrap.md));
+[t037-2386-13289-non-submodule-bootstrap](../../tasks/t037-2386-13289-non-submodule-bootstrap/t037-2386-13289-non-submodule-bootstrap.md) generalized
 that into `LAAW/sync-workflow.sh`, the actual
 install/re-sync script any project can run instead of `git submodule
 add`.
@@ -56,13 +56,13 @@ The repo owner — solo maintenance for now.
 
 - Redesign `LAAW/`'s own content
   (`workflow.md`, skills, templates, reference) around the three axes
-  in [`adr03-single-modular-workflow.md`](../decisions/adr03-single-modular-workflow.md) —
+  in [`c037-2384-01677-single-modular-workflow`](c037-2384-01677-single-modular-workflow.md) —
   developed directly in its own checkout, committed to that repo's own
   history — see Boundaries below.
 - A copy-based bootstrap mechanism any project can use to install the
   workflow into `.ai/workflow/` — shipped as
   `LAAW/sync-workflow.sh` (see
-  [P02](../phases/p02-non-submodule-bootstrap-mechanism.md)).
+  [t037-2386-13289-non-submodule-bootstrap](../../tasks/t037-2386-13289-non-submodule-bootstrap/t037-2386-13289-non-submodule-bootstrap.md)).
 - Evolve core workflow mechanics that aren't specific to any one
   layer's weight — a freeform temp/scratch workspace, context-build
   cleanup, git-history-driven context sync, and concurrency-safe
@@ -104,7 +104,7 @@ any variant should eventually inherit.
 `Light`, designed fresh rather than reviving `medium`/`lite`/`minimal`.
 Its repo (`Light-Local-Model-Agent-Workflow/`) already existed and is
 now registered as a proper submodule of this meta-repo. See
-[`p01-design-light-profile.md`](../phases/p01-design-light-profile.md)
+[`c037-2384-01677-single-modular-workflow`](c037-2384-01677-single-modular-workflow.md)
 for the full scope.
 
 **2026-08-29:** Corrected a task-level deviation: P03-T01 was first
@@ -120,7 +120,7 @@ above about `Light`: rather than maintaining `full` and `Light` as
 separately-versioned repos, this project now builds **one** modular
 workflow whose weight is a function of which optional layers a
 consuming project turns on. See
-[`adr03-single-modular-workflow.md`](../decisions/adr03-single-modular-workflow.md).
+[`c037-2384-01677-single-modular-workflow`](c037-2384-01677-single-modular-workflow.md).
 P01 is superseded — no `Light`-specific content work proceeds under it.
 `Light-Local-Model-Agent-Workflow/`'s submodule is left registered for
 now; whether to deregister it or mark it deprecated in place is a
@@ -146,13 +146,13 @@ untouched — not requested, and lower-stakes than the submodule
 renames above since nothing else references this repo's own directory
 name by path the way `LAAW/` is referenced throughout `.ai/`.
 
-**2026-08-30:** [P02](../phases/p02-non-submodule-bootstrap-mechanism.md)
+**2026-08-30:** [t037-2386-13289-non-submodule-bootstrap](../../tasks/t037-2386-13289-non-submodule-bootstrap/t037-2386-13289-non-submodule-bootstrap.md)
 shipped the copy-based bootstrap/re-sync mechanism this project's
 second Goal called for: `LAAW/sync-workflow.sh`
 installs/re-syncs the workflow into a target project's
 `.ai/workflow/`, replacing `git submodule add`/`git submodule update
 --remote` as the install/update step, plus a version-stamp file
-([ADR04](../decisions/adr04-workflow-version-stamp.md)) restoring the
+([c037-2384-76968-workflow-version-stamp](c037-2384-76968-workflow-version-stamp.md)) restoring the
 "which commit is installed" traceability a submodule gave for free.
 Variant selection (the "chosen variant" language ADR01 originally used)
 doesn't apply — ADR03 already collapsed that into one workflow, so the
@@ -170,23 +170,24 @@ runtime, no build system, no package manager — same convention as
 **Bootstrap mechanism:** Shell (bash). `LAAW/sync-skills.sh`
 was the closest existing precedent — it copies `skills/` to
 `.agents/skills/` inside a consuming project.
-[P02](../phases/p02-non-submodule-bootstrap-mechanism.md) generalized
+[t037-2386-13289-non-submodule-bootstrap](../../tasks/t037-2386-13289-non-submodule-bootstrap/t037-2386-13289-non-submodule-bootstrap.md) generalized
 that pattern into `LAAW/sync-workflow.sh`: it copies
 the workflow's content (`workflow.md`, `skills/`, `templates/`,
 `reference/`, `README.md`) wholesale into a target project's
 `.ai/workflow/`, replacing `git submodule add`/`git submodule update
 --remote` as the install/update step. There's no "chosen variant" to
-select — ADR03 already collapsed that into one workflow, so the
+select — [`c037-2384-01677-single-modular-workflow`](c037-2384-01677-single-modular-workflow.md)
+already collapsed that into one workflow, so the
 script always installs it wholesale. Every run also writes a version-stamp
 file beside `.ai/workflow/` (see
-[ADR04](../decisions/adr04-workflow-version-stamp.md)).
+[c037-2384-76968-workflow-version-stamp](c037-2384-76968-workflow-version-stamp.md)).
 
 **Versioning:** Git, one repo for the workflow itself —
 `LAAW/` (kept as a git submodule of this
 one, since it's this project's actual development checkout, not a
 bootstrapped consumer copy) holds the single modular workflow's actual
 content, per
-[`adr03-single-modular-workflow.md`](../decisions/adr03-single-modular-workflow.md).
+[`c037-2384-01677-single-modular-workflow`](c037-2384-01677-single-modular-workflow.md).
 There is no per-variant repo to keep in sync anymore — weight is a
 function of which optional layers a consuming project turns on, not of
 which repo it bootstrapped from. This repo's own `.ai/workflow/`,
