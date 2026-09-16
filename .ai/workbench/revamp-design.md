@@ -233,10 +233,11 @@ not-started → planned → in-progress → done
 
 ## Teams (many developers)
 
-- **Assignment is the coordination unit:** `Owner` field in the task
-  row. Rule: one owner per task at a time; work on the same file set
-  should not overlap across two `in-progress` tasks — the "touches
-  these files" spec line makes conflicts visible before they happen.
+- **The file-overlap rule is the coordination unit:** work on the
+  same file set should not overlap across two `in-progress` tasks —
+  the "touches these files" spec line makes conflicts visible before
+  they happen. (No owner/assignment field — settled 2026-09-16, see
+  LAAW-Workspace context `c037-1650-68133`.)
 - **Parallelism comes from subtasks:** a task can be approved as a
   whole while subtasks are picked up by different people/agents.
 - **Git is the sync layer:** commit each draft/step; review happens via
