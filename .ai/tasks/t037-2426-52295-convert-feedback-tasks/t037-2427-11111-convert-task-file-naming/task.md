@@ -112,3 +112,9 @@ folder+`task.md` structure.
 - All `.ai/tasks/t{ID}-{name}/` folders contain `task.md` (not `t{ID}-{name}.md`)
 - `.ai/tasks/tasks.md` links point to correct `task.md` paths
 - No broken internal links to task files
+
+## Rule
+- **Always use `tools/generate-id.py --prefix t` to generate IDs for
+  any project file that requires an ID.** Never hardcode, guess, or
+  manually construct IDs — the script is the single source of truth
+  for ID generation across the entire project.

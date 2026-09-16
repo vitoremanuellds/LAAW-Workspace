@@ -66,3 +66,9 @@ those characters in user input.
   template variable syntax that triggers literal complaints
 - `.agents/skills/define-task/SKILL.md` is synced from LAAW repo
 - Description is still accurate and usable for the skill's purpose
+
+## Rule
+- **Always use `tools/generate-id.py --prefix t` to generate IDs for
+  any project file that requires an ID.** Never hardcode, guess, or
+  manually construct IDs — the script is the single source of truth
+  for ID generation across the entire project.

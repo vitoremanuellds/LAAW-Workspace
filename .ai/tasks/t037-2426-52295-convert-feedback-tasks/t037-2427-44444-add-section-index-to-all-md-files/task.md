@@ -58,6 +58,12 @@ creation instruction.
    - Stage all updated markdown files
    - Commit with message describing TOC addition
 
+## Rule
+- **Always use `tools/generate-id.py --prefix t` to generate IDs for
+  any project file that requires an ID.** Never hardcode, guess, or
+  manually construct IDs — the script is the single source of truth
+  for ID generation across the entire project.
+
 ## Validations
 - All multi-section markdown files in `.ai/` have a TOC
 - All multi-section markdown files in `LAAW/` have a TOC
