@@ -23,9 +23,11 @@ or delete.
 - All three don't follow the `c{ID}-{name}.md` pattern
 
 ### After
-- All context files follow the `c{ID}-{name}.md` pattern, or unnecessary
-  ones are deleted
-- `context.md` index updated to reflect current state
+- `purpose.md` deleted — content redundant with `context.md` Mission section
+- `architecture.md` converted to `c037-2477-14840-architecture.md`
+- `full-directory-structure.md` converted to `c037-2477-58211-full-directory-structure.md`
+- `context.md` index updated with new filenames and revised relations
+- `c037-1675-68146-id-name-filenames.md` updated to reflect completed migration
 
 ## In scope
 - Read `architecture.md`, `full-directory-structure.md`, `purpose.md`
