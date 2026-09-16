@@ -74,5 +74,5 @@ description, and reviewing context files that don't follow the ID pattern.
 |---|---|---|---|---|
 | t037-2427-11111 | convert-task-file-naming | Update LAAW repo skills/instructions for task.md format, sync, then migrate .ai folder | — | planned |
 | t037-2427-22222 | fix-define-task-description | Fix define-task skill in LAAW repo, then sync | — | planned |
-| t037-2427-33333 | review-context-id-pattern | Review context files not following ID pattern and convert or delete as needed | t037-2427-11111 | not-started |
-| t037-2427-44444 | add-section-index-to-all-md-files | Add Table of Contents to all multi-section markdown files (.ai + LAAW repo) and add TOC requirement as creation instruction | t037-2427-11111 | not-started |
+| t037-2427-33333 | review-context-id-pattern | Review context files not following ID pattern and convert or delete as needed | t037-2427-11111 | planned |
+| t037-2427-44444 | add-section-index-to-all-md-files | Add Table of Contents to all multi-section markdown files (.ai + LAAW repo) and add TOC requirement as creation instruction | t037-2427-11111 | planned |
