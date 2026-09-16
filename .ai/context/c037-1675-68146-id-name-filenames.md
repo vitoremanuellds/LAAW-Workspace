@@ -32,8 +32,11 @@ t002-7178-26058, amending the revamp design's bare-id folder rule
   `t002-7178-26058-new-id-system.md`,
   `c037-1650-68133-revamp-open-decisions.md`). Legacy pre-id
   context files (`purpose.md`, `architecture.md`,
-  `full-directory-structure.md`) are not re-id'd here — the
-  follow-up migration to the new model handles them.
+  `full-directory-structure.md`) — `purpose.md` deleted as
+  redundant with context.md; `architecture.md` and
+  `full-directory-structure.md` re-id'd to
+  `c037-2477-14840-architecture.md` and
+  `c037-2477-58211-full-directory-structure.md`.
 
 Relation: c037-1650-68133 — the pilot-scope decision whose folder
 shape this amends; nothing here touches its epoch/router/template
