@@ -16,7 +16,8 @@ folder of classes.
 | [purpose.md](purpose.md) | Project purpose, mission, goals, and history — LAAW = Local AI Agents Workflow | active | |
 | [architecture.md](architecture.md) | Project architecture: directory layout, key relationships, tech stack, LAAW workflow structure, skills overview | active | related: [purpose.md](purpose.md) |
 | [c037-1650-68133-revamp-open-decisions.md](c037-1650-68133-revamp-open-decisions.md) | Decision: revamp open items settled — shipped epoch `2026-01-01T00:00:00Z`, router skill `route`, final template set, no Owner field, workspace new-model pilot | active | related: [architecture.md](architecture.md), c037-1675-68146 |
-| [c037-1675-68146-id-name-filenames.md](c037-1675-68146-id-name-filenames.md) | Decision: id'd files are named `{id}-{name}` — task leaf files, folders + parent files, and context files; amends the revamp design's bare-id folder rule | active | related: [c037-1650-68133-revamp-open-decisions.md](c037-1650-68133-revamp-open-decisions.md) |
+| [c037-1675-68146-id-name-filenames.md](c037-1675-68146-id-name-filenames.md) | Decision: id'd files are named `{id}-{name}` — task leaf files, folders + parent files, and context files; amends the revamp design's bare-id folder rule | active | related: [c037-1650-68133-revamp-open-decisions.md](c037-1650-68133-revamp-open-decisions.md), c037-1693-91765 |
+| [c037-1693-91765-ids-ordered-by-table.md](c037-1693-91765-ids-ordered-by-table.md) | Decision: ids are ordered by table position — tables sorted id-ascending, new rows appended at the end with a fresh id, mid-table insertion renumbers later rows; pilot subtasks renumbered 2026-09-17 | active | related: [c037-1650-68133-revamp-open-decisions.md](c037-1650-68133-revamp-open-decisions.md), [c037-1675-68146-id-name-filenames.md](c037-1675-68146-id-name-filenames.md) |
 
 **Status** is `active` or `superseded`. When an architecture changes,
 don't delete the old file — mark it superseded and point to what

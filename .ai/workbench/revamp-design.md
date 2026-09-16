@@ -92,6 +92,15 @@ An id has **two components**, in this order:
   (`t{ID}-{name}/t{ID}-{name}.md`) and a context file is
   `c{ID}-{name}.md` (settled 2026-09-17, workspace context
   `c037-1675-68146`).
+- **Ordered by table position.** Every table — `tasks.md` and each
+  parent's `Subtasks` table — is sorted by id ascending: a row that
+  appears first has a smaller id than every row after it, and since
+  filenames are `{id}-{name}`, the files sort the same way. New tasks
+  are appended at the end of their table with a freshly minted (and
+  therefore largest) id; inserting a row mid-table requires
+  renumbering every later row and renaming its files — allowed but
+  costly, so append is the default. Settled 2026-09-17, workspace
+  context `c037-1693-91765`.
 - **Epoch:** a fixed project constant (e.g. `2025-01-01T00:00:00Z`).
   Record it once (in `context.md`) so any agent can compute the
   timestamp. With 7 digits the ceiling is 9,999,999 min ≈ **19 years**
@@ -157,7 +166,8 @@ A task file has this layout, in this order:
   `Subtasks` table in the parent only *indexes* them (one row each);
   the substance lives in a subtask file following the folder rule above.
   The table columns are the task columns: **id, name, description,
-  depends on, status.**
+  depends on, status.** Rows are id-ascending (see [IDs](#ids)); a
+  new subtask is appended at the end of the table.
 - **Narrow specs are the anti-hallucination mechanism.** In scope names
   the files touched; out of scope names what "done" concretely means
   and what is left alone. An agent that needs more information than the
@@ -182,7 +192,7 @@ A task file has this layout, in this order:
 
 It points at the task's file or folder (`t{ID}-{name}.md` /
 `t{ID}-{name}/`); it does
-not duplicate their contents. Subtasks are *not* listed here — each
+not duplicate their contents. Rows are id-ascending (see [IDs](#ids)). Subtasks are *not* listed here — each
 lives only in its parent's subtask table (one status owner per fact).
 
 ## Context index
@@ -279,7 +289,8 @@ not-started → planned → in-progress → done
   only.
 - **IDs are timestamp+random, globally unique, not scoped.** Every file
   is named `t{ID}-{name}`/`c{ID}-{name}`; a folder and its parent file
-  share the full stem (`t{ID}-{name}/t{ID}-{name}.md`). No
+  share the full stem (`t{ID}-{name}/t{ID}-{name}.md`); tables are
+  id-ascending with append-at-end as the default. No
   scoped/renumbered ids (see [IDs](#ids)).
 - **Mission + techstack are context, kept inline** in `context.md` —
   they are essential to understanding the project and small enough not

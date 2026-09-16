@@ -59,11 +59,18 @@ project and grepping for stale concepts.
   project's `context/` (new model, per the decision itself):
   [c037-1650-68133](../../context/c037-1650-68133-revamp-open-decisions.md).
 - **Filenames amended 2026-09-17** (during task-review of
-  t002-7178-26058): every id'd file is named `{id}-{name}` — the
+  t037-1693-02727): every id'd file is named `{id}-{name}` — the
   unique id plus the file's kebab-case name — for task leaf files,
   folders with parent files, and context files alike; the design
   doc's bare-`t{ID}` folder rule is amended, not restated. Settled
   as [c037-1675-68146](../../context/c037-1675-68146-id-name-filenames.md).
+- **IDs are ordered by table position** (settled 2026-09-17): every
+  task table sorts id-ascending; new rows are appended at the end
+  with a freshly minted (largest) id; mid-table insertion requires
+  renumbering later rows (a recorded exception to "minted once, never
+  renumbered"). This pilot's nine subtasks were renumbered in table
+  order accordingly —
+  [c037-1693-91765](../../context/c037-1693-91765-ids-ordered-by-table.md).
 
 ### After
 
@@ -107,14 +114,14 @@ Only the LAAW repo (`LAAW/`). Files/areas touched:
    (a) shipped default epoch `2026-01-01T00:00:00Z`; (b) router skill
    named `route`; (c) final template set per step 7. All subtasks may
    proceed.
-1. **New id system** (t002-7178-26058): rewrite `generate-id.py` to
+1. **New id system** (t037-1693-02727): rewrite `generate-id.py` to
    emit `<prefix>{xxx-yyyy-zzzzz}` (prefix `t`|`c`, 7-digit minutes
    since epoch split 3+4, dash-separated, 5-digit random; `--count N`
    mints N ids in the same minute, same-minute namespace); keep
    `--epoch` override; `.epoch` as default source, now
    `2026-01-01T00:00:00Z`; add a collision check against the target
    directory when minting filenames.
-2. **Rewrite `workflow.md`** (t002-7178-76890): new §3 structure
+2. **Rewrite `workflow.md`** (t037-1693-16386): new §3 structure
    (`context/`, `tasks/` with the recursive folder rule, `workbench/`);
    two gates (`task-review`, `task-completion-review`) replacing the
    five; status list `not-started → planned → in-progress → done`
@@ -123,7 +130,7 @@ Only the LAAW repo (`LAAW/`). Files/areas touched:
    context flows into the single `context/`; teams: file-overlap rule
    and git-as-sync (**no Owner field**); drop all phase language,
    constitution-review, context-update gate.
-3. **Rewrite core skills** (t002-7178-97526): `define-task` (new task
+3. **Rewrite core skills** (t037-1693-17315): `define-task` (new task
    file layout exactly as the design; recursive folder rule — leaf =
    `tasks/t{ID}-{name}.md`, has-subtasks = `tasks/t{ID}-{name}/` with
    parent file `t{ID}-{name}.md` (per c037-1675-68146); subtask table
@@ -131,21 +138,21 @@ Only the LAAW repo (`LAAW/`). Files/areas touched:
    on/status; no phase link, no orphan concept), `implement-task`,
    `validate-work`, `review-work` (each re-anchored to the two
    gates). Delete `skills/define-phase/`.
-4. **Rewrite context skills** (t002-7178-47657): `create-constitution`
+4. **Rewrite context skills** (t037-1693-28735): `create-constitution`
    (scaffolds `info.md` + `context/context.md` with inline
    mission/techstack core + index table), `build-context` (fills
    `c-{ID}.md` items), `propagate-context` (single-folder
    promote/finalize; no phase-file routing), `bootstrap` (new layer
    menu).
-5. **Add the router skill** (t002-7178-08279): `skills/route/` —
+5. **Add the router skill** (t037-1693-50470): `skills/route/` —
    plain-language request → points to the operation skill; routing
    only, does no operation work.
-6. **Update `reference/`** (t002-7178-70147): `status-and-info.md`
+6. **Update `reference/`** (t037-1693-59324): `status-and-info.md`
    (new statuses, one-place rule), `directory-and-links.md` (new
    structure + folder rule), `scaffold-on-first-use.md` (context.md /
    tasks.md / workbench), `starting-without-a-plan.md` (tasks instead
    of phases), `reread-skill-discipline.md` (router-aware).
-7. **Update `templates/`** (t002-7178-80074) to the settled set of 7:
+7. **Update `templates/`** (t037-1693-63951) to the settled set of 7:
    new `task-template.md` (exact design layout) and new
    `context-item-template.md` (`c-{ID}` shape, incl. decision shape
    with relation/superseded-by); update `context-template.md` (now the
@@ -156,9 +163,9 @@ Only the LAAW repo (`LAAW/`). Files/areas touched:
    assumptions file for ground-up context building); remove
    `adr-template.md` and `decisions-template.md` (decisions are
    context rows now).
-8. **README** (t002-7178-69484): rewritten to the new design (one
+8. **README** (t037-1693-66263): rewritten to the new design (one
    context layer, tasks+subtasks, two gates, router).
-9. **Cross-platform Python sync scripts** (t002-7190-44432): replace
+9. **Cross-platform Python sync scripts** (t037-1693-73540): replace
    `sync-workflow.sh` and `sync-skills.sh` with
    `tools/sync-workflow.py` / `tools/sync-skills.py` (moved into
    `tools/` next to `generate-id.py`; installed projects get them at
@@ -208,17 +215,17 @@ Judgment (at `task-completion-review`):
 
 | id | name | description | depends on | status |
 |----|------|-------------|------------|--------|
-| t002-7178-26058 | new-id-system | Rewrite generate-id.py to the dash-separated timestamp+random format; epoch handling | — | planned |
-| t002-7178-76890 | rewrite-workflow-md | Full rewrite of workflow.md to the two-gate, no-phase, single-context process | t002-7178-26058 | not-started |
-| t002-7178-97526 | rewrite-core-skills | define-task / implement-task / validate-work / review-work; delete define-phase | t002-7178-76890 | not-started |
-| t002-7178-47657 | rewrite-context-skills | create-constitution / build-context / propagate-context / bootstrap for the single context folder | t002-7178-76890 | not-started |
-| t002-7178-08279 | add-router-skill | New router skill: plain-language request → correct operation skill | t002-7178-76890 | not-started |
-| t002-7178-70147 | update-reference-docs | Rewrite all five reference/ files to the new model | t002-7178-76890 | not-started |
-| t002-7178-80074 | update-templates | New task/context templates; drop decisions/adr templates | t002-7178-76890 | not-started |
-| t002-7178-69484 | update-readme | README rewrite to the new design | t002-7178-76890 | not-started |
-| t002-7190-44432 | crossplatform-python-sync-scripts | Move + rewrite sync-workflow/sync-skills as tools/sync-workflow.py / tools/sync-skills.py — cross-platform Python (Windows/macOS/Linux), shipping the whole tools/ incl. .epoch | t002-7178-26058 | not-started |
+| t037-1693-02727 | new-id-system | Rewrite generate-id.py to the dash-separated timestamp+random format; epoch handling | — | planned |
+| t037-1693-16386 | rewrite-workflow-md | Full rewrite of workflow.md to the two-gate, no-phase, single-context process | t037-1693-02727 | not-started |
+| t037-1693-17315 | rewrite-core-skills | define-task / implement-task / validate-work / review-work; delete define-phase | t037-1693-16386 | not-started |
+| t037-1693-28735 | rewrite-context-skills | create-constitution / build-context / propagate-context / bootstrap for the single context folder | t037-1693-16386 | not-started |
+| t037-1693-50470 | add-router-skill | New router skill: plain-language request → correct operation skill | t037-1693-16386 | not-started |
+| t037-1693-59324 | update-reference-docs | Rewrite all five reference/ files to the new model | t037-1693-16386 | not-started |
+| t037-1693-63951 | update-templates | New task/context templates; drop decisions/adr templates | t037-1693-16386 | not-started |
+| t037-1693-66263 | update-readme | README rewrite to the new design | t037-1693-16386 | not-started |
+| t037-1693-73540 | crossplatform-python-sync-scripts | Move + rewrite sync-workflow/sync-skills as tools/sync-workflow.py / tools/sync-skills.py — cross-platform Python (Windows/macOS/Linux), shipping the whole tools/ incl. .epoch | t037-1693-02727 | not-started |
 
-*(Subtask files are drafted as `t002-7178-26058-new-id-system.md` etc.
+*(Subtask files are drafted as `t037-1693-02727-new-id-system.md` etc.
 under this parent's folder when implementation starts — filename is
 `{id}-{name}` per c037-1675-68146 — this table is the index;
 substance goes in the subtask files.)*
