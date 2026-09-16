@@ -1,4 +1,4 @@
-# ADR01 — Bootstrap workflow variants via plain copy, not git submodule
+# c037-2384-96156 — Bootstrap workflow variants via plain copy, not git submodule
 
 ## Decision
 
@@ -41,7 +41,7 @@ friction forward would work against that goal.
 - Loses the "pinned to an exact commit, verifiable via `git -C
   .ai/workflow log`" traceability a submodule gives for free —
   resolved by
-  [ADR04](adr04-workflow-version-stamp.md) (P02-T01):
+  [ADR04](c037-2384-76968-workflow-version-stamp.md) (P02-T01):
   `sync-workflow.sh` writes a version-stamp file,
   `.ai/workflow-version`, as a sibling of `.ai/workflow/` on every run,
   recording the source and commit copied from.

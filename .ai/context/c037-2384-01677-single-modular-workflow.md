@@ -1,4 +1,4 @@
-# ADR03 — Replace per-profile repos with one modular workflow
+# c037-2384-01677 — Replace per-profile repos with one modular workflow
 
 ## Decision
 
@@ -96,6 +96,7 @@ separately-versioned document sets.
 Note: The ID format and folder conventions described in the Decision section
 were further refined in [Phase P08](../phases/p08-feedback-improvements/phase.md)
 for concurrency safety and navigability — see the Evolutions section.
+
 ## Alternatives Considered
 
 - **Keep the status quo** (one repo per profile, this repo's original

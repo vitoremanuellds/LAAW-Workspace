@@ -1,4 +1,4 @@
-# ADR04 — Record the installed workflow version as a sibling stamp file
+# c037-2384-76968 — Record the installed workflow version as a sibling stamp file
 
 ## Decision
 
@@ -19,7 +19,7 @@ mirror of the source checkout with nothing appended to it.
 
 ## Context
 
-[ADR01](adr01-plain-copy-bootstrap.md)'s Consequences flagged that a
+[c037-2384-96156-plain-copy-bootstrap.md](c037-2384-96156-plain-copy-bootstrap.md)'s Consequences flagged that a
 plain copy loses the "pinned to a commit, verifiable via `git -C
 .ai/workflow log`" traceability a submodule gives for free, and left
 resolving that as an open question for
