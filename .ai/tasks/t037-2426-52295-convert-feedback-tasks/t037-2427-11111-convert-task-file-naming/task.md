@@ -33,6 +33,12 @@ folder+`task.md` structure.
 - All task folders follow the `t{ID}-{name}/task.md` pattern.
 - `.agents/skills/` and `.ai/workflow/` are synced from LAAW repo.
 
+## Context After
+- The task file naming convention is `t{ID}-{name}/task.md` for all tasks (leaf and parent).
+- All LAAW skills include the generate-id instruction requiring `tools/generate-id.py --prefix t` for task IDs and `--prefix c` for context IDs.
+- `.ai/tasks/tasks.md` links point to `task.md` files.
+- LAAW repo, `.agents/skills/`, and `.ai/workflow/` are in sync with the task.md naming convention.
+
 ## In scope
 - Update `LAAW/skills/define-task/SKILL.md` — replace all `t{ID}-{name}.md`
   and `t{parent-ID}-{parent-name}/t{subtask-ID}-{subtask-name}.md` references
