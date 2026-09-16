@@ -8,6 +8,7 @@ description, and reviewing context files that don't follow the ID pattern.
 
 ## TL;DR
 - Update LAAW repo skills/instructions for task.md format, then sync
+- Add generate-id instruction to all LAAW repo skills, then sync
 - Fix define-task description bug in LAAW repo, then sync
 - Migrate .ai folder to new task.md format
 - Add section index to all multi-section markdown files (.ai + LAAW repo)
@@ -26,6 +27,7 @@ description, and reviewing context files that don't follow the ID pattern.
 
 ## In scope
 - Update LAAW repo skills/instructions for task.md format
+- Add generate-id instruction to all LAAW repo skills
 - Fix define-task description bug in LAAW repo
 - Sync skills after LAAW repo changes
 - Migrate .ai folder to new task.md format
@@ -53,13 +55,24 @@ description, and reviewing context files that don't follow the ID pattern.
    - Use internal anchor links (e.g., `[Description](#description)`)
    - Update LAAW repo skills to include TOC requirement as a creation instruction
    - Update .ai skills to include TOC requirement as a creation instruction
-6. Review context files not following ID pattern
+6. Add generate-id instruction to all LAAW repo skills
+   - For each SKILL.md in `LAAW/skills/`:
+     - Add: "Always use `tools/generate-id.py --prefix t` to generate IDs
+       for any project file that requires an ID. Never hardcode, guess, or
+       manually construct IDs — the script is the single source of truth
+       for ID generation across the entire project."
+     - Also add: "Always use `tools/generate-id.py --prefix c` to generate
+       IDs for context files."
+   - Sync updated skills to `.agents/skills/` and `.ai/workflow/skills/`
+
+7. Review context files not following ID pattern
    - Check `architecture.md`, `full-directory-structure.md`, `purpose.md`
    - If necessary: convert to `c{ID}-{name}.md` format
    - If not necessary: delete them
 
 ## Validations
 - LAAW repo skills use task.md naming convention
+- All LAAW repo skills include the generate-id instruction
 - LAAW repo define-task description no longer complains about "{}" and ":"
 - `.agents/skills/` synced from LAAW repo
 - All .ai task folders contain `task.md` (not `t{id}-{name}.md`)
@@ -72,7 +85,7 @@ description, and reviewing context files that don't follow the ID pattern.
 ## Subtasks
 | id | name | description | depends on | status |
 |---|---|---|---|---|
-| t037-2427-11111 | convert-task-file-naming | Update LAAW repo skills/instructions for task.md format, sync, then migrate .ai folder | — | planned |
+| t037-2427-11111 | convert-task-file-naming | Update LAAW repo skills for task.md format + add generate-id instruction, sync, then migrate .ai folder | — | planned |
 | t037-2427-22222 | fix-define-task-description | Fix define-task skill in LAAW repo, then sync | — | planned |
 | t037-2427-33333 | review-context-id-pattern | Review context files not following ID pattern and convert or delete as needed | t037-2427-11111 | planned |
 | t037-2427-44444 | add-section-index-to-all-md-files | Add Table of Contents to all multi-section markdown files (.ai + LAAW repo) and add TOC requirement as creation instruction | t037-2427-11111 | planned |

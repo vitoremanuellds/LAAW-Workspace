@@ -10,6 +10,7 @@ folder+`task.md` structure.
 
 ## TL;DR
 - Update LAAW skills (define-task, implement-task) for `task.md` naming
+- Update LAAW skills to always use `tools/generate-id.py` for ID generation
 - Update LAAW workflow.md and README.md for `task.md` naming
 - Sync LAAW → `.agents/skills/` and `.ai/workflow/`
 - Migrate `.ai/` task files from `t{id}-{name}.md` to `task.md`
@@ -37,6 +38,11 @@ folder+`task.md` structure.
   and `t{parent-ID}-{parent-name}/t{subtask-ID}-{subtask-name}.md` references
   with `task.md` equivalents.
 - Update `LAAW/skills/implement-task/SKILL.md` — same replacement pattern.
+- Update all LAAW repo skills to include the generate-id instruction:
+  "Always use `tools/generate-id.py --prefix t` to generate IDs for any
+  project file that requires an ID. Never hardcode, guess, or manually
+  construct IDs — the script is the single source of truth for ID generation
+  across the entire project."
 - Update `LAAW/workflow.md` §3 directory structure — replace task file
   references with `task.md` format.
 - Update `LAAW/README.md` directory structure section — same replacement.
@@ -62,6 +68,7 @@ folder+`task.md` structure.
    - Replace `t{parent-ID}-{parent-name}/t{subtask-ID}-{subtask-name}.md` →
      `t{parent-ID}-{parent-name}/t{subtask-ID}-{subtask-name}/task.md`
    - Update frontmatter description to use `task.md` format
+   - Add generate-id instruction to the skill
    - Verify no remaining `t{ID}-{name}.md` references
 
 2. Update `LAAW/skills/implement-task/SKILL.md`
@@ -70,6 +77,17 @@ folder+`task.md` structure.
      `tasks/t{ID}-{name}/task.md`
    - Replace `tasks/t{parent-ID}-{parent-name}/t{sub-ID}-{sub-name}.md` →
      `tasks/t{parent-ID}-{parent-name}/t{sub-ID}-{sub-name}/task.md`
+   - Add generate-id instruction to the skill
+
+3. Add generate-id instruction to ALL remaining LAAW repo skills
+   - For each SKILL.md in `LAAW/skills/`:
+     - Add: "Always use `tools/generate-id.py --prefix t` to generate IDs
+       for any project file that requires an ID. Never hardcode, guess, or
+       manually construct IDs — the script is the single source of truth
+       for ID generation across the entire project."
+     - Also add: "Always use `tools/generate-id.py --prefix c` to generate
+       IDs for context files."
+     - Verify no hardcoded IDs exist in subtask tables or elsewhere
 
 3. Update `LAAW/workflow.md` §3 (directory structure)
    - Replace `t{ID}-{name}.md (leaf)` → `t{ID}-{name}/task.md`
@@ -107,6 +125,7 @@ folder+`task.md` structure.
 ## Validations
 - All LAAW skills (define-task, implement-task) reference `task.md` — no
   remaining `t{ID}-{name}.md` references
+- All LAAW repo skills include the generate-id instruction
 - All `.agents/skills/` files match LAAW repo
 - `.ai/workflow/workflow.md` and `.ai/workflow/README.md` use `task.md` naming
 - All `.ai/tasks/t{ID}-{name}/` folders contain `task.md` (not `t{ID}-{name}.md`)
