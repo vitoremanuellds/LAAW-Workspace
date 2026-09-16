@@ -23,7 +23,7 @@ mirror of the source checkout with nothing appended to it.
 plain copy loses the "pinned to a commit, verifiable via `git -C
 .ai/workflow log`" traceability a submodule gives for free, and left
 resolving that as an open question for
-[P02](../phases/p02-non-submodule-bootstrap-mechanism.md). This is
+[t037-2386-13289-non-submodule-bootstrap](../../tasks/t037-2386-13289-non-submodule-bootstrap/t037-2386-13289-non-submodule-bootstrap.md). This is
 P02-T01, called for by the phase file's own Plan step 1. Two
 constraints from that phase file bound the design:
 

@@ -32,7 +32,7 @@ friction forward would work against that goal.
 ## Consequences
 
 - A bootstrapped copy doesn't automatically track upstream changes —
-  [P02](../phases/p02-non-submodule-bootstrap-mechanism.md) built the
+  [t037-2386-13289-non-submodule-bootstrap](../../tasks/t037-2386-13289-non-submodule-bootstrap/t037-2386-13289-non-submodule-bootstrap.md) built the
   re-sync story: re-running
   `LAAW/sync-workflow.sh` against an
   already-bootstrapped project wholesale-replaces `.ai/workflow/` with

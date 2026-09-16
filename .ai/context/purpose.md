@@ -31,7 +31,7 @@ layer it doesn't want committed).
 
 **Goals:**
 - Redesign `LAAW/`'s own content (`workflow.md`, skills, templates,
-  reference) around the three axes in [ADR03](../decisions/adr03-single-modular-workflow.md)
+  reference) around the three axes in [c037-2384-01677-single-modular-workflow](c037-2384-01677-single-modular-workflow.md)
 - A copy-based bootstrap mechanism any project can use to install the
   workflow into `.ai/workflow/` — shipped as `LAAW/sync-workflow.sh`
 - Evolve core workflow mechanics (workbench dir, context-build cleanup,

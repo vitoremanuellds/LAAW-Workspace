@@ -24,8 +24,7 @@ LAAW-Workspace/
 │   ├── info.md            ← Policy: gate authority
 │   ├── constitution/      ← Mission, techstack
 │   ├── context/           ← Context files
-│   ├── decisions/         ← ADRs
-│   ├── phases/            ← Phases (P01–P06)
+│   ├── tasks/             ← Tasks (parent + subtasks)
 │   ├── tasks/             ← Tasks (phase-linked + orphans)
 │   ├── workbench/         ← Freeform scratch (gitignored)
 │   └── workflow-version   ← Generated: source, commit SHA, date

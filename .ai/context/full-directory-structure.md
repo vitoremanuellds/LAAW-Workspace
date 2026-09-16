@@ -13,8 +13,7 @@ snapshot, not the source of truth.
 .ai/info.md         Policy only — gate authority, always present, not an optional layer
 .ai/constitution/   mission.md, techstack.md — optional
 .ai/context/        context.md + whatever fits — optional
-.ai/decisions/      decisions.md + adr{NN}-{name}.md — optional
-.ai/phases/         phases.md (index) + p{NN}-{name}/phase.md
+.ai/tasks/          tasks.md + t{ID}-{name}.md (leaf) + t{ID}-{name}/ (has-subtasks)
                      (phase file in its folder) +
                      t{NN}-{name}.md (phase-linked tasks in same folder)
                      — optional
@@ -30,7 +29,7 @@ in the snapshot above — P02 shipped `sync-workflow.sh` as the actual
 bootstrap/re-sync mechanism (a plain copy), but didn't update that
 section of the source-of-truth file. The actual mechanism is a plain
 copy managed by the script, not a git submodule. See
-[ADR04](../decisions/adr04-workflow-version-stamp.md).
+[c037-2384-76968-workflow-version-stamp](c037-2384-76968-workflow-version-stamp.md).
 
 Presence is inferred from existence — no directory means that layer is
 off; `.ai/tasks/` is the only one every project has. How a layer comes
@@ -38,12 +37,11 @@ into existence on first use: see `LAAW/reference/scaffold-on-first-use.md`,
 or run the `bootstrap` skill to set up several at once.
 
 `info.md` no longer holds a Status section — every status value lives
-in `phases.md` (phase-level), a phase file's own task table
-(phase-linked task), or `tasks.md` (orphan task). See
-[ADR03](../decisions/adr03-single-modular-workflow.md).
+in `tasks.md` (orphan task or parent task). See
+[c037-2384-01677-single-modular-workflow](c037-2384-01677-single-modular-workflow.md).
 
 `.ai/workbench/` is P03's addition (see
-[ADR02](../decisions/adr02-workbench-directory.md), partially
+[c037-2384-22173-workbench-directory](c037-2384-22173-workbench-directory.md), partially
 superseded by ADR03's gitignore-locality clause — this workspace's own
 `.ai/workbench/` is gitignored, not committed). `build-context`'s
 ephemeral outputs (`context.temp.md`, `build-plan.md`) live there, and
@@ -63,10 +61,10 @@ replaces `.ai/workflow/`'s content wholesale with the source's
 current state. This workspace's own `.ai/workflow/` was re-bootstrapped
 via `sync-workflow.sh` (2026-08-30) to pick up the full P06 redesign
 — this repo's own `.ai/constitution/roadmap.md` also moved to
-`.ai/phases/phases.md` and `info.md`'s Status section was dropped in
+`.ai/tasks/` and `info.md`'s Status section was dropped in
 the same pass. The script also writes a `.ai/workflow-version` file
 (sibling to `.ai/workflow/`) recording the installed `LAAW` commit,
-source URL, and date — see [ADR04](../decisions/adr04-workflow-version-stamp.md).
+source URL, and date — see [c037-2384-76968-workflow-version-stamp](c037-2384-76968-workflow-version-stamp.md).
 
 **Reminder for future phases in this project:** every edit to LAAW's
 actual content happens in `LAAW/`'s own checkout, committed to *its

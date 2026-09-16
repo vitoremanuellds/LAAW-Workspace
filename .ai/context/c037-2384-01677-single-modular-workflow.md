@@ -10,7 +10,7 @@ independent axes instead of fixed named profiles:
 - **Presence** — every layer except tasks is optional and inferred
   from what exists on disk, not declared in a config file:
   `.ai/constitution/` (mission, techstack), `.ai/context/`,
-  `.ai/decisions/`, `.ai/phases/`. No directory means that layer is
+  `.ai/tasks/`. No directory means that layer is
   off for this project. Tasks are the one mandatory layer.
 - **Granularity** — a task opts into a phase parent or not,
   independently of whether the project uses phases at all. A
@@ -46,10 +46,10 @@ was the only cheap way to find "what's active" without opening every
 phase file). `info.md` narrows to Policy only — gate authority, not
 status.
 
-Structural consequence inside `.ai/phases/`: the phase-level permanent
+Structural consequence inside `.ai/tasks/`: the phase-level permanent
 record (today's `.ai/constitution/roadmap.md`) moves into
-`.ai/phases/phases.md` and is renamed — phases are groupings of related
-tasks, not a project roadmap, and belong next to the tasks they group
+`.ai/tasks/` as a parent task and is renamed — tasks are groupings of related
+subtasks, not a project roadmap, and belong next to the subtasks they group
 rather than inside the constitution. `.ai/constitution/` narrows to
 just `mission.md` + `techstack.md`.
 
@@ -94,7 +94,7 @@ separately-versioned document sets.
 
 
 Note: The ID format and folder conventions described in the Decision section
-were further refined in [Phase P08](../phases/p08-feedback-improvements/phase.md)
+were further refined in [t037-2386-49264-feedback-improvements](../../tasks/t037-2386-49264-feedback-improvements/t037-2386-49264-feedback-improvements.md)
 for concurrency safety and navigability — see the Evolutions section.
 
 ## Alternatives Considered
@@ -107,8 +107,8 @@ for concurrency safety and navigability — see the Evolutions section.
 - **Explicit config-file-driven layer selection** (an `info.md` flag
   list of active layers) — rejected: presence-on-disk is simpler,
   needs no schema to describe the schema, and keeps with the existing
-  minimal-files philosophy (a project that doesn't use phases just has
-  no `phases/` directory, nothing to declare).
+  minimal-files philosophy (a project that doesn't use tasks-with-subtasks just has
+  no `tasks/` folder with subtasks, nothing to declare).
 - **Per-layer external storage location** (each layer independently
   choosing in-repo vs. some outside-repo path) — rejected per the
   user's own call: one `.ai/` convention with `.gitignore` for privacy
@@ -149,7 +149,7 @@ for concurrency safety and navigability — see the Evolutions section.
 
 ## Evolutions
 
-The following refinements were introduced in [Phase P08](../phases/p08-feedback-improvements/phase.md)
+The following refinements were introduced in [t037-2386-49264-feedback-improvements](../../tasks/t037-2386-49264-feedback-improvements/t037-2386-49264-feedback-improvements.md)
 and represent evolutions of this ADR's design decisions, not contradictions:
 
 - **ID format evolution:** ADR03's granularity axis described sequential
@@ -160,6 +160,6 @@ and represent evolutions of this ADR's design decisions, not contradictions:
   The three-axis design (presence, granularity, locality) remains unchanged.
 - **Task folder structure evolution:** ADR03 specified flat task files in
   `.ai/tasks/`. P08 introduced phase-folders: phase-linked tasks now live under
-  `.ai/phases/p{NN}-{name}/t{NN}-{name}.md` alongside their phase file, while
+  `.ai/tasks/t{ID}-{name}/t{ID}-{name}.md` alongside their parent file, while
   orphan tasks remain flat in `.ai/tasks/`. This is a deliberate navigability
   tradeoff that preserves the flat-orphan convention ADR03 established.

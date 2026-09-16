@@ -28,7 +28,7 @@ consistent with everything else under `.ai/` — no gitignore carve-out.
 
 Two of the user's requests, both about the same missing piece: (1) a
 place for informal working files that today have nowhere sanctioned to
-live — every existing `.ai/` subdirectory (`context/`, `phases/`,
+live — every existing `.ai/` subdirectory (`context/`, `tasks/`,
 `tasks/`, `decisions/`) is part of the permanent record, with its own
 schema and Status tracking; (2) `build-context-full`'s temp files
 currently live inside `.ai/context/` itself, alongside real content,
