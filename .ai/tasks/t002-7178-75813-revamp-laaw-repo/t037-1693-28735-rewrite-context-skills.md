@@ -1,6 +1,6 @@
 # Rewrite context skills
 
-**ID:** t037-1693-28735       **Status:** planned
+**ID:** t037-1693-28735       **Status:** in-progress
 
 ## Description
 
