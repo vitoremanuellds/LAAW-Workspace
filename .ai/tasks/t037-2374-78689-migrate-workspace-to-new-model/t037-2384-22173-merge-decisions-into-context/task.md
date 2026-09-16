@@ -18,6 +18,8 @@
   - [Validations](#validations)
 
 </details>
+
+
 ## Description
 
 Convert each ADR file from `decisions/` into a `c-{ID}-{name}.md`

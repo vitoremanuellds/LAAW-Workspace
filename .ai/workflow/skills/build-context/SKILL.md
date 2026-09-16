@@ -40,7 +40,10 @@ as every other skill — do not skip it for context building.
 
 </details>
 
+
+
 - **Include a Table of Contents** with internal anchor links for files with 2+ `##` sections
+
 ## When to use
 
 `.ai/context/` is thin or doesn't exist — this skill builds it by

@@ -13,6 +13,8 @@
   - [Validations](#validations)
 
 </details>
+
+
 ## Description
 
 Update this repo's mission.md (Why/Goals), techstack.md (Bootstrap

@@ -13,6 +13,8 @@ it exists, which isn't needed on every operation.
   - [Router awareness](#router-awareness)
 
 </details>
+
+
 ## The lesson
 
 Gate-skip and scope-overstep bugs have repeatedly traced back to a

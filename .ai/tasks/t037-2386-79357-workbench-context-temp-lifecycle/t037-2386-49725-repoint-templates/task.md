@@ -13,6 +13,8 @@
   - [Validations](#validations)
 
 </details>
+
+
 ## Description
 
 Update context-temp-template.md and context-build-plan-template.md:

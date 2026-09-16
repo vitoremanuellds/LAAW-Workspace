@@ -18,6 +18,8 @@
   - [Validations](#validations)
 
 </details>
+
+
 ## Description
 
 Replace the two bash sync scripts (`LAAW/sync-workflow.sh`,

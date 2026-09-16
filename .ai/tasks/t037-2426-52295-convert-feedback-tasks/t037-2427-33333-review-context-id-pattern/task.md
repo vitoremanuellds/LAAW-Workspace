@@ -18,6 +18,8 @@
   - [Rule](#rule)
 
 </details>
+
+
 ## Description
 Review the three context files that don't follow the `c{ID}-{name}.md`
 pattern (`architecture.md`, `full-directory-structure.md`, `purpose.md`),

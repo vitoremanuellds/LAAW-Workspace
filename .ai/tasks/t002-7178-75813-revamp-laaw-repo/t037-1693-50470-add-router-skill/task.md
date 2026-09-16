@@ -18,6 +18,8 @@
   - [Validations](#validations)
 
 </details>
+
+
 ## Description
 
 Create the router skill (`LAAW/skills/route/SKILL.md`) — a plain-language

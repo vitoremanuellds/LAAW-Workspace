@@ -28,6 +28,8 @@ linked where needed below.
   - [14. What each principle buys](#14-what-each-principle-buys)
 
 </details>
+
+
 ## 1. Principles
 
 1. Agents do not reconstruct information that can be persisted cheaply.

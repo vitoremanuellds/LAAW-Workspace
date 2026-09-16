@@ -18,6 +18,8 @@ follow-ups, settled 2026-09-16 during plan review of
   - [Rationale](#rationale)
 
 </details>
+
+
 ## Decisions
 
 1. **Shipped default epoch: `2026-01-01T00:00:00Z`.** Start of 2026,

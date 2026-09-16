@@ -11,6 +11,8 @@
   - [Consequences](#consequences)
 
 </details>
+
+
 ## Decision
 
 The copy-based install/re-sync script (P02-T02) writes a plain-text

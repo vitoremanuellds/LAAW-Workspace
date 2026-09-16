@@ -13,6 +13,8 @@
   - [Validations](#validations)
 
 </details>
+
+
 ## Description
 
 Verify and improve epoch documentation in LAAW/constants.py.

@@ -47,7 +47,10 @@ for the full list; never invent one not on it.
 
 </details>
 
+
+
 - **Include a Table of Contents** with internal anchor links for files with 2+ `##` sections
+
 ## When to use
 
 After validation passes, before a task is marked `done` — this is the

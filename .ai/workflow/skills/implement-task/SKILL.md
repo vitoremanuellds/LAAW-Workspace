@@ -47,7 +47,10 @@ project root already, same as normal.
 
 </details>
 
+
+
 - **Include a Table of Contents** with internal anchor links for files with 2+ `##` sections
+
 ## 1. What to read
 
 Read [.ai/workflow/workflow.md](.ai/workflow/workflow.md) in full,

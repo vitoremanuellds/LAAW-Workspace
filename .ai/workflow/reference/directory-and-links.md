@@ -15,6 +15,8 @@ for the reasoning behind them, which isn't needed on every operation.
   - [Why `.ai/workbench/` isn't part of the permanent record](#why-aiworkbench-isnt-part-of-the-permanent-record)
 
 </details>
+
+
 ## Why every path must be `.ai/`-prefixed, never bare or dot-relative
 
 This document is a reference for understanding the rules, not a

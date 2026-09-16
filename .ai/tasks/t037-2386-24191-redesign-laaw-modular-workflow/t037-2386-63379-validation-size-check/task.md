@@ -13,6 +13,8 @@
   - [Validations](#validations)
 
 </details>
+
+
 ## Description
 
 Cross-file grep sweep, word-count comparison, manual walkthroughs,

@@ -18,6 +18,8 @@
   - [Validations](#validations)
 
 </details>
+
+
 ## Description
 
 Rewrite LAAW's id generator (`LAAW/tools/generate-id.py`) to the

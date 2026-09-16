@@ -18,6 +18,8 @@
   - [Rule](#rule)
 
 </details>
+
+
 ## Description
 Fix the broken description in `LAAW/skills/define-task/SKILL.md` that
 complains about `"{}"` and `":"` characters. The frontmatter description

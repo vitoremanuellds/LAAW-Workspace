@@ -13,6 +13,8 @@
   - [Validations](#validations)
 
 </details>
+
+
 ## Description
 
 Design and record (ADR04) the version-stamp convention: what gets

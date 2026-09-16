@@ -13,6 +13,8 @@
   - [Validations](#validations)
 
 </details>
+
+
 ## Description
 
 Simplify status sequence: remove plan-approved, merge validating into

@@ -14,6 +14,8 @@
   - [Consequence (2026-09-17)](#consequence-2026-09-17)
 
 </details>
+
+
 ## Decision
 
 Every task table — `tasks.md` and each parent task's `Subtasks`

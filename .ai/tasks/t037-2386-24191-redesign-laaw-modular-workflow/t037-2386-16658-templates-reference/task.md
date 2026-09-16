@@ -13,6 +13,8 @@
   - [Validations](#validations)
 
 </details>
+
+
 ## Description
 
 info-template.md, directory-and-links.md, status-and-info.md,

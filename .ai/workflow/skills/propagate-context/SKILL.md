@@ -49,7 +49,10 @@ for the full list; never invent one not on it.
 
 </details>
 
+
+
 - **Include a Table of Contents** with internal anchor links for files with 2+ `##` sections
+
 ## propagate-context.task — on task completion
 
 **Precondition:** the task's Status must already be `in-progress` with

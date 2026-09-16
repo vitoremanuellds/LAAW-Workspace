@@ -18,6 +18,8 @@
   - [Validations](#validations)
 
 </details>
+
+
 ## Description
 
 Merge `constitution/mission.md` and `constitution/techstack.md` as

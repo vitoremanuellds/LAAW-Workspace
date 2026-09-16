@@ -13,6 +13,8 @@
   - [Validations](#validations)
 
 </details>
+
+
 ## Description
 
 Remove `delegated` from the mode comment, remove `delegated` mode

@@ -13,6 +13,8 @@
   - [Validations](#validations)
 
 </details>
+
+
 ## Description
 
 Narrow create-constitution-full→create-constitution; add new bootstrap

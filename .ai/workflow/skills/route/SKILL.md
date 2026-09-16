@@ -40,7 +40,10 @@ as every other skill — do not skip it for routing.
 
 </details>
 
+
+
 - **Include a Table of Contents** with internal anchor links for files with 2+ `##` sections
+
 ## Operation table
 
 Maps user intents to the correct skill. Same entries and order as

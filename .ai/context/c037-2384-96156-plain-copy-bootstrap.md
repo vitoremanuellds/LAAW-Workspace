@@ -11,6 +11,8 @@
   - [Consequences](#consequences)
 
 </details>
+
+
 ## Decision
 
 Bootstrap a workflow variant into a project's `.ai/workflow/` by

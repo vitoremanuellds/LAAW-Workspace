@@ -17,6 +17,8 @@ reasoning behind the ID-order caveat, not as a matter of routine.
   - [ID order ≠ execution order, in full](#id-order-execution-order-in-full)
 
 </details>
+
+
 ## Which skill sets which status value
 
 | Value | Set by |

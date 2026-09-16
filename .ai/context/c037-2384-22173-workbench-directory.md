@@ -18,6 +18,8 @@ schema-tracked) still stands.
   - [Consequences](#consequences)
 
 </details>
+
+
 ## Decision
 
 Add `.ai/workbench/` as a new top-level directory under `.ai/`: no

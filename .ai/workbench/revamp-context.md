@@ -16,6 +16,8 @@ to redesign how these ideas are realized.
   - [Design values (implicit in everything above)](#design-values-implicit-in-everything-above)
 
 </details>
+
+
 ## Mission
 
 A file-based workflow for developing software with AI coding agents,

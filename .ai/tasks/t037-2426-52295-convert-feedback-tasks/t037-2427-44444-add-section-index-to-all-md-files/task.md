@@ -18,6 +18,8 @@
   - [Validations](#validations)
 
 </details>
+
+
 ## Description
 Add Table of Contents (TOC) to all multi-section markdown files in
 `.ai/` and `LAAW/`, and update skills to include TOC requirement as a

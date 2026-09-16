@@ -22,7 +22,6 @@ simplifications decided so far. Working draft — iterate freely.
   - [Out of scope](#out-of-scope)
   - [Steps](#steps)
   - [Validations](#validations)
-  - [Subtasks            ← optional; omit for a leaf task](#subtasks-optional-omit-for-a-leaf-task)
   - [Task index (root task folder)](#task-index-root-task-folder)
   - [Context index](#context-index)
   - [Gates & statuses](#gates-statuses)
@@ -31,6 +30,9 @@ simplifications decided so far. Working draft — iterate freely.
   - [Resolved (from the revamp discussion)](#resolved-from-the-revamp-discussion)
 
 </details>
+
+
+
 ## Guiding decisions (from the revamp discussion)
 
 1. **No phases.** A phase was just a super-task with subtasks, so: only

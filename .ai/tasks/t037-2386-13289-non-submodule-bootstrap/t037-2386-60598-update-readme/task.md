@@ -13,6 +13,8 @@
   - [Validations](#validations)
 
 </details>
+
+
 ## Description
 
 Update LAAW/README.md's "Bootstrapping into a project" and "Updating

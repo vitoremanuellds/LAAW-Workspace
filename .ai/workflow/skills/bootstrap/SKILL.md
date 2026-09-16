@@ -49,7 +49,10 @@ as every other skill — do not skip it for bootstrap work.
 
 </details>
 
+
+
 - **Include a Table of Contents** with internal anchor links for files with 2+ `##` sections
+
 ## When to use
 
 A human wants to set up several optional layers deliberately, in one

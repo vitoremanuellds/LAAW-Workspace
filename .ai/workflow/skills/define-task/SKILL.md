@@ -48,12 +48,14 @@ as every other skill — do not skip it for task planning.
   - [Out of scope](#out-of-scope)
   - [Steps](#steps)
   - [Validations](#validations)
-  - [Subtasks            ← optional; omit for a leaf task](#subtasks-optional-omit-for-a-leaf-task)
   - [Output](#output)
 
 </details>
 
+
+
 - **Include a Table of Contents** with internal anchor links for files with 2+ `##` sections
+
 ## When to use
 
 Task planning: breaking a plan into individual tasks; replanning after

@@ -18,6 +18,8 @@
   - [Validations](#validations)
 
 </details>
+
+
 ## Description
 
 Convert phases with completed tasks into parent tasks with subtasks,

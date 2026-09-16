@@ -16,6 +16,8 @@ own prose.
   - [Who owns which layer](#who-owns-which-layer)
 
 </details>
+
+
 ## The convention
 
 Before a skill writes its layer's first real content, it checks
