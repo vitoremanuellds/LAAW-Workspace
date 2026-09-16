@@ -195,4 +195,4 @@ skill, Python sync scripts.
 | t037-2379-58844 | re-sync-workflow | Run sync-workflow.py from updated LAAW to refresh .ai/workflow/ | t037-2379-12115 | done |
 | t037-2379-09630 | update-skills | Run sync-skills.py to mirror new skills, verify router present and define-phase removed | t037-2379-58844 | done |
 | t037-2379-20273 | update-agents-md | Update AGENTS.md: router reference, new workflow path, new section ref | t037-2379-09630 | done |
-| t037-2379-69158 | clean-up-workbench | Remove obsolete scratch files, keep relevant ones, update workbench/README.md if needed | t037-2379-20273 | not-started |
+| t037-2379-69158 | clean-up-workbench | Remove obsolete scratch files, keep relevant ones, update workbench/README.md if needed | t037-2379-20273 | done |
