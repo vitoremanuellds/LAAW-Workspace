@@ -10,6 +10,7 @@ description, and reviewing context files that don't follow the ID pattern.
 - Update LAAW repo skills/instructions for task.md format, then sync
 - Fix define-task description bug in LAAW repo, then sync
 - Migrate .ai folder to new task.md format
+- Add section index to all multi-section markdown files (.ai + LAAW repo)
 - Review context files (architecture.md, full-directory-structure.md, purpose.md)
   for ID pattern compliance
 
@@ -28,6 +29,7 @@ description, and reviewing context files that don't follow the ID pattern.
 - Fix define-task description bug in LAAW repo
 - Sync skills after LAAW repo changes
 - Migrate .ai folder to new task.md format
+- Add section index to all multi-section markdown files (.ai + LAAW repo)
 - Review context files not following ID pattern
 
 ## Out of scope
@@ -46,7 +48,12 @@ description, and reviewing context files that don't follow the ID pattern.
 4. Migrate .ai folder to new task.md format
    - Rename all task files from `t{id}-{name}.md` to `task.md`
    - Update all internal references (links in other task files, tasks.md)
-5. Review context files not following ID pattern
+5. Add section index to all multi-section markdown files
+   - For every .ai/ and LAAW/ markdown file with 2+ sections, add a Table of Contents
+   - Use internal anchor links (e.g., `[Description](#description)`)
+   - Update LAAW repo skills to include TOC requirement as a creation instruction
+   - Update .ai skills to include TOC requirement as a creation instruction
+6. Review context files not following ID pattern
    - Check `architecture.md`, `full-directory-structure.md`, `purpose.md`
    - If necessary: convert to `c{ID}-{name}.md` format
    - If not necessary: delete them
@@ -58,6 +65,8 @@ description, and reviewing context files that don't follow the ID pattern.
 - All .ai task folders contain `task.md` (not `t{id}-{name}.md`)
 - All links to task files are updated
 - `.ai/tasks/tasks.md` references are correct
+- All multi-section markdown files (.ai + LAAW repo) have a Table of Contents
+- Skills include TOC requirement as a creation instruction
 - Context files either follow `c{ID}-{name}.md` pattern or are deleted
 
 ## Subtasks
@@ -66,3 +75,4 @@ description, and reviewing context files that don't follow the ID pattern.
 | t037-2427-11111 | convert-task-file-naming | Update LAAW repo skills/instructions for task.md format, sync, then migrate .ai folder | — | not-started |
 | t037-2427-22222 | fix-define-task-description | Fix define-task skill in LAAW repo, then sync | — | not-started |
 | t037-2427-33333 | review-context-id-pattern | Review context files not following ID pattern and convert or delete as needed | t037-2427-11111 | not-started |
+| t037-2427-44444 | add-section-index-to-all-md-files | Add Table of Contents to all multi-section markdown files (.ai + LAAW repo) and add TOC requirement as creation instruction | t037-2427-11111 | not-started |
